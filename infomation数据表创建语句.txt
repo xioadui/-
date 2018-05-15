@@ -1,0 +1,8 @@
+create table infomation(
+	title varchar(100),
+    date varchar(20),
+    header text,
+    content text,
+    digest text,
+    primary key(title)
+)

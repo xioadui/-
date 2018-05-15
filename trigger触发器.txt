@@ -1,0 +1,11 @@
+DELIMITER $$ 
+create trigger tri_infomation_filter
+before insert
+on infomation
+for each row
+begin
+		if (exists(select infomation.title from infomation where new.title=infomation.title))
+        then
+			delete from infomation where new.title=infomation.title;
+		end if;
+end;
