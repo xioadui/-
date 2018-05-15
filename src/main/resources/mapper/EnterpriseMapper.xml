@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.enterprise.dao.IEnterpriseDao">
+    <!--<resultMap id="BaseResultMap" type="com.kk.ssm.entity.User">
+        <id column="usernumber" property="userNumber" jdbcType="INTEGER"/>
+        <result column="username" property="userName" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+    </resultMap>-->
+
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <select id="login" resultType="com.enterprise.entity.Enterprise">
+        <!-- 具体的sql -->
+        SELECT *
+        FROM enterpriseinf
+        WHERE entId = #{entId,jdbcType=VARCHAR} AND entPassword = #{entPassword, jdbcType=VARCHAR} AND entIdentity = #{entIdentity, jdbcType=INTEGER}
+    </select>
+
+    <insert id="register" parameterType="com.enterprise.entity.Enterprise">
+        INSERT INTO enterpriseinf
+        VALUES(#{enterprise.entId,jdbcType=VARCHAR},
+            #{enterprise.entName, jdbcType=VARCHAR},
+            #{enterprise.entPerson, jdbcType=VARCHAR},
+            #{enterprise.entCategory, jdbcType=VARCHAR},
+            #{enterprise.entBrief, jdbcType=VARCHAR},
+            #{enterprise.entIntroduction, jdbcType=VARCHAR},
+            #{enterprise.entAddress, jdbcType=VARCHAR},
+            #{enterprise.entSize, jdbcType=VARCHAR},
+            #{enterprise.entPhone, jdbcType=VARCHAR},
+            #{enterprise.entPassword, jdbcType=VARCHAR},
+            #{enterprise.entIdentity, jdbcType=INTEGER},
+            #{enterprise.entWebsize, jdbcType=VARCHAR},
+            #{enterprise.entDate, jdbcType=VARCHAR});
+    </insert>
+
+</mapper>
