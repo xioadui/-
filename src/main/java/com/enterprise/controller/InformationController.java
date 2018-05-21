@@ -14,7 +14,7 @@ import java.util.List;
 public class InformationController {
     @Resource
     private InformationServiceImpl informationService;
-    @RequestMapping(value ="/home")
+    @RequestMapping(value ="/index")
     //@ResponseBody
     public Model getAll(Model model){
         List<Information> informationList;//=infomationService.getAll();
