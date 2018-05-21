@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>发布页面</title>
+		<link title="style1" rel="stylesheet" href="css/style1.css" type="text/css" />
+		<script type="text/javascript" language="JavaScript">
+			function overflow(vobj) { /*验证标题输入长度*/
+				var str = vobj.value;
+				var len = str.length;
+				if(len > 20) {
+					alert("标题必须在20字以内！");
+				}
+			}
+		</script>
+
+		<script type="text/javascript">
+			$(document).on('click', '#submit', function() {
+				var sup_req = $('#sr').val().trim(); //供应/需求
+				var type = $('#type').val().trim(); //发布类别
+				var title = $('#name').val().trim(); //标题
+				var content = $('#txt').val().trim(); //详细内容
+
+				$.ajax({
+					type: "POST",
+					url: "",
+					data: {
+						sup_req: sup_req;
+						type: type;
+						title: title;
+						content: txt;
+
+					},
+					success: function() {
+						window.location.href = ""; //需要跳转的地址
+
+					},
+					error: function() {}
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="form">
+			<form method="get">
+				<fieldset>
+					<legend>发布</legend>
+
+					<div>
+						<!-- 第一个选项框 选择供/需-->
+						<select class="validate-selection" title="供/需" id="sr"  required>
+							<option>请选择供应/需求</option>
+							<option>供应</option>
+							<option>需求</option>
+						</select>
+					</div>
+
+					<div>
+						<!-- 第二个选项框，选择发布类别   -->
+						<select class="validate-selection" title="发布类别" id="type" required>
+							<option>选择发布类别</option>
+							<option>医疗医药保健</option>
+							<option>IT与通讯</option>
+							<option>机械电子</option>
+							<option>车辆交通</option>
+							<option>能源矿产</option>
+							<option>建筑房地产</option>
+							<option>家用电器</option>
+							<option>金融保险投资</option>
+						</select>
+					</div>
+
+					<div>
+						<!-- 需求/供应名称输入框 -->
+						<input class="input_name" type="text" placeholder="在此输入标题" id="name" onkeyup="JavaScript:overflow(this)" required>
+
+						</input>
+					</div>
+
+					<div class="input_text">
+						<!-- 详细内容输入框 -->
+						<textarea id="txt" class="required" type="text" placeholder="在此输入详细内容 " required ></textarea>
+					</div>
+
+					<!-- <button  >提交发布</button> -->
+
+					<input class="button" value="提交发布" type="submit" onclick="alert('申请发布成功，请等待审核！')"/>
+
+		</div>
+
+		</fieldset>
+
+		</form>
+		</div>
+
+	</body>
+
+</html>
