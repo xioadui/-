@@ -1,20 +1,19 @@
 package com.enterprise.entity;
 
 /**
- * @author 陈康勇
- *	行业资讯
+ * 行业数据对应的Bean
  */
-public class Information {
-    //	行业的类型
+public class IndustryData {
+    //	所属行业
     private String type;
-    //	资讯的标题
-    private String title;
-    //	时间
+    //	发布时间
     private String date;
-    //	资讯内容，源码
-    private String content;
-    //	摘要，源码
+    //	标题
+    private String title;
+    //	摘要
     private String digest;
+    //	内容
+    private String content;
     public String getType() {
         return type;
     }
@@ -33,17 +32,17 @@ public class Information {
     public void setTitle(String title) {
         this.title = title;
     }
-    public String getContent() {
-        return content;
-    }
-    public void setContent(String content) {
-        this.content = content;
-    }
     public String getDigest() {
         return digest;
     }
     public void setDigest(String digest) {
         this.digest = digest;
+    }
+    public String getContent() {
+        return content;
+    }
+    public void setContent(String content) {
+        this.content = content;
     }
 
 }

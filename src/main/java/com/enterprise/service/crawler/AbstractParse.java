@@ -1,4 +1,4 @@
-package com.enterprise.crawler;
+package com.enterprise.service.crawler;
 
 import com.enterprise.entity.Information;
 
@@ -9,5 +9,5 @@ public abstract class AbstractParse {
     public AbstractParse(String url) {
         this.url = url;
     }
-    public abstract List<Information> parse();
+    public abstract List<?> parse();
 }

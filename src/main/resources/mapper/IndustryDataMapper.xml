@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.enterprise.dao.IInformationDao">
+<mapper namespace="com.enterprise.dao.IIndustryDataDao">
 
 
     <insert id="save" parameterType="java.util.List">
-        insert ignore into information(type,title,date,content,digest)
+        insert ignore into industrydata(type,title,date,content,digest)
         values
         <foreach collection="info" item="item" index= "index" separator =",">
             (
@@ -18,22 +18,22 @@
             )
         </foreach>
     </insert>
-    <select id="queryByTitle" resultType="com.enterprise.entity.Information">
+    <select id="queryByTitle" resultType="com.enterprise.entity.IndustryData">
       SELECT type,title, date, content, digest
-        FROM information where information.title = #{title,jdbcType=VARCHAR};
+        FROM industrydata where information.title = #{title,jdbcType=VARCHAR};
     </select>
 
-    <select id="queryByDate" resultType="com.enterprise.entity.Information">
+    <select id="queryByDate" resultType="com.enterprise.entity.IndustryData">
          SELECT type,title, date, content, digest
-        FROM information
+        FROM industrydata
         where date = #{date}
         order by date asc
         limit #{index},#{length};
     </select>
 
-    <select id="queryByType" resultType="com.enterprise.entity.Information">
+    <select id="queryByType" resultType="com.enterprise.entity.IndustryData">
          SELECT type,title, date, content, digest
-        FROM information
+        FROM industrydata
         where type = #{type}
         order by date asc
         limit #{index},#{length};
