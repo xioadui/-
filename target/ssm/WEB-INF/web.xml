@@ -29,7 +29,7 @@
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <!-- 该配置文件一定是包含springMVC所有属性配置得配置文件 -->
-      <param-value>classpath:dispatcher-servlet</param-value>
+      <param-value>classpath:dispatcher-servlet.xml</param-value>
     </init-param>
     <async-supported>true</async-supported>
   </servlet>

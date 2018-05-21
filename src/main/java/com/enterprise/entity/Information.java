@@ -5,7 +5,7 @@ package com.enterprise.entity;
  *	行业资讯
  */
 public class Information {
-    //	行业的类型
+    //	资讯的类型
     private String type;
     //	资讯的标题
     private String title;
