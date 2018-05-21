@@ -121,10 +121,10 @@
         }
     </style>
 
-    <script src="js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery.indexSlidePattern.js"></script>
+    <script src="../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.indexSlidePattern.js"></script>
     <script language="javascript">
-        $(document).ready(function(e) {
+        $(document).ready(function() {
             var opt = {
                 "speed": "fast", //变换速度,三速度可选 slow,normal,fast;
                 "by": "mouseover", //触发事件,click或者mouseover;
@@ -274,7 +274,7 @@
     <div id="news" style="float:left;width: 55%;">
         <!--    这里是资讯栏   -->
             <div>
-                <img src="arrow.png" width="15" height="15">
+                <img src="../images/arrow.png" width="15" height="15">
                 <span style="font-size: large">资讯/News</span>
                 <a href="#" title="更多" target="_blank" rel="external nofollow">
                     <span style=" float:right"><span>●</span><span>●</span><span>●</span> </span>
@@ -297,7 +297,7 @@
         <!--    这里是公告栏   -->
         <div style="margin-left: 0px;">
 
-            <div style="width: 100%;"> <img src="arrow.png" width="15" height="15">
+            <div style="width: 100%;"> <img src="../images/arrow.png" width="15" height="15">
                 <span style="font-size: large">公告/Boards</span>
                 <a href="#" title="更多" target="_blank" rel="external nofollow">
                     <span style="float:right"><span>●</span><span>●</span><span>●</span> </span>

@@ -20,8 +20,8 @@
      -->
     <mvc:default-servlet-handler/>
     <mvc:resources location="/css/" mapping="/css/**" />
-    <!--<mvc:resources location="/images/" mapping="/images/**" />-->
-
+    <mvc:resources location="/images/" mapping="/images/**" />
+    <mvc:resources location="/js/" mapping="/js/**" />
     <!-- 3.配置jsp 显示ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
