@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.enterprise.dao.IIndustryDataDao">
+
+
+    <insert id="save" parameterType="java.util.List">
+        insert ignore into industrydata(type,title,date,content,digest)
+        values
+        <foreach collection="info" item="item" index= "index" separator =",">
+            (
+            #{item.type,jdbcType=VARCHAR},
+            #{item.title,jdbcType=VARCHAR},
+            #{item.date,jdbcType=DATE},
+            #{item.content,jdbcType=VARCHAR},
+            #{item.digest,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+    <select id="queryByTitle" resultType="com.enterprise.entity.IndustryData">
+      SELECT type,title, date, content, digest
+        FROM industrydata where information.title = #{title,jdbcType=VARCHAR};
+    </select>
+
+    <select id="queryByDate" resultType="com.enterprise.entity.IndustryData">
+         SELECT type,title, date, content, digest
+        FROM industrydata
+        where date = #{date}
+        order by date asc
+        limit #{index},#{length};
+    </select>
+
+    <select id="queryByType" resultType="com.enterprise.entity.IndustryData">
+         SELECT type,title, date, content, digest
+        FROM industrydata
+        where type = #{type}
+        order by date asc
+        limit #{index},#{length};
+    </select>
+
+</mapper>
