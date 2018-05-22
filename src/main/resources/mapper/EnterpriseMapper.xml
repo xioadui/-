@@ -18,7 +18,7 @@
     </select>
 
     <insert id="register" parameterType="com.enterprise.entity.Enterprise">
-        INSERT INTO enterpriseinf
+        INSERT INTO register
         VALUES(#{enterprise.entId,jdbcType=VARCHAR},
             #{enterprise.entName, jdbcType=VARCHAR},
             #{enterprise.entPerson, jdbcType=VARCHAR},

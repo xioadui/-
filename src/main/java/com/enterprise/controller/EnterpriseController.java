@@ -24,13 +24,13 @@ public class EnterpriseController {
 
     @RequestMapping(value="/register")
     @ResponseBody
-    public Map<String, String> register(@RequestParam() String entId, @RequestParam() String entName,
-                                        @RequestParam() String entPerson, @RequestParam() String entCategory,
-                                        @RequestParam() String entBrief, @RequestParam() String entIntroduction,
-                                        @RequestParam() String entAddress, @RequestParam() String entSize,
-                                        @RequestParam() String entPhone, @RequestParam() String entPassword,
-                                        @RequestParam() int entIdentity, @RequestParam() String entWebsize,
-                                        @RequestParam() String entDate){
+    public Map<String, String> register(@RequestParam("entId") String entId, @RequestParam("entName") String entName,
+                                        @RequestParam("entPerson") String entPerson, @RequestParam("entCategory") String entCategory,
+                                        @RequestParam("entBrief") String entBrief, @RequestParam("entIntroduction") String entIntroduction,
+                                        @RequestParam("entAddress") String entAddress, @RequestParam("entSize") String entSize,
+                                        @RequestParam("entPhone") String entPhone, @RequestParam("entPassword") String entPassword,
+                                        @RequestParam("entIdentity") int entIdentity, @RequestParam("entWebsize") String entWebsize,
+                                        @RequestParam("entDate") String entDate){
         Enterprise enterprise = new Enterprise();
         enterprise.setEntId(entId);
         enterprise.setEntName(entName);
