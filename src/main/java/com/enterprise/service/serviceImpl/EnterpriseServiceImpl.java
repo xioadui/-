@@ -20,7 +20,8 @@ public class EnterpriseServiceImpl implements EnterpriseService {
     }
 
     @Override
-    public Enterprise login(String entId, String entPassword, int entIdentity) {
-        return enterpriseDao.login(entId, entPassword, entIdentity);
+    public Enterprise login(String entId, String entPassword) {
+        return enterpriseDao.login(entId, entPassword);
     }
+
 }

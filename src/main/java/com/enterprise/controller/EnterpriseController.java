@@ -5,7 +5,9 @@ import com.enterprise.service.serviceImpl.EnterpriseServiceImpl;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.ibatis.mapping.ResultMap;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,41 +16,37 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping(value = "/enterprise")
 public class EnterpriseController {
-
-    private Map<String, String> resultMap = new HashMap<String, String>();
-
     @Resource
     private EnterpriseServiceImpl enterpriseService;
-
-    @RequestMapping(value="/register")
+    @RequestMapping(value="/registerForm")
     @ResponseBody
-    public Map<String, String> register(@RequestParam() String entId, @RequestParam() String entName,
-                                        @RequestParam() String entPerson, @RequestParam() String entCategory,
-                                        @RequestParam() String entBrief, @RequestParam() String entIntroduction,
-                                        @RequestParam() String entAddress, @RequestParam() String entSize,
-                                        @RequestParam() String entPhone, @RequestParam() String entPassword,
-                                        @RequestParam() int entIdentity, @RequestParam() String entWebsize,
-                                        @RequestParam() String entDate){
-        Enterprise enterprise = new Enterprise();
-        enterprise.setEntId(entId);
-        enterprise.setEntName(entName);
-        enterprise.setEntPerson(entPerson);
-        enterprise.setEntCategory(entCategory);
-        enterprise.setEntBrief(entBrief);
-        enterprise.setEntIntroduction(entIntroduction);
-        enterprise.setEntAddress(entAddress);
-        enterprise.setEntSize(entSize);
-        enterprise.setEntPhone(entPhone);
-        enterprise.setEntPassword(entPassword);
-        enterprise.setEntIdentity(entIdentity);
-        enterprise.setEntWebsize(entWebsize);
-        enterprise.setEntDate(entDate);
+    public Model registerForm(Model model){
+        return null;
+    }
+
+    @RequestMapping(value="/register",method = RequestMethod.POST)
+    @ResponseBody
+    public String register(Enterprise enterprise){
+        enterprise.setEntIdentity(0);
+        enterprise.setEntDate("2014-12-12");
         String result = enterpriseService.register(enterprise);
-        resultMap.put("register", result);
-        return resultMap;
+        return "success";
+
+    }
+    @RequestMapping(value="/loginHandler",method = RequestMethod.POST)
+    @ResponseBody
+    public String login(String entId,String entPassword){
+        Enterprise enterprise = enterpriseService.login(entId,entPassword);
+        if(enterprise==null)
+            return "error";
+        return "success";
     }
 
 
+    @RequestMapping(value="/login",method = RequestMethod.GET)
+    @ResponseBody
+    public Model loginForm(Model model){
+        return null;
+    }
 }
