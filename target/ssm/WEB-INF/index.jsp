@@ -49,13 +49,11 @@
             height: 400px;
             margin: 60px auto 0 auto;
         }
-
         #demo img {
             width: 820px;
             height: 512px;
             max-width: 820px;
         }
-
         #demo li {
             float: left;
             position: relative;
@@ -68,15 +66,12 @@
             filter: alpha(opacity=50);
             opacity: 0.5;
         }
-
         #demo li img {
             transition: 1.2s;
         }
-
         #demo li a {
             display: block;
         }
-
         #demo li div {
             position: absolute;
             bottom: 0;
@@ -88,17 +83,14 @@
             opacity: 0.7;
             text-indent: 2em;
         }
-
         #demo li div a {
             color: #FFF;
             text-decoration: none;
         }
-
         #demo li div a:hover {
             color: #F00;
             text-decoration: none;
         }
-
         #demo li.active {
             cursor: pointer;
             transform: scale(1.02, 1.08);
@@ -107,15 +99,12 @@
             filter: alpha(opacity=100);
             opacity: 1;
         }
-
         #demo li.active img {
             transform: translate(0px);
         }
-
         #demo li:nth-of-type(1) {
             transform-origin: bottom left;
         }
-
         #demo li:nth-of-type(5) {
             transform-origin: bottom right;
         }
@@ -134,7 +123,6 @@
             $("#demo").IMGDEMO(opt);
         });
     </script>
-
     <style>
         #nav ul {
             Width: 1500px;
@@ -149,7 +137,6 @@
             background: rgb(1, 25, 53);
             /*设置导航条背景*/
         }
-
         #nav ul li {
             /*块的属性*/
             width: 100px;
@@ -158,7 +145,6 @@
             float: left;
             text-align: center;
         }
-
         #nav ul li a {
             text-decoration: none;
             color: rgb(255, 255, 255);
@@ -172,13 +158,11 @@
             /*内边距*/
             text-decoration: none;
         }
-
         #nav ul li a:hover {
             display: block;
             color: rgb(208, 233, 255);
             background: rgb(1, 25, 53);
         }
-
         #news {
             /*资讯板块的属性*/
             background: rgb(255, 255, 255);
@@ -190,7 +174,6 @@
             margin-bottom: auto;
             overflow: hidden;
         }
-
         #board {
             /*公告板属性*/
             background: rgb(255, 255, 255);
@@ -226,10 +209,10 @@
             <a href="#news">资讯</a>
         </li>
         <li>
-            <a href="#log">登陆</a>
+            <a href="/login.html">登陆</a>
         </li>
         <li>
-            <a href="#register">注册</a>
+            <a href="/registerForm.html">注册</a>
         </li>
         <li>
             <a href="#read">浏览行业数据</a>
@@ -284,9 +267,10 @@
                 <ul>
                     <c:forEach items="${informationList}" var="infomation">
                         <div style="margin-top: 50px;">
-                            ${infomation.type}
-                            ${infomation.title}
-                            ${infomation.digest}
+
+                            ${infomation.type}<br/>
+                            ${infomation.title}<br/>
+                            ${infomation.digest}<br/>
                         </div>
                     </c:forEach>
                 </ul>

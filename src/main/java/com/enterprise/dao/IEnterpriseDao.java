@@ -1,9 +1,10 @@
 package com.enterprise.dao;
 
 import com.enterprise.entity.Enterprise;
+import org.apache.ibatis.annotations.Param;
 
 public interface IEnterpriseDao {
-    void register(Enterprise enterprise);
+    void register(@Param("enterprise") Enterprise enterprise);
 
-    Enterprise login(String entId, String password, int Identity);
+    Enterprise login(@Param("entId")String entId, @Param("entPassword")String password);
 }
