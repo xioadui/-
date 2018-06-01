@@ -1,0 +1,186 @@
+@font-face {
+	font-family: 'Taco_Modern';
+	/*这里是说明调用来的字体名字*/
+	src: url(../fonts/Taco_Modern/TACOM___.ttf) format('truetype');
+	/*这里是字体文件路径*/
+}
+
+html,
+body {
+	background: rgb(255, 255, 255);
+	font-family: "Microsoft JhengHei",微软正黑体;
+	font-size: 12px;
+}
+
+.header {
+	width: 100%;
+/*	min-height: 700px;*/
+	display: block;
+	background: url(../img/2.jpg)no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.guide {
+	width: 1000px;
+	float: left;
+	text-align: center;
+	list-style-type: none;
+	display: block;
+	margin-top: 3vw;
+}
+
+.guide li {
+	width: 80px;
+	text-decoration: none;
+	float: left;
+	font-size: 1px;
+	font-family: "STXihei",华文细黑;
+	display: inline;
+}
+
+.guide li.hidden {
+	display: none;
+}
+
+.guide li a {
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+}
+.guide li a:hover{
+	color: yellow;
+}
+
+.banner {
+	/*width: 50%;*/
+	height:50% ;
+	margin: 20vh auto;
+	text-align: center;
+}
+
+.banner h2 {
+	color: rgb(255, 255, 255);
+	text-align: center;
+	font-size: 10vw;
+	/*标题字体始终占屏幕的10%宽*/
+	font-family: 'Taco_Modern';
+	margin-bottom: 3vw;
+}
+
+.banner h3 {
+	color: rgb(255, 255, 255);
+	text-align: center;
+	font-size: 3vw;
+	/*副标题始终占屏幕的3%*/
+	font-family: 'Taco_Modern';
+}
+
+.container {
+	margin: 0px auto 0px;
+	width: 100%;
+	display: block;
+	background-size: 100%;
+}
+
+.info h3 {
+	text-align: center;
+	font-size: 4vw;
+	color: rgb(0, 98, 150)/*cadetblue*/	;
+	margin:  40px auto;
+	font-family: 'Taco_Modern';
+}
+
+.info p {
+	width: 60%;
+	text-align: center;
+	font-size: 1.5vw;
+	color: darkgrey/*cadetblue*/	;
+	margin: 40px auto 50px;
+	font-family: 'Taco_Modern';
+}
+
+.func {
+	width: 40%;
+	float: left;
+}
+
+.fun_list {
+	height: 30vw;
+	list-style-type: none;
+	display: block;
+}
+
+.fun_list li {
+	height: 4vw;
+	font-size: 2vw;
+	font-family: 'Microsoft JhengHei';
+	overflow: hidden;
+	margin-bottom: 2vw;
+	/*background: red;*/
+}
+
+.fun_list li a {
+	color: darkgrey;
+	text-decoration: none;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.fun_list li a:hover,
+.fun_list li.active a {
+	border-right: 3px solid rgb(0, 98, 150);
+	color: rgb(0, 98, 150);
+}
+
+.cont {
+	width: 55%;
+	max-height: 30vw;
+	float: left;
+	margin-right: 20px;
+	border-left: 3px solid rgb(0, 98, 150);
+}
+
+.cont>div {
+	width: 50%;
+	height: 30vw;
+	position: absolute;
+	color: darkgrey;
+	background: white;
+	padding-left: 5vw;
+	/*border-left: 3px solid lightgrey;*/
+	overflow: hidden;
+	display: none;
+}
+
+.cont div.showed {
+	display: block;
+}
+
+.cont h4 {
+	font-family: 'Microsoft JhengHei';
+	font-size: 4vw;
+	margin: 30px auto;
+	color: rgb(0, 98, 150);
+	text-align: center;
+}
+.cont p{
+	font-size: 1.5vw;
+	text-align: center;
+}
+
+@keyframes fade-in {  
+    0% {opacity: 0;}/*初始状态 透明度为0*/  
+    40% {opacity: 0;}/*过渡状态 透明度为0*/  
+    100% {opacity: 1;}/*结束状态 透明度为1*/  
+}  
+@-webkit-keyframes fade-in {/*针对webkit内核*/  
+    0% {opacity: 0;}  
+    40% {opacity: 0;}  
+    100% {opacity: 1;}  
+}  
+.banner {    
+    animation: fade-in;/*动画名称*/  
+    animation-duration: 1.5s;/*动画持续时间*/  
+    -webkit-animation:fade-in 0.5s;/*针对webkit内核*/  
+}  
+
