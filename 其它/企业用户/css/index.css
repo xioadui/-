@@ -10,13 +10,14 @@ body {
 	background: rgb(255, 255, 255);
 	font-family: "Microsoft JhengHei",微软正黑体;
 	font-size: 12px;
+
 }
 
 .header {
-	width: 1600px;
+	width: 1550px;
 /*	min-height: 700px;*/
 	display: block;
-	background: url(../img/2.jpg)no-repeat;
+	background: url(../img/52.jpg)no-repeat;
 	background-size: cover;
 	overflow: hidden;
 }
@@ -27,7 +28,8 @@ body {
 	text-align: center;
 	list-style-type: none;
 	display: block;
-	margin-top: 3vw;
+	margin-top: 40px;
+	margin-left:40px ;
 }
 
 .guide li {
@@ -54,7 +56,7 @@ body {
 .banner {
 	/*width: 50%;*/
 	height:300px ;
-	margin: 200px auto;
+	margin: 100px auto -60px;
 	text-align: center;
 }
 
@@ -67,6 +69,9 @@ body {
 	margin-top: 100px;
 }
 
+.banner p{
+	color: white;
+}
 .banner h3 {
 	color: rgb(255, 255, 255);
 	text-align: center;
@@ -76,36 +81,38 @@ body {
 }
 
 .container {
-	width: 1600px;
+	width: 1500px;
 	margin: 0px auto 0px;
 	display: block;
+	overflow: hidden;
 	/*background-size: 100%;*/
 }
 
-.info h3 {
+
+.info {/*下三角*/
 	width: 100%;
 	text-align: center;
-	font-size: 50px;
-	color: rgb(0, 98, 150)/*cadetblue*/	;
-	margin:  70px auto;
-	font-family: 'Taco_Modern';
+	font-size: 30px;
+	color: lightsteelblue;
+	margin: auto;
+	position: relative;
+
 }
 
-.info p {
-	width: 60%;
-	text-align: center;
-	font-size: 17px;
-	color: darkgrey/*cadetblue*/	;
-	margin: 40px auto 50px;
-	font-family: 'Taco_Modern';
+.fun{/*资讯数据块*/
+	width: 1500px;
+	height: 400px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	
 }
 
-.func {
-	width: 40%;
+.func1 , .func2 {/*资讯数据导航条*/
+	width: 200px;
 	float: left;
 }
 
-.fun_list {
+.fun_list {/*导航条*/
 	height: 400px;
 	list-style-type: none;
 	display: block;
@@ -121,7 +128,7 @@ body {
 }
 
 .fun_list li a {
-	color: darkgrey;
+	color:lightsteelblue;
 	text-decoration: none;
 	padding: 10px;
 	overflow: hidden;
@@ -129,25 +136,27 @@ body {
 
 .fun_list li a:hover,
 .fun_list li.active a {
-	border-right: 3px solid rgb(0, 98, 150);
-	color: rgb(0, 98, 150);
+	border-right: 3px solid lightsteelblue;
+	color: rgb(56,93,135);
 }
 
-.cont {
-	width: 55%;
+.cont {/*资讯*/
+	width: 700px;
 	height: 400px;
+	margin: auto 80px;
 	float: left;
-	margin-right: 20px;
-	border-left: 3px solid lightgrey;
+	/*border-left: 3px solid lightgrey;*/
 }
 
 .cont>div {
-	width: 50%;
+	width: 700px;
 	height: 300px;
 	position: absolute;
-	color: darkgrey;
-	background: white;
-	padding-left: 30px;
+	color: lightsteelblue;
+/*	background: white;*/
+	text-align: center;
+	margin: 40px auto;
+	/*padding-left: 30px;*/
 	overflow: hidden;
 	display: none;
 }
@@ -160,7 +169,7 @@ body {
 	font-family: 'Microsoft JhengHei';
 	font-size: 50px;
 	margin: 30px auto;
-	color: rgb(0, 98, 150);
+	color: rgb(56,93,135);
 	text-align: center;
 }
 .cont p{
@@ -184,3 +193,26 @@ body {
     -webkit-animation:fade-in 0.5s;/*针对webkit内核*/  
 }  
 
+
+@keyframes jump
+{
+	0%   { top:0px;}
+	25%  {top:2px;}
+	50%  {top:4px;}
+	75%  {top:2px;}
+	100% { top:0px;}
+}
+
+@-webkit-keyframes jump 
+{
+	0%   { top:0px;}
+	25%  {top:2px;}
+	50%  {top:4px;}
+	75%  {top:2px;}
+	100% { top:0px;}
+	}
+.info{
+	animation:jump;
+	animation-duration: 1.5s;
+    -webkit-animation:jump 0.5s /*linear 1s infinite alternate*/;
+}
