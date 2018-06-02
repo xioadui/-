@@ -13,7 +13,7 @@ body {
 }
 
 .header {
-	width: 100%;
+	width: 1600px;
 /*	min-height: 700px;*/
 	display: block;
 	background: url(../img/2.jpg)no-repeat;
@@ -53,47 +53,48 @@ body {
 
 .banner {
 	/*width: 50%;*/
-	height:50% ;
-	margin: 20vh auto;
+	height:300px ;
+	margin: 200px auto;
 	text-align: center;
 }
 
 .banner h2 {
 	color: rgb(255, 255, 255);
 	text-align: center;
-	font-size: 10vw;
+	font-size: 100px;
 	/*标题字体始终占屏幕的10%宽*/
 	font-family: 'Taco_Modern';
-	margin-bottom: 3vw;
+	margin-top: 100px;
 }
 
 .banner h3 {
 	color: rgb(255, 255, 255);
 	text-align: center;
-	font-size: 3vw;
+	font-size: 40px;
 	/*副标题始终占屏幕的3%*/
 	font-family: 'Taco_Modern';
 }
 
 .container {
+	width: 1600px;
 	margin: 0px auto 0px;
-	width: 100%;
 	display: block;
-	background-size: 100%;
+	/*background-size: 100%;*/
 }
 
 .info h3 {
+	width: 100%;
 	text-align: center;
-	font-size: 4vw;
+	font-size: 50px;
 	color: rgb(0, 98, 150)/*cadetblue*/	;
-	margin:  40px auto;
+	margin:  70px auto;
 	font-family: 'Taco_Modern';
 }
 
 .info p {
 	width: 60%;
 	text-align: center;
-	font-size: 1.5vw;
+	font-size: 17px;
 	color: darkgrey/*cadetblue*/	;
 	margin: 40px auto 50px;
 	font-family: 'Taco_Modern';
@@ -105,17 +106,17 @@ body {
 }
 
 .fun_list {
-	height: 30vw;
+	height: 400px;
 	list-style-type: none;
 	display: block;
 }
 
 .fun_list li {
-	height: 4vw;
-	font-size: 2vw;
+	height: 60px;
+	font-size: 20px;
 	font-family: 'Microsoft JhengHei';
 	overflow: hidden;
-	margin-bottom: 2vw;
+	margin-bottom: 20px;
 	/*background: red;*/
 }
 
@@ -134,20 +135,19 @@ body {
 
 .cont {
 	width: 55%;
-	max-height: 30vw;
+	height: 400px;
 	float: left;
 	margin-right: 20px;
-	border-left: 3px solid rgb(0, 98, 150);
+	border-left: 3px solid lightgrey;
 }
 
 .cont>div {
 	width: 50%;
-	height: 30vw;
+	height: 300px;
 	position: absolute;
 	color: darkgrey;
 	background: white;
-	padding-left: 5vw;
-	/*border-left: 3px solid lightgrey;*/
+	padding-left: 30px;
 	overflow: hidden;
 	display: none;
 }
@@ -158,13 +158,13 @@ body {
 
 .cont h4 {
 	font-family: 'Microsoft JhengHei';
-	font-size: 4vw;
+	font-size: 50px;
 	margin: 30px auto;
 	color: rgb(0, 98, 150);
 	text-align: center;
 }
 .cont p{
-	font-size: 1.5vw;
+	font-size: 16px;
 	text-align: center;
 }
 
