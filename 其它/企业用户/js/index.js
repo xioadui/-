@@ -35,46 +35,46 @@ $(document).ready(function() {
 					category: '医疗医药保健',
 				},
 				function(data) {
-						$('#cont1 #tab1 h4').append(infTitle);/*获得资讯名称*/
-						$('#cont1 #tab1 p').append(infDigeat+'...');/*获得资讯摘要*/
-						$('#cont2 #tab1 h4').append(indTitle);/*获得行业数据名称*/
-						$('#cont2 #tab1 p').append(infDigeat+'...');/*获得行业数据摘要*/
+						$('#tab1 h4').append(infTitle);/*获得资讯名称*/
+						$('#tab1 p').append(infDigeat+'...');/*获得资讯摘要*/
+						$('#tab6 h4').append(indTitle);/*获得行业数据名称*/
+						$('#tab6 p').append(infDigeat+'...');/*获得行业数据摘要*/
 					})
 	$.get(URL,  {
 					category: 'IT与通讯',
 				},
 				function(data) {
-						$('#cont1 #tab2 h4').append(infTitle);/*获得资讯名称*/
-						$('#cont1 #tab2 p').append(infDigeat+'...');/*获得资讯摘要*/
-						$('#cont2 #tab2 h4').append(indTitle);/*获得行业数据名称*/
-						$('#cont2 #tab2 p').append(infDigeat+'...');/*获得行业数据摘要*/
+						$('#tab2 h4').append(infTitle);/*获得资讯名称*/
+						$('#tab2 p').append(infDigeat+'...');/*获得资讯摘要*/
+						$('#tab7 h4').append(indTitle);/*获得行业数据名称*/
+						$('#tab7 p').append(infDigeat+'...');/*获得行业数据摘要*/
 					})
 	$.get(URL,  {
 					category: '机械电子',
 				},
 				function(data) {
-						$('#cont1 #tab3 h4').append(infTitle);/*获得资讯名称*/
-						$('#cont1 #tab3 p').append(infDigeat+'...');/*获得资讯摘要*/
-						$('#cont2 #tab3 h4').append(indTitle);/*获得行业数据名称*/
-						$('#cont2 #tab3 p').append(infDigeat+'...');/*获得行业数据摘要*/
+						$('#tab3 h4').append(infTitle);/*获得资讯名称*/
+						$('#tab3 p').append(infDigeat+'...');/*获得资讯摘要*/
+						$('#tab8 h4').append(indTitle);/*获得行业数据名称*/
+						$('#tab8 p').append(infDigeat+'...');/*获得行业数据摘要*/
 					})
 	$.get(URL,  {
 					category: '车辆交通',
 				},
 				function(data) {
-						$('#cont1 #tab4 h4').append(infTitle);/*获得资讯名称*/
-						$('#cont1 #tab4 p').append(infDigeat+'...');/*获得资讯摘要*/
-						$('#cont2 #tab4 h4').append(indTitle);/*获得行业数据名称*/
-						$('#cont2 #tab4 p').append(infDigeat+'...');/*获得行业数据摘要*/
+						$('#tab4 h4').append(infTitle);/*获得资讯名称*/
+						$('#tab4 p').append(infDigeat+'...');/*获得资讯摘要*/
+						$('#tab9 h4').append(indTitle);/*获得行业数据名称*/
+						$('#tab9 p').append(infDigeat+'...');/*获得行业数据摘要*/
 					})
 	$.get(URL,  {
 					category: '能源矿产',
 				},
 				function(data) {
-						$('#cont1 #tab5 h4').append(infTitle);/*获得资讯名称*/
-						$('#cont1 #tab5 p').append(infDigeat+'...');/*获得资讯摘要*/
-						$('#cont2 #tab5 h4').append(indTitle);/*获得行业数据名称*/
-						$('#cont2 #tab5 p').append(infDigeat+'...');/*获得行业数据摘要*/
+						$('#tab5 h4').append(infTitle);/*获得资讯名称*/
+						$('#tab5 p').append(infDigeat+'...');/*获得资讯摘要*/
+						$('#tab10 h4').append(indTitle);/*获得行业数据名称*/
+						$('#tab10 p').append(infDigeat+'...');/*获得行业数据摘要*/
 					})
 });
 
