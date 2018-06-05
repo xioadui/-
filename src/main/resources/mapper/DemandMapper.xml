@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.enterprise.dao.IDemandDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <select id="getAllDemand" resultType="com.enterprise.entity.Demand">
+        SELECT *
+        FROM demand
+    </select>
+
+    <select id="getDemandByType" resultType="com.enterprise.entity.Demand">
+        SELECT *
+        FROM demand
+        WHERE demandType=#{demandType, jdbcType=VARCHAR}
+    </select>
+
+    <select id="getDemandByEntId" resultType="com.enterprise.entity.Demand">
+        SELECT *
+        FROM demand
+        WHERE entId=#{entId, jdbcType=VARCHAR}
+    </select>
+
+    <insert id="publish">
+        insert into demand
+        values(#{demand.demandId, jdbcType=INTEGER},
+               #{demand.entId, jdbcType=VARCHAR},
+               #{demand.demandType, jdbcType=VARCHAR},
+               #{demand.demandTitle, jdbcType=VARCHAR},
+               #{demand.demandDigest, jdbcType=VARCHAR},
+               #{demand.demandContent, jdbcType=VARCHAR},
+               #{demand.demandDate, jdbcType=VARCHAR},)
+    </insert>
+
+    <delete id="deleteByDemandId">
+        delete
+        from demand
+        where demandId=#{demandId, jdbcType=INTEGER}
+    </delete>
+
+</mapper>
