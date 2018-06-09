@@ -6,32 +6,46 @@ import org.apache.commons.collections.map.HashedMap;
 import org.apache.ibatis.mapping.ResultMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.HttpMediaTypeException;
+import org.springframework.web.HttpSessionRequiredException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
 @Controller
+@RequestMapping(value="/user")
 public class EnterpriseController {
+
+    Map<String, String> resultMap = new HashMap<String, String>();
+
     @Resource
     private EnterpriseServiceImpl enterpriseService;
-    @RequestMapping(value="/registerForm")
+
+    @RequestMapping(value="/login")
     @ResponseBody
-    public Model registerForm(Model model){
-        return null;
+    public Map<String, String> login(@RequestParam("entId") String entId, @RequestParam("entPassword") String entPassword, HttpServletRequest httpServletRequest){
+        Enterprise enterprise = enterpriseService.login(entId, entPassword);
+        if(enterprise!=null)
+        {
+            HttpSession session = httpServletRequest.getSession();
+            session.setAttribute("entId", entId);
+            resultMap.put("login","success");
+        }
+        else
+            resultMap.put("login", "failed");
+        return resultMap;
     }
 
-    @RequestMapping(value="/register",method = RequestMethod.POST)
+
+    @RequestMapping(value="/register")
     @ResponseBody
-<<<<<<< HEAD
-    public String register(Enterprise enterprise){
-        enterprise.setEntIdentity(0);
-        enterprise.setEntDate("2014-12-12");
-=======
     public Map<String, String> register(@RequestParam("entId") String entId, @RequestParam("entName") String entName,
                                         @RequestParam("entPerson") String entPerson, @RequestParam("entCategory") String entCategory,
                                         @RequestParam("entBrief") String entBrief, @RequestParam("entIntroduction") String entIntroduction,
@@ -53,24 +67,9 @@ public class EnterpriseController {
         enterprise.setEntIdentity(entIdentity);
         enterprise.setEntWebsize(entWebsize);
         enterprise.setEntDate(entDate);
->>>>>>> cd130bef067f10406e8905f1dd4004f5ddbe81a6
         String result = enterpriseService.register(enterprise);
-        return "success";
+        resultMap.put("register", result);
+        return resultMap;
+        }
 
-    }
-    @RequestMapping(value="/loginHandler",method = RequestMethod.POST)
-    @ResponseBody
-    public String login(String entId,String entPassword){
-        Enterprise enterprise = enterpriseService.login(entId,entPassword);
-        if(enterprise==null)
-            return "error";
-        return "success";
-    }
-
-
-    @RequestMapping(value="/login",method = RequestMethod.GET)
-    @ResponseBody
-    public Model loginForm(Model model){
-        return null;
-    }
 }

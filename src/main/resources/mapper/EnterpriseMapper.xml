@@ -11,12 +11,8 @@
     </select>
 
     <insert id="register" parameterType="com.enterprise.entity.Enterprise">
-<<<<<<< HEAD
-        INSERT INTO enterpriseinf(entId,entName,entPerson,entCategory,entBrief,entIntroduction,
+        INSERT INTO register(entId,entName,entPerson,entCategory,entBrief,entIntroduction,
         entAddress,entSize,entPhone,entPassword,entIdentity,entWebsize,entDate)
-=======
-        INSERT INTO register
->>>>>>> cd130bef067f10406e8905f1dd4004f5ddbe81a6
         VALUES(#{enterprise.entId,jdbcType=VARCHAR},
             #{enterprise.entName, jdbcType=VARCHAR},
             #{enterprise.entPerson, jdbcType=VARCHAR},

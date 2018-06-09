@@ -22,14 +22,14 @@
     </select>
 
     <insert id="publish">
-        insert into demand
+        insert into demand_admin
         values(#{demand.demandId, jdbcType=INTEGER},
                #{demand.entId, jdbcType=VARCHAR},
                #{demand.demandType, jdbcType=VARCHAR},
                #{demand.demandTitle, jdbcType=VARCHAR},
                #{demand.demandDigest, jdbcType=VARCHAR},
                #{demand.demandContent, jdbcType=VARCHAR},
-               #{demand.demandDate, jdbcType=VARCHAR},)
+               #{demand.demandDate, jdbcType=VARCHAR})
     </insert>
 
     <delete id="deleteByDemandId">
