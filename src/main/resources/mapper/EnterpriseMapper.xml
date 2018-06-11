@@ -11,8 +11,7 @@
     </select>
 
     <insert id="register" parameterType="com.enterprise.entity.Enterprise">
-        INSERT INTO register(entId,entName,entPerson,entCategory,entBrief,entIntroduction,
-        entAddress,entSize,entPhone,entPassword,entIdentity,entWebsize,entDate)
+        INSERT INTO register(entId,entName,entPerson,entCategory,entBrief,entIntroduction,entAddress,entSize,entPhone,entPassword,entIdentity,entWebsize,entDate)
         VALUES(#{enterprise.entId,jdbcType=VARCHAR},
             #{enterprise.entName, jdbcType=VARCHAR},
             #{enterprise.entPerson, jdbcType=VARCHAR},
@@ -27,5 +26,11 @@
             #{enterprise.entWebsize, jdbcType=VARCHAR},
             #{enterprise.entDate, jdbcType=VARCHAR});
     </insert>
+
+    <select id="checkId" resultType="com.enterprise.entity.Enterprise">
+        SELECT *
+        FROM enterpriseinf
+        WHERE entId=#{entId, jdbcType=VARCHAR}
+    </select>
 
 </mapper>

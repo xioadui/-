@@ -8,7 +8,7 @@ body {
 	width: 1550px;
 	height: 100px;
 	display: block;
-	background: url(../img/52.jpg)no-repeat;
+	background: url(/img/52.jpg)no-repeat;
 	background-size: cover;
 	overflow: hidden;
 	padding: 10px 50px;

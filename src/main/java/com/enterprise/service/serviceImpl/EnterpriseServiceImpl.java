@@ -24,4 +24,9 @@ public class EnterpriseServiceImpl implements EnterpriseService {
         return enterpriseDao.login(entId, entPassword);
     }
 
+    @Override
+    public Enterprise checkId(String entId) {
+        return enterpriseDao.checkId(entId);
+    }
+
 }

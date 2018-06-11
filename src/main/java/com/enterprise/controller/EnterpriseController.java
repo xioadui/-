@@ -23,20 +23,32 @@ import java.util.Map;
 @RequestMapping(value="/user")
 public class EnterpriseController {
 
-    Map<String, String> resultMap = new HashMap<String, String>();
+    Map<Object, Object> resultMap = new HashMap<>();
 
     @Resource
     private EnterpriseServiceImpl enterpriseService;
 
     @RequestMapping(value="/login")
     @ResponseBody
-    public Map<String, String> login(@RequestParam("entId") String entId, @RequestParam("entPassword") String entPassword, HttpServletRequest httpServletRequest){
+    public Map<Object, Object> login(@RequestParam("entId") String entId, @RequestParam("entPassword") String entPassword, HttpServletRequest httpServletRequest){
         Enterprise enterprise = enterpriseService.login(entId, entPassword);
         if(enterprise!=null)
         {
             HttpSession session = httpServletRequest.getSession();
             session.setAttribute("entId", entId);
             resultMap.put("login","success");
+            resultMap.put("entName", enterprise.getEntName());
+            resultMap.put("entPerson", enterprise.getEntPerson());
+            resultMap.put("entCategory", enterprise.getEntCategory());
+            resultMap.put("entBrief", enterprise.getEntBrief());
+            resultMap.put("entIntroduction", enterprise.getEntIntroduction());
+            resultMap.put("entAddress", enterprise.getEntAddress());
+            resultMap.put("entSize", enterprise.getEntSize());
+            resultMap.put("entPhone", enterprise.getEntPhone());
+            resultMap.put("entPassword", enterprise.getEntPassword());
+            resultMap.put("entIdentity", enterprise.getEntIdentity());
+            resultMap.put("entWebsize", enterprise.getEntWebsize());
+            resultMap.put("entDate", enterprise.getEntDate());
         }
         else
             resultMap.put("login", "failed");
@@ -46,7 +58,7 @@ public class EnterpriseController {
 
     @RequestMapping(value="/register")
     @ResponseBody
-    public Map<String, String> register(@RequestParam("entId") String entId, @RequestParam("entName") String entName,
+    public Map<Object, Object> register(@RequestParam("entId") String entId, @RequestParam("entName") String entName,
                                         @RequestParam("entPerson") String entPerson, @RequestParam("entCategory") String entCategory,
                                         @RequestParam("entBrief") String entBrief, @RequestParam("entIntroduction") String entIntroduction,
                                         @RequestParam("entAddress") String entAddress, @RequestParam("entSize") String entSize,
@@ -71,5 +83,17 @@ public class EnterpriseController {
         resultMap.put("register", result);
         return resultMap;
         }
+
+        @RequestMapping(value = "/check")
+        @ResponseBody
+        public Map<Object, Object> checkId(@RequestParam("entId") String entId){
+            Enterprise enterprise = enterpriseService.checkId(entId);
+            if(enterprise==null)
+                resultMap.put("entId", "unexist");
+            else
+                resultMap.put("entId", "exist");
+            return resultMap;
+        }
+
 
 }
