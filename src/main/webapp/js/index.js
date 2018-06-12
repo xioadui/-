@@ -38,7 +38,7 @@ $(document).ready(function() {
 						$('#tab1 p').append(data.digest);/*获得资讯摘要*/
 						$('#tab6 h4').append('');/*获得行业数据名称*/
 						$('#tab6 p').append(infDigeat+'...');/*获得行业数据摘要*/
-					});
+				});
 	$.get(URL,  {
 					category: 'IT与通讯'
 				},

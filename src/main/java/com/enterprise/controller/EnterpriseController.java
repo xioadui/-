@@ -2,14 +2,8 @@ package com.enterprise.controller;
 
 import com.enterprise.entity.Enterprise;
 import com.enterprise.service.serviceImpl.EnterpriseServiceImpl;
-import org.apache.commons.collections.map.HashedMap;
-import org.apache.ibatis.mapping.ResultMap;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.HttpMediaTypeException;
-import org.springframework.web.HttpSessionRequiredException;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -22,7 +16,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(value="/user")
 public class EnterpriseController {
-    Map<Object, Object> resultMap = new HashMap<>();
+    private Map<Object, Object> resultMap = new HashMap<>();
     @Resource
     private EnterpriseServiceImpl enterpriseService;
     @RequestMapping(value="/login")
@@ -33,6 +27,8 @@ public class EnterpriseController {
         {
             HttpSession session = httpServletRequest.getSession();
             session.setAttribute("entId", entId);
+//            用于聊天
+            session.setAttribute("entName", enterprise.getEntName());
             resultMap.put("login","success");
             resultMap.put("entName", enterprise.getEntName());
             resultMap.put("entPerson", enterprise.getEntPerson());
