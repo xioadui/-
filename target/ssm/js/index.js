@@ -106,7 +106,7 @@ $(document).ready(function () {
         });
 
     $.get('/ind/index', {
-            category: '医疗医药保健',
+            category: '医疗医药保健'
         },
         function (data1) {
             $('#tab6_h4').append(data1.title);
@@ -114,7 +114,7 @@ $(document).ready(function () {
             $('#tab6_p').append(data1.digest + '...');
             /*获得行业数据摘要*/
             $.get('/ind/index', {
-                    category: 'IT与通讯',
+                    category: 'IT与通讯'
                 },
                 function (data2) {
                     $('#tab7_h4').append(data2.title);
