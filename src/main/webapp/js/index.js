@@ -3,7 +3,7 @@ $(".guide li").mouseenter(function() {
 				$(".active").removeClass("active");
 				$(this).addClass("active");
 			}
-		})
+		});
 
 $(".func1 li").mouseenter(function() {
 			if(!$(this).hasClass(".active")) {
@@ -12,7 +12,7 @@ $(".func1 li").mouseenter(function() {
 				$("#cont1 div").removeClass("showed");
 				$("#cont1 div").eq($(this).index()).addClass("showed");
 			}
-		})
+		});
 
 $(".func2 li").mouseenter(function() {
 			if(!$(this).hasClass(".active")) {
@@ -22,7 +22,7 @@ $(".func2 li").mouseenter(function() {
 				$("#cont2 div").eq($(this).index()).addClass("showed");
 				
 			}
-		})
+		});
 
 $(document).ready(function(){
     var div=$(".guide li");   
@@ -31,43 +31,43 @@ $(document).ready(function(){
 
 $(document).ready(function() {
 	$.get('/indexinfo',  {
-					category: '医疗医药保健',
+					category: '医疗医药保健'
 				},
 				function(data) {
 						$('#tab1 h4').append(data.title);/*获得资讯名称*/
 						$('#tab1 p').append(data.digest);/*获得资讯摘要*/
 						$('#tab6 h4').append('');/*获得行业数据名称*/
 						$('#tab6 p').append(infDigeat+'...');/*获得行业数据摘要*/
-					})
+					});
 	$.get(URL,  {
-					category: 'IT与通讯',
+					category: 'IT与通讯'
 				},
 				function(data) {
 						$('#tab2 h4').append(infTitle);/*获得资讯名称*/
 						$('#tab2 p').append(infDigeat+'...');/*获得资讯摘要*/
 						$('#tab7 h4').append(indTitle);/*获得行业数据名称*/
 						$('#tab7 p').append(infDigeat+'...');/*获得行业数据摘要*/
-					})
+					});
 	$.get(URL,  {
-					category: '机械电子',
+					category: '机械电子'
 				},
 				function(data) {
 						$('#tab3 h4').append(infTitle);/*获得资讯名称*/
 						$('#tab3 p').append(infDigeat+'...');/*获得资讯摘要*/
 						$('#tab8 h4').append(indTitle);/*获得行业数据名称*/
 						$('#tab8 p').append(infDigeat+'...');/*获得行业数据摘要*/
-					})
+					});
 	$.get(URL,  {
-					category: '车辆交通',
+					category: '车辆交通'
 				},
 				function(data) {
 						$('#tab4 h4').append(infTitle);/*获得资讯名称*/
 						$('#tab4 p').append(infDigeat+'...');/*获得资讯摘要*/
 						$('#tab9 h4').append(indTitle);/*获得行业数据名称*/
 						$('#tab9 p').append(infDigeat+'...');/*获得行业数据摘要*/
-					})
+					});
 	$.get(URL,  {
-					category: '能源矿产',
+					category: '能源矿产'
 				},
 				function(data) {
 						$('#tab5 h4').append(infTitle);/*获得资讯名称*/
@@ -201,7 +201,7 @@ $(document).ready(function() {
 									$('#tab9_h4').append(data4.ind[0].title); /*获得行业数据名称*/
 									$('#tab9_p').append(data4.ind[0].digest + '...'); /*获得行业数据摘要*/
 									$.get('/ind/index', {
-											category: '能源矿产',
+											category: '能源矿产'
 										},
 										function(data5) {
 											$('#tab10_h4').append(data5.ind[0].title); /*获得行业数据名称*/
