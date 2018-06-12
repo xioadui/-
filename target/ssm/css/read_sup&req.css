@@ -8,11 +8,8 @@ body {
 	width: 1550px;
 	height: 100px;
 	display: block;
-<<<<<<< HEAD
 	background: url(../img/52.jpg)no-repeat;
-=======
 	background: url(/img/52.jpg)no-repeat;
->>>>>>> f7469936b1e08e789dd1a735e9a7b7834c57e27a
 	background-size: cover;
 	overflow: hidden;
 	padding: 10px 50px;
