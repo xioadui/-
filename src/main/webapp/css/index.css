@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'Taco_Modern';
 	/*这里是说明调用来的字体名字*/
-	src: url(/fonts/Taco_Modern/TACOM___.TTF) format('truetype');
+	src: url(../fonts/Taco_Modern/TACOM___.ttf) format('truetype');
 	/*这里是字体文件路径*/
 }
 
@@ -14,10 +14,10 @@ body {
 }
 
 .header {
-	width: 1550px;
+	min-width: 1550px;
 /*	min-height: 700px;*/
 	display: block;
-	background: url(/img/52.jpg)no-repeat;
+	background: url(../img/52.jpg)no-repeat;
 	background-size: cover;
 	overflow: hidden;
 }
@@ -72,39 +72,29 @@ body {
 .banner p{
 	color: white;
 }
-.banner h3 {
-	color: rgb(255, 255, 255);
-	text-align: center;
-	font-size: 40px;
-	/*副标题始终占屏幕的3%*/
-	font-family: 'Taco_Modern';
-}
 
 .container {
-	width: 1500px;
+	min-width: 1500px;
 	margin: 0px auto 0px;
 	display: block;
-	overflow: hidden;
-	/*background-size: 100%;*/
+	/*overflow: hidden;*/
 }
 
 
 .info {/*下三角*/
-	width: 100%;
+	width: 1100px;
 	text-align: center;
 	font-size: 30px;
 	color: lightsteelblue;
 	margin: auto;
-	position: relative;
-
 }
 
 .fun{/*资讯数据块*/
-	width: 1500px;
+	width: 1080px;
 	height: 400px;
+	margin: auto;
 	margin-top: 10px;
-	margin-bottom: 0px;
-	
+	margin-bottom: 20px;
 }
 
 .func1 , .func2 {/*资讯数据导航条*/
@@ -124,7 +114,6 @@ body {
 	font-family: 'Microsoft JhengHei';
 	overflow: hidden;
 	margin-bottom: 20px;
-	/*background: red;*/
 }
 
 .fun_list li a {
@@ -143,7 +132,7 @@ body {
 .cont {/*资讯*/
 	width: 700px;
 	height: 400px;
-	margin: auto 80px;
+	margin: auto 10px;
 	float: left;
 	/*border-left: 3px solid lightgrey;*/
 }
