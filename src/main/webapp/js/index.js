@@ -1,11 +1,12 @@
-$(".guide li").mouseenter(function() {
+
+	$(".guide li").mouseenter(function() {
 			if(!$(this).hasClass(".active")) {
 				$(".active").removeClass("active");
 				$(this).addClass("active");
 			}
 		});
 
-$(".func1 li").mouseenter(function() {
+	$(".func1 li").mouseenter(function() {
 			if(!$(this).hasClass(".active")) {
 				$(".active").removeClass("active");
 				$(this).addClass("active");
@@ -14,7 +15,7 @@ $(".func1 li").mouseenter(function() {
 			}
 		});
 
-$(".func2 li").mouseenter(function() {
+	$(".func2 li").mouseenter(function() {
 			if(!$(this).hasClass(".active")) {
 				$(".active").removeClass("active");
 				$(this).addClass("active");
@@ -30,14 +31,15 @@ $(document).ready(function(){
 });
 
 $(document).ready(function() {
-	$.get('/indexinfo',  {
+	$.get('/inf/indexinfo',  {
 					category: '医疗医药保健'
 				},
 				function(data) {
+						alert(data);
 						$('#tab1 h4').append(data.title);/*获得资讯名称*/
 						$('#tab1 p').append(data.digest);/*获得资讯摘要*/
-						$('#tab6 h4').append('');/*获得行业数据名称*/
-						$('#tab6 p').append(infDigeat+'...');/*获得行业数据摘要*/
+						//$('#tab6 h4').append(data);/*获得行业数据名称*/
+						//$('#tab6 p').append(infDigeat+'...');/*获得行业数据摘要*/
 				});
 	$.get(URL,  {
 					category: 'IT与通讯'

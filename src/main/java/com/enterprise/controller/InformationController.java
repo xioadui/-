@@ -2,14 +2,12 @@ package com.enterprise.controller;
 
 import com.enterprise.entity.Information;
 import com.enterprise.service.serviceImpl.InformationServiceImpl;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import javax.jws.WebParam;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,10 +21,11 @@ public class InformationController {
 
     @Resource
     private InformationServiceImpl informationService;
-
+//    @ResponseBody
     public Map<Object, Object> getAll(@RequestParam("category") String category) {
         List<Object> infs = new ArrayList<>();
         List<Information> infList = informationService.queryByType(category, 0, 10);
+
         for(int i=0; i<infList.size(); i++){
             Information inf = infList.get(i);
             Map<Object, Object> infMap = new HashMap<>();
@@ -38,6 +37,21 @@ public class InformationController {
         }
         resultMap.put("inf", infs);
         return resultMap;
+    }
+
+
+    @RequestMapping(value = "/indexinfo")
+    @ResponseBody
+    public Map<String,String> getInIndex(@RequestParam("category") String category){
+        List<Information> infList = informationService.queryByType(category, 0, 1);
+        Information inf = infList.get(0);
+        Map<String, String> infMap = new HashMap<>();
+//        infMap.put("content", inf.getContent());
+//        infMap.put("date", inf.getDate());
+        infMap.put("digest", inf.getDigest());
+        infMap.put("title", inf.getTitle());
+
+        return infMap;
     }
 
 }
