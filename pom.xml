@@ -121,6 +121,12 @@
             <version>4.3.13.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+            <version>4.3.13.RELEASE</version>
+        </dependency>
+
         <!-- 3)Spring web -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -185,6 +191,11 @@
             <artifactId>standard</artifactId>
             <version>1.1.2</version>
         </dependency>
+
+
+
+
+
     </dependencies>
 
     <build>

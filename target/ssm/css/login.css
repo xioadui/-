@@ -1,0 +1,173 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0px;padding:0px;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/* start editing from here */
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*end reset*/
+/*--start-body--*/
+body{
+	background:#FFF;
+	font-family: 'Raleway', sans-serif;
+}
+
+body a,form li,.submit input[type="submit"],.new p a,.new p.sign{
+    /*鼠标作用*/
+	transition: 0.1s all;
+    /*兼容别的浏览器*/
+	-webkit-transition: 0.1s all;
+	-moz-transition: 0.1s all;
+	-o-transition: 0.1s all;
+}
+
+
+.main {
+	/*表单位置*/
+        margin: 12% auto 9%;
+        width: 32%;
+}
+
+
+.login.hexagon_box h1 {
+	/*表头文字*/
+    color:rgb(56,93,135);
+    font-size: 2em;
+    text-align: center;
+}
+/*表单位置*/
+.hexagon_box {
+          width: 499px;
+    height: 340px;
+    background: #fff;
+    position: relative;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.hexagon_box:after {
+    content: "";
+    position: absolute;
+    bottom: -86px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left:247px solid transparent;
+    border-right:250px solid transparent;
+    border-top:86px solid #fff;
+}
+
+.hexagon_box:before {
+       content: "";
+    position: absolute;
+    top: -86px;
+    left: 0;
+    width: 0;
+    height: 0;
+       border-left: 247px solid transparent;
+    border-right: 250px solid transparent;
+    border-bottom: 86px solid #fff;
+}
+form {
+    padding: 2em 4em;
+}
+form  input[type="text"],form input[type="password"]{
+          width: 82.5%;
+    padding: 1em 2em;
+    color: #444;
+    font-size: 16px;
+    outline: none;
+    font-weight: 500;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+  background: #D3D3D3;
+    float: left;
+	    border: 1px solid lightsteelblue;
+    margin-bottom: 3%;
+    border-radius: 0.2em;
+    -o-border-radius: 0.2em;
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    -ms-border-radius: 0.2em;
+  }
+.submit {
+  margin: 1em 0;
+  }
+form input[type="submit"]{
+    font-size: 17px;
+    font-weight: 300;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    padding: 0.88em 1em;
+    width:100%;
+    border: none;
+    background:lightsteelblue;
+    border-radius: 0.2em;
+    -o-border-radius: 0.2em;
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    -ms-border-radius: 0.2em;
+		transition: 0.1s all;
+	-webkit-transition: 0.1s all;
+	-moz-transition: 0.1s all;
+	-o-transition: 0.1s all;
+	box-shadow: inset 0px 0px 10px lightsteelblue;
+    -webkit-text-shadow: 0px 0px 3px #000;
+    -moz-text-shadow: 0px 0px 3px #000;
+    -o-text-shadow: 0px 0px 3px #000;
+    -ms-text-shadow: 0px 0px 3px #000;
+}
+form input[type="submit"]:hover{
+background:rgb(56,93,135);
+
+}
+
+.new {
+    margin: 3em 0 1em 0;
+}
+.new p{
+  float:left;
+}
+.new p a,.new p.sign a,.new p.sign{
+    color:lightsteelblue;
+    font-weight: 400;
+    font-size: 1em;
+}
+.new p a:hover,.new p.sign a:hover{
+  text-decoration: underline;
+}
+.new p.sign{
+  float:right;
+}
+/*--copy-right--*/
+.copy-right {
+     margin-top: 6em;
+}
+.copy-right p {
+color:lightsteelblue;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0 auto;
+    text-align: center
+}
+.copy-right p a {
+	    color: #fff;
+}
+.copy-right p a:hover {
+	text-decoration: underline;
+}
