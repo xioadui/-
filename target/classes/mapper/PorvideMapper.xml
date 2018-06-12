@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.enterprise.dao.IProvideDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <select id="getAllPro" resultType="com.enterprise.entity.Provide">
+        SELECT *
+        FROM provide
+    </select>
+
+    <select id="getProByType" resultType="com.enterprise.entity.Provide">
+        SELECT *
+        FROM provide
+        WHERE proType=#{proType, jdbcType=VARCHAR}
+    </select>
+
+    <select id="getProByEntId" resultType="com.enterprise.entity.Provide">
+        SELECT *
+        FROM provide
+        WHERE proId=#{proId, jdbcType=VARCHAR}
+    </select>
+
+    <insert id="publish">
+        insert into provide_admin
+        values(#{provide.proId, jdbcType=INTEGER},
+               #{provide.entId, jdbcType=VARCHAR},
+               #{provide.proType, jdbcType=VARCHAR},
+               #{provide.proTitle, jdbcType=VARCHAR},
+               #{provide.proDigest, jdbcType=VARCHAR},
+               #{provide.proContent, jdbcType=VARCHAR},
+               #{provide.proDate, jdbcType=VARCHAR})
+    </insert>
+
+    <delete id="deleteByproId">
+        delete
+        from pro
+        where proId=#{proId, jdbcType=INTEGER}
+    </delete>
+
+    <insert id="permitByAdmin">
+        insert into provide
+        select *
+        from provide_admin
+        where proId=#{proId, jdbcType=VARCHAR};
+        delete
+        from provide_admin
+        where proId=#{proId, jdbcType=VARCHAR};
+    </insert>
+
+</mapper>

@@ -22,44 +22,9 @@ import java.util.Map;
 @Controller
 @RequestMapping(value="/user")
 public class EnterpriseController {
-
     Map<Object, Object> resultMap = new HashMap<>();
-
     @Resource
     private EnterpriseServiceImpl enterpriseService;
-
-<<<<<<< HEAD
-    @RequestMapping(value = "/registerForm")
-    @ResponseBody
-    public Model registerForm(Model model) {
-        return null;
-    }
-
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    @ResponseBody
-    public String register(Enterprise enterprise) {
-        enterprise.setEntIdentity(0);
-        enterprise.setEntDate("2014-12-12");
-        String result = enterpriseService.register(enterprise);
-        return "success";
-    }
-
-    @RequestMapping(value = "/loginHandler", method = RequestMethod.POST)
-    @ResponseBody
-    public String login(String entId, String entPassword) {
-        Enterprise enterprise = enterpriseService.login(entId, entPassword);
-        if (enterprise == null)
-            return "error";
-        return "success";
-    }
-
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    @ResponseBody
-    public Model loginForm(Model model) {
-        return null;
-    }
-=======
     @RequestMapping(value="/login")
     @ResponseBody
     public Map<Object, Object> login(@RequestParam("entId") String entId, @RequestParam("entPassword") String entPassword, HttpServletRequest httpServletRequest){
@@ -126,7 +91,4 @@ public class EnterpriseController {
                 resultMap.put("entId", "exist");
             return resultMap;
         }
-
-
->>>>>>> f7469936b1e08e789dd1a735e9a7b7834c57e27a
 }

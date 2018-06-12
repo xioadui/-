@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
 
+/**
+ *
+ */
 public class ChatHandler extends AbstractWebSocketHandler {
 //    保存登录的用户
     private static ConcurrentHashMap<String,WebSocketSession> user = new ConcurrentHashMap<String,WebSocketSession>();
@@ -21,7 +24,7 @@ public class ChatHandler extends AbstractWebSocketHandler {
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-        String userId = (String) session.getAttributes().get("userId");
+        //String userId = (String) session.getAttributes().get("userId");
         user.remove(""+i);
     }
 

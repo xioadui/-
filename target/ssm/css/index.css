@@ -14,7 +14,11 @@ body {
 }
 
 .header {
+<<<<<<< HEAD
 	width: 1550px;
+=======
+	min-width: 1550px;
+>>>>>>> f7469936b1e08e789dd1a735e9a7b7834c57e27a
 /*	min-height: 700px;*/
 	display: block;
 	background: url(../img/52.jpg)no-repeat;
@@ -72,6 +76,7 @@ body {
 .banner p{
 	color: white;
 }
+<<<<<<< HEAD
 .banner h3 {
 	color: rgb(255, 255, 255);
 	text-align: center;
@@ -86,15 +91,28 @@ body {
 	display: block;
 	overflow: hidden;
 	/*background-size: 100%;*/
+=======
+
+.container {
+	min-width: 1500px;
+	margin: 0px auto 0px;
+	display: block;
+	/*overflow: hidden;*/
+>>>>>>> f7469936b1e08e789dd1a735e9a7b7834c57e27a
 }
 
 
 .info {/*下三角*/
+<<<<<<< HEAD
 	width: 100%;
+=======
+	width: 1100px;
+>>>>>>> f7469936b1e08e789dd1a735e9a7b7834c57e27a
 	text-align: center;
 	font-size: 30px;
 	color: lightsteelblue;
 	margin: auto;
+<<<<<<< HEAD
 	position: relative;
 
 }
@@ -105,6 +123,16 @@ body {
 	margin-top: 10px;
 	margin-bottom: 0px;
 	
+=======
+}
+
+.fun{/*资讯数据块*/
+	width: 1080px;
+	height: 400px;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 20px;
+>>>>>>> f7469936b1e08e789dd1a735e9a7b7834c57e27a
 }
 
 .func1 , .func2 {/*资讯数据导航条*/
@@ -124,7 +152,10 @@ body {
 	font-family: 'Microsoft JhengHei';
 	overflow: hidden;
 	margin-bottom: 20px;
+<<<<<<< HEAD
 	/*background: red;*/
+=======
+>>>>>>> f7469936b1e08e789dd1a735e9a7b7834c57e27a
 }
 
 .fun_list li a {
@@ -143,7 +174,11 @@ body {
 .cont {/*资讯*/
 	width: 700px;
 	height: 400px;
+<<<<<<< HEAD
 	margin: auto 80px;
+=======
+	margin: auto 10px;
+>>>>>>> f7469936b1e08e789dd1a735e9a7b7834c57e27a
 	float: left;
 	/*border-left: 3px solid lightgrey;*/
 }
