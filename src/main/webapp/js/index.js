@@ -1,5 +1,4 @@
 $(".guide li").mouseenter(function() {
-<<<<<<< HEAD
 			if(!$(this).hasClass(".active")) {
 				$(".active").removeClass("active");
 				$(this).addClass("active");
@@ -106,12 +105,6 @@ $(".guide span").mouseenter(function() {
 				$(".active").removeClass("active");
 				$(this).addClass("active");
 			}
-		})
-=======
-	if(!$(this).hasClass(".active")) {
-		$(".active").removeClass("active");
-		$(this).addClass("active");
-	}
 })
 
 $(".func1 li").mouseenter(function() {
@@ -270,4 +263,3 @@ $(".guide span").mouseenter(function() {
 		$(this).addClass("active");
 	}
 })
->>>>>>> f7469936b1e08e789dd1a735e9a7b7834c57e27a

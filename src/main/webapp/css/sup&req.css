@@ -32,11 +32,8 @@ fieldset {/*灰色边框*/
 }
 
 .button{/*提交按钮*/
-<<<<<<< HEAD
-=======
     background-color:rgb(56,93,135);
 	color:#FFFFFF;
->>>>>>> f7469936b1e08e789dd1a735e9a7b7834c57e27a
 	float: right;
 	margin: 10px;
 	-o-border-radius: 0.2em;
