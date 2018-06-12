@@ -1,0 +1,115 @@
+body {
+font-size:12px;
+font-family: Arial, Helvetica, sans-serif;
+color :lightsteelblue;
+}
+.form_content{
+	/*表单位置*/
+width:575px;
+margin:30px auto;
+padding:10px;
+}
+legend{
+	/*最开始注册属性*/
+color:#FFFFFF;
+background-color:lightskyblue;
+padding:2px 5px 2px 5px;
+-o-border-radius: 0.2em;
+-webkit-border-radius: 0.2em;
+-moz-border-radius: 0.2em;
+-ms-border-radius: 0.2em;
+}
+
+.form-row {
+	/*底部提交属性*/
+clear: both;
+float:left;
+padding:5px 5px 5px 5px;
+}
+
+.field-label {
+	/*label属性*/
+width:150px;
+float:left;
+line-height:25px;
+}
+label {
+float:left;
+color:#000000;
+}
+label.left{
+padding:0 20px 0 5px;
+float:left;
+color:#666666;
+}
+.field-widget {
+float:left;
+}
+input.required{
+width:300px;
+height:22px;
+/*方框的属性*/
+border: 1px solid #DED6D6;
+background-color:#DED6D6;
+border-left-width:2px;
+padding:5px 0 0 2px;
+float:left;
+-o-border-radius: 0.2em;
+-webkit-border-radius: 0.2em;
+-moz-border-radius: 0.2em;
+-ms-border-radius: 0.2em;
+}
+
+select.validate-selection{
+	/*企业类别属性*/
+width:305px;
+height:28px;
+border: 1px solid #DED6D6;
+background-color:#DED6D6;
+border-left-width:2px;
+padding:4px 2px 3px 2px;
+float:left;
+-o-border-radius: 0.2em;
+-webkit-border-radius: 0.2em;
+-moz-border-radius: 0.2em;
+-ms-border-radius: 0.2em;
+}
+textarea.required{
+/*企业介绍属性*/
+width:300px;
+height:75px;
+float:left;
+border: 1px solid #DED6D6;
+background-color:#DED6D6;
+border-left-width:2px;
+-o-border-radius: 0.2em;
+-webkit-border-radius: 0.2em;
+-moz-border-radius: 0.2em;
+-ms-border-radius: 0.2em;
+}
+
+
+input.submit{
+	/*最低端提交的属性*/
+color:#FFFFFF;
+background-color:rgb(56,93,135);
+padding:2px 5px 2px 5px;
+cursor:pointer;
+border:none;
+-o-border-radius: 0.2em;
+-webkit-border-radius: 0.2em;
+-moz-border-radius: 0.2em;
+-ms-border-radius: 0.2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Services</title>
+		<meta content="text/html; charset=utf-8" />
+		<link href="css/read_sup&req.css" rel="stylesheet" type="text/css" media="all" />
+        <link title="style" rel="stylesheet" href="css/sup&req.css" type="text/css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+	var div = $(".guide ul li");
+	div.animate({
+		fontSize: '17px'
+	}, "slow");
+    });
+    </script>
+    
+    <script type="text/javascript">
+	$(document).on('click','#submit',function (){
+		
+		var supreq = $('#supreq').val().trim();//供应或需求
+        var supreqtype = $('#supreqtype').val().trim();//发布的类型
+		var supreqname = $('#supreqname').val().trim();//发布的标题
+        var supreqtxt = $('#supreqtxt').val().trim();//发布的详细内容
+		alert(supreq+" "+supreqtype+" "+supreqname+" "+supreqtxt);
+		var htmlObj = $.ajax({
+                type: "POST",
+                url: "" ,
+                data: {
+                 supreq:supreq,
+				 supreqtype:supreqtype,
+				 supreqname:supreqname,
+				 supreqtxt:supreqtxt,
+					
+                },
+                success:function () {
+                   
+                },
+                error : function() {
+                }
+            });
+		
+	})
+	
+	
+	</script>
+    </head>
+
+	<body>
+		<div class="header">
+			<div class="guide">
+				<ul>
+					<li id="home" class="">
+						<a href="index.html">主页</a>
+					</li>
+					<li id="news" class="">
+						<a href="news.html">资讯</a>
+					</li>
+					<li id="data" style="margin-left: 10px;" class="">
+						<a href="industry_data.html">行业数据</a>
+					</li>
+					<li id="findsr" style="margin-left: 20px;" class="">
+						<a href="search_sup&req.html">浏览供需</a>
+					</li>
+					<li id="sr" style="margin-left: 20px;" class="">
+						<a href="sup&req.html">发布供需</a>
+					</li>
+					<li id="partner" style="margin-left: 20px;" class="">
+						<a href="find_partner.html">合作伙伴</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+        
+
+		<div class="form">
+			<form id="form1">
+				<fieldset>
+					<legend>发布</legend>
+
+					<div>
+						<!-- 第一个选项框 选择供/需-->
+						<select class="validate-selection" title="供/需" id="supreq">
+							<option>请选择供应/需求</option>
+							<option>供应</option>
+							<option>需求</option>
+						</select>
+					</div>
+
+					<div>
+						<!-- 第二个选项框，选择发布类别   -->
+						<select class="validate-selection" title="发布类别" id="supreqtype">
+							<option>选择发布类别</option>
+							<option>医疗医药保健</option>
+							<option>IT与通讯</option>
+							<option>机械电子</option>
+							<option>车辆交通</option>
+							<option>能源矿产</option>
+							<option>建筑房地产</option>
+							<option>家用电器</option>
+							<option>金融保险投资</option>
+						</select>
+					</div>
+
+					<div>
+						<!-- 需求/供应名称输入框 -->
+						<input class="input_name" type="text" placeholder="在此输入标题" id="supreqname">
+
+						</input>
+					</div>
+
+					<div class="input_text" >
+						<!-- 详细内容输入框 -->
+						<textarea id="supreqtxt" class="required" type="text" placeholder="在此输入详细内容"></textarea>
+					</div>
+        <input type="submit" class="button" id="submit" value="提交发布" /> 
+
+		</div>
+
+		</fieldset>
+
+		</form>
+		</div>
+
+
+		
+	</body>
+
+</html>

@@ -20,7 +20,8 @@
     </insert>
     <select id="queryByTitle" resultType="com.enterprise.entity.IndustryData">
       SELECT type,title, date, content, digest
-        FROM industrydata where information.title = #{title,jdbcType=VARCHAR};
+        FROM industrydata
+        where title = #{title,jdbcType=VARCHAR};
     </select>
 
     <select id="queryByDate" resultType="com.enterprise.entity.IndustryData">

@@ -1,19 +1,75 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : music
-Source Server Version : 50719
+Source Server         : MySQL
+Source Server Version : 80011
 Source Host           : localhost:3306
 Source Database       : enterprise
 
 Target Server Type    : MYSQL
-Target Server Version : 50719
+Target Server Version : 80011
 File Encoding         : 65001
 
-Date: 2018-05-16 01:37:26
+Date: 2018-06-02 11:31:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for comment
+-- ----------------------------
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE `comment` (
+  `commentId` int(11) NOT NULL AUTO_INCREMENT,
+  `entId` varchar(255) NOT NULL,
+  `commentType` int(11) NOT NULL,
+  `Id` int(11) NOT NULL,
+  `commentDate` datetime NOT NULL,
+  `commentContent` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`commentId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of comment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for demand
+-- ----------------------------
+DROP TABLE IF EXISTS `demand`;
+CREATE TABLE `demand` (
+  `entId` varchar(30) NOT NULL,
+  `demandId` int(11) NOT NULL AUTO_INCREMENT,
+  `demandType` varchar(40) NOT NULL,
+  `demandTitle` varchar(100) NOT NULL,
+  `demandDigest` text NOT NULL,
+  `demandContent` text NOT NULL,
+  `demandDate` date NOT NULL,
+  PRIMARY KEY (`demandId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of demand
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for demand_admin
+-- ----------------------------
+DROP TABLE IF EXISTS `demand_admin`;
+CREATE TABLE `demand_admin` (
+  `entId` varchar(30) NOT NULL,
+  `demandId` int(11) NOT NULL AUTO_INCREMENT,
+  `demandType` varchar(40) NOT NULL,
+  `demandTitle` varchar(100) NOT NULL,
+  `demandDigest` text NOT NULL,
+  `demandContent` text NOT NULL,
+  `demandDate` date NOT NULL,
+  PRIMARY KEY (`demandId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of demand_admin
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for enterpriseinf
@@ -42,20 +98,75 @@ CREATE TABLE `enterpriseinf` (
 INSERT INTO `enterpriseinf` VALUES ('daiyuancheng@xdf.cn', '新东方教育科技集团有限公司', '俞敏洪', '教育', '新东方教育科技集团有限公司于2001-08-02在海淀分局登记成立。法定代表人俞敏洪，公司经营范围包括技术开发、技术咨询、技术服务、技术转让；教育咨询等。', '新东方，全名北京新东方教育科技（集团）有限公司，总部位于北京市海淀区中关村，是规模大的综合性教育集团，同时也是教育培训集团。公司业务包括外语培训、中小学基础教育、学前教育、在线教育、出国咨询、图书出版等各个领域。除新东方外，旗下还有优能中学教育、泡泡少儿教育、前途出国咨询、迅程在线教育、大愚文化出版、满天星亲子教育、同文高考复读等子品牌。公司于2006年在美国纽约证券交易所上市，是中国大陆第一家在美国上市的教育机构。新东方教育科技集团由1993年11月16日成立的北京新东方学校发展壮大而来，集团以培训为核心，拥有满天星幼儿园、泡泡少儿教育、优能中学教育、基础英语培训、大学英语及考研培训、出国考试培训、多语种培训等多个培训体系，同时在基础教育、职业教育、教育研发、出国咨询、文化产业等方面取得了骄人的成绩。作为中国著名私立教育机构，新东方教育科技集团于2006年9月7日在美国纽约证券交易所成功上市。截止2014年5月，新东方已经在全国50座城市设立了56所学校、31家书店以及703家学习中心。自成立以来，新东方累计面授学员2000万人次。', '北京市海淀区海淀中街6号9层', '2000万人以上', '010-60908000', 'xindognfang', '1', 'www.xdf.cn', '2001-08-02');
 
 -- ----------------------------
--- Table structure for infomation
+-- Table structure for industrydata
 -- ----------------------------
-DROP TABLE IF EXISTS `infomation`;
-CREATE TABLE `infomation` (
-  `title` varchar(100) NOT NULL DEFAULT '',
-  `date` date NOT NULL,
-  `header` text NOT NULL,
-  `content` text NOT NULL,
-  `digest` text NOT NULL,
-  PRIMARY KEY (`title`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `industrydata`;
+CREATE TABLE `industrydata` (
+  `indType` varchar(40) NOT NULL,
+  `indTitle` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `indDate` date NOT NULL,
+  `indContent` text NOT NULL,
+  `indDigest` text NOT NULL,
+  PRIMARY KEY (`indTitle`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
--- Records of infomation
+-- Records of industrydata
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for information
+-- ----------------------------
+DROP TABLE IF EXISTS `information`;
+CREATE TABLE `information` (
+  `infType` varchar(40) NOT NULL,
+  `infTitle` varchar(100) NOT NULL,
+  `infDate` date NOT NULL,
+  `infContent` text NOT NULL,
+  `infDigest` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`infTitle`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of information
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for provide
+-- ----------------------------
+DROP TABLE IF EXISTS `provide`;
+CREATE TABLE `provide` (
+  `entId` varchar(30) NOT NULL,
+  `proId` int(11) NOT NULL AUTO_INCREMENT,
+  `proType` varchar(40) NOT NULL,
+  `proTitle` varchar(100) NOT NULL,
+  `proDigest` text NOT NULL,
+  `proContent` text NOT NULL,
+  `proDate` date NOT NULL,
+  PRIMARY KEY (`proId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of provide
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for provide_admin
+-- ----------------------------
+DROP TABLE IF EXISTS `provide_admin`;
+CREATE TABLE `provide_admin` (
+  `entId` varchar(30) NOT NULL,
+  `proId` int(11) NOT NULL AUTO_INCREMENT,
+  `proType` varchar(40) NOT NULL,
+  `proTitle` varchar(100) NOT NULL,
+  `proDigest` text NOT NULL,
+  `proContent` text NOT NULL,
+  `proDate` date NOT NULL,
+  PRIMARY KEY (`proId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of provide_admin
 -- ----------------------------
 
 -- ----------------------------
@@ -82,43 +193,3 @@ CREATE TABLE `register` (
 -- ----------------------------
 -- Records of register
 -- ----------------------------
-
--- ----------------------------
--- Table structure for user
--- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
-  `userId` int(15) NOT NULL AUTO_INCREMENT,
-  `userName` varchar(50) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `identity` int(2) NOT NULL,
-  PRIMARY KEY (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES ('1', '北京阿里巴巴信息技术有限公司', '147258001', '1');
-INSERT INTO `user` VALUES ('2', '支付宝（中国）信息技术有限公司', '147258002', '1');
-INSERT INTO `user` VALUES ('3', '北京京东世纪贸易有限公司', '147258003', '1');
-INSERT INTO `user` VALUES ('4', '上海精锐教育培训有限公司', '147258004', '1');
-INSERT INTO `user` VALUES ('5', '国华生命科学研究院有限公司', '147258005', '1');
-INSERT INTO `user` VALUES ('6', '深圳市新纶科技股份有限公司', '147258006', '1');
-INSERT INTO `user` VALUES ('7', '新东网科技有限公司', '147258007', '1');
-INSERT INTO `user` VALUES ('8', '金发科技股份有限公司', '147258008', '1');
-INSERT INTO `user` VALUES ('9', '上海中晶科技有限公司', '147258009', '1');
-INSERT INTO `user` VALUES ('10', '上海延华智能科技(集团)股份有限公司', '147258010', '1');
-INSERT INTO `user` VALUES ('11', '北京华力创通科技股份有限公司', '147258011', '1');
-INSERT INTO `user` VALUES ('12', '广东凯格网络科技有限公司', '147258012', '1');
-DROP TRIGGER IF EXISTS `tri_infomation_filter
-before`;
-DELIMITER ;;
-CREATE TRIGGER `tri_infomation_filter
-before` BEFORE INSERT ON `infomation` FOR EACH ROW begin
-		if (exists(select infomation.title from infomation where new.title=infomation.title))
-        then
-			delete from infomation where new.title=infomation.title;
-		end if;
-end
-;;
-DELIMITER ;
