@@ -40,7 +40,7 @@ public class InformationController {
     }
 
 
-    @RequestMapping(value = "/indexinfo")
+    @RequestMapping(value = "/index")
     @ResponseBody
     public Map<String,String> getInIndex(@RequestParam("category") String category){
         List<Information> infList = informationService.queryByType(category, 0, 1);
