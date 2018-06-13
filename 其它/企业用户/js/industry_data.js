@@ -1,11 +1,11 @@
-$(document).ready(function){
+$(document).ready(function(){
 	var name = $.query.get("indTitle");//获得行业数据标题
 	$.ajax({
 			type: "get",
 			url: "", //行业数据表
 			dataType: "json",
 			data:{
-				infTitle: name;
+				infTitle: name,
 			},
 			async: false,
 			success: function(data) {
@@ -19,4 +19,4 @@ $(document).ready(function){
 				//			alert("异常！");
 			}
 		});
-}
+})

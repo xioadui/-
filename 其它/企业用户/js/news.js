@@ -1,11 +1,11 @@
-$(document).ready(function){
+$(document).ready(function(){
 	var name = $.query.get("infTitle");//获得资讯标题
 	$.ajax({
 			type: "get",
 			url: "", //资讯表
 			dataType: "json",
 			data:{
-				infTitle: name;
+				infTitle: name
 			},
 			async: false,
 			success: function(data) {
@@ -19,4 +19,5 @@ $(document).ready(function){
 				//			alert("异常！");
 			}
 		});
-}
+})
+
