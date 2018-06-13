@@ -26,10 +26,10 @@
 					type: "POST",
 					url: "",
 					data: {
-						sup_req: sup_req;
-						type: type;
-						title: title;
-						content: txt;
+						sup_req: sup_req,
+						type: type,
+						title: title,
+						content: txt
 
 					},
 					success: function() {
@@ -47,7 +47,6 @@
 			<form method="get">
 				<fieldset>
 					<legend>发布</legend>
-
 					<div>
 						<!-- 第一个选项框 选择供/需-->
 						<select class="validate-selection" title="供/需" id="sr"  required>
@@ -87,11 +86,9 @@
 					<!-- <button  >提交发布</button> -->
 
 					<input class="button" value="提交发布" type="submit" onclick="alert('申请发布成功，请等待审核！')"/>
-
+				</fieldset>
+			</form>
 		</div>
-
-		</fieldset>
-
 		</form>
 		</div>
 
