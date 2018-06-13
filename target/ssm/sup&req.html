@@ -1,57 +1,106 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="utf-8">
-    <title>发布页面</title>
-    <link title="style1" rel="stylesheet" href="css/sup&req.css" type="text/css"/>
-    <script type="text/javascript" language="JavaScript">
-        function overflow(vobj) { /*验证标题输入长度*/
-            var str = vobj.value;
-            var len = str.length;
-            if (len > 20) {
-                alert("标题必须在20字以内！");
-            }
-        }
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Services</title>
+    <meta content="text/html; charset=utf-8"/>
+    <link href="css/sup&reqdaohanglan.css" rel="stylesheet" type="text/css" media="all"/>
+    <link title="style" rel="stylesheet" href="css/sup&req.css" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var div = $(".guide ul li");
+            div.animate({
+                fontSize: '17px'
+            }, "slow");
+        });
     </script>
 
     <script type="text/javascript">
         $(document).on('click', '#submit', function () {
-            var sup_req = $('#sr').val().trim(); //供应/需求
-            var type = $('#type').val().trim(); //发布类别
-            var title = $('#name').val().trim(); //标题
-            var content = $('#txt').val().trim(); //详细内容
+            var supreq = $('#supreq').val().trim();//供应或需求
+            var supreqtype = $('#supreqtype').val().trim();//发布的类型
+            var supreqname = $('#supreqname').val().trim();//发布的标题
+            var supreqzhaiyaotxt = $('#supreqzhaiyaotxt').val().trim();//发布摘要内容
+            var supreqtxt = $('#supreqtxt').val().trim();//发布的详细内容
+            if (supreq == '供应') {
+                //provide
+                $.post(
+                    '/provide/publish',
+                    {
+                        type: supreqtype,
+                        title: supreqname,
+                        digest:supreqzhaiyaotxt,
+                        content: supreqtxt
+                    },
+                    function (date) {
+                        if(date.result=='success'){
+                            alert("发布成功，等待管理员审核");
+                            window.location.href = "/index.html"; //需要跳转的地址
+                        }
+                    }
+                );
+            } else {
+                //需求
+                $.post(
+                    '/demand/publish',
+                    {
+                        type: supreqtype,
+                        title: supreqname,
+                        digest:supreqzhaiyaotxt,
+                        content: supreqtxt
+                    },
+                    function (date) {
+                        if(date.result=='success'){
+                            alert("发布成功，等待管理员审核");
+                            window.location.href = "/index.html"; //需要跳转的地址
+                        }
+                    }
 
-            $.ajax({
-                type: "POST",
-                url: "",
-                data: {
-                    sup_req: sup_req,
-                    type: type,
-                    title: title,
-                    content: txt
-
-                },
-                success: function () {
-                    window.location.href = ""; //需要跳转的地址
-
-                },
-                error: function () {
-                }
-            });
+                );}
         })
+
+
     </script>
 </head>
 
 <body>
+<div class="header">
+    <div class="guide">
+        <ul>
+            <li id="home" class="">
+                <a href="index.html">主页</a>
+            </li>
+            <li id="news" class="">
+                <a href="news.html">资讯</a>
+            </li>
+            <li id="data" style="margin-left: 10px;" class="">
+                <a href="industry_data.html">行业数据</a>
+            </li>
+            <li id="findsr" style="margin-left: 20px;" class="">
+                <a href="search_sup&req.html">浏览供需</a>
+            </li>
+            <li id="sr" style="margin-left: 20px;" class="">
+                <a href="sup&req.html">发布供需</a>
+            </li>
+            <li id="partner" style="margin-left: 20px;" class="">
+                <a href="find_partner.html">合作伙伴</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
 <div class="form">
-    <form method="get">
+    <form id="form1">
         <fieldset>
             <legend>发布</legend>
 
             <div>
                 <!-- 第一个选项框 选择供/需-->
-                <select class="validate-selection" title="供/需" id="sr" required>
+                <select class="validate-selection" title="供/需" id="supreq">
                     <option>请选择供应/需求</option>
                     <option>供应</option>
                     <option>需求</option>
@@ -60,8 +109,9 @@
 
             <div>
                 <!-- 第二个选项框，选择发布类别   -->
-                <select class="validate-selection" title="发布类别" id="type" required>
+                <select class="validate-selection" title="发布类别" id="supreqtype">
                     <option>选择发布类别</option>
+                    <option>教育</option>
                     <option>医疗医药保健</option>
                     <option>IT与通讯</option>
                     <option>机械电子</option>
@@ -75,25 +125,27 @@
 
             <div>
                 <!-- 需求/供应名称输入框 -->
-                <input class="input_name" type="text" placeholder="在此输入标题" id="name" onkeyup="JavaScript:overflow(this)"
-                       required>
+                <input class="input_name" type="text" placeholder="在此输入标题" id="supreqname">
 
                 </input>
             </div>
 
-            <div class="input_text">
-                <!-- 详细内容输入框 -->
-                <textarea id="txt" class="required" type="text" placeholder="在此输入详细内容 " required></textarea>
+            <div class="inputzhaiyao_text">
+                <!-- 摘要输入框 -->
+                <textarea id="supreqzhaiyaotxt" class="required" type="text" placeholder="在此输入摘要内容"></textarea>
             </div>
 
-            <!-- <button  >提交发布</button> -->
+            <div class="input_text">
+                <!-- 详细内容输入框 -->
+                <textarea id="supreqtxt" class="required" type="text" placeholder="在此输入详细内容"></textarea>
+            </div>
+            <input type="button" class="button" id="submit" value="提交发布"/>
 
-            <input class="button" value="提交发布" type="submit" onclick="alert('申请发布成功，请等待审核！')"/>
+</fieldset>
 
-        </fieldset>
-
-    </form>
+</form>
 </div>
+
 
 </body>
 

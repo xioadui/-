@@ -22,9 +22,8 @@
     </select>
 
     <insert id="publish">
-        insert into demand_admin
-        values(#{demand.demandId, jdbcType=INTEGER},
-               #{demand.entId, jdbcType=VARCHAR},
+        insert into demand_admin(entId,demandType,demandTitle,demandDigest,demandContent,demandDate)
+        values(#{demand.entId, jdbcType=VARCHAR},
                #{demand.demandType, jdbcType=VARCHAR},
                #{demand.demandTitle, jdbcType=VARCHAR},
                #{demand.demandDigest, jdbcType=VARCHAR},

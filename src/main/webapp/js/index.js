@@ -6,7 +6,6 @@ $(".guide span").mouseenter(function () {
         $(this).addClass("active");
     }
 });
-
 $(".func1 li").mouseenter(function () {
     if (!$(this).hasClass(".active")) {
         $(".active").removeClass("active");
@@ -175,9 +174,4 @@ $(document).ready(function() {
 	}
 });
 
-$(".guide span").mouseenter(function() {
-	if(!$(this).hasClass(".active")) {
-		$(".active").removeClass("active");
-		$(this).addClass("active");
-	}
-})
+

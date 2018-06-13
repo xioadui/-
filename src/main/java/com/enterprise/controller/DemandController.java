@@ -8,23 +8,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Controller
 @RequestMapping(value = "/demand")
 public class DemandController {
-
-    private Map<Object, Object> resultMap = new HashMap<>();
-
     @Resource
     DemandServiceImpl demandService;
-
     @RequestMapping(value = "/allDemand")
     @ResponseBody
     public Map<Object, Object> getAllDemand(){
+        Map<Object, Object> resultMap = new HashMap<>();
         List<Object> demands = new ArrayList<>();
         List<Demand> demandList = demandService.getAllDemand();
         for(int i=0; i<demandList.size(); i++){
@@ -45,20 +41,24 @@ public class DemandController {
 
     @RequestMapping(value="/publish")
     @ResponseBody
-    public Map<Object, Object> publish(@RequestParam("demandId") int demandId, @RequestParam("entId") String entId,
-                                       @RequestParam("demandContent") String demandContent,
-                                       @RequestParam("demandDate") String demandDate, @RequestParam("demandDigest") String demandDigest,
-                                       @RequestParam("demandTitle") String demandTitle, @RequestParam("demandType") String demandType){
+    public Map<String, String> publish(HttpSession session,
+                                       @RequestParam("content") String demandContent,
+                                       @RequestParam("digest") String demandDigest,
+                                       @RequestParam("title") String demandTitle,
+                                       @RequestParam("type") String demandType){
         Demand demand = new Demand();
-        demand.setDemandId(demandId);
         demand.setDemandContent(demandContent);
-        demand.setDemandDate(demandDate);
+        Date day=new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        demand.setDemandDate(df.format(day));
         demand.setDemandDigest(demandDigest);
         demand.setDemandTitle(demandTitle);
         demand.setDemandType(demandType);
+        String entId = (String)session.getAttribute("entId");
         demand.setEntId(entId);
         String result = demandService.publish(demand);
-        resultMap.put("result", result);
-        return resultMap;
+        Map<String,String> r = new HashMap<>();
+        r.put("result", result);
+        return r;
     }
 }

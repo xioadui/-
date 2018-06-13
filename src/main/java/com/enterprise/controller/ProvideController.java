@@ -1,16 +1,17 @@
 package com.enterprise.controller;
 
+import com.enterprise.entity.Demand;
 import com.enterprise.entity.Provide;
 import com.enterprise.service.serviceImpl.ProvideServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Controller
 @RequestMapping(value = "/provide")
@@ -42,5 +43,27 @@ public class ProvideController {
         return resultMap;
     }
 
+    @RequestMapping(value="/publish")
+    @ResponseBody
+    public Map<String,String> publish(HttpSession session,
+                                       @RequestParam("content") String demandContent,
+                                       @RequestParam("digest") String demandDigest,
+                                       @RequestParam("title") String demandTitle,
+                                       @RequestParam("type") String demandType){
+        Provide provide = new Provide();
+        Date day=new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        provide.setProDate(df.format(day));
+        String entId = (String)session.getAttribute("entId");
+        provide.setEntId(entId);
+        provide.setProContent(demandContent);
+        provide.setProTitle(demandTitle);
+        provide.setProDigest(demandDigest);
+        provide.setProType(demandType);
+        String result = provideService.publish(provide);
+        Map<String,String> r = new HashMap<>();
+        r.put("result",result);
+        return r;
+    }
 
 }

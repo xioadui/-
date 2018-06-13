@@ -16,7 +16,7 @@ public interface IProvideDao {
     List<Provide> getProByEntId(@Param("entId") String entId);
 
     //发布供应
-    void publish(Provide provide);
+    void publish(@Param("provide") Provide provide);
 
     //删除供应
     void deleteByproId(@Param("proId") String proId);

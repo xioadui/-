@@ -16,7 +16,7 @@ public interface IDemandDao {
     List<Demand> getDemandByEntId(@Param("entId") String entId);
 
     //发布需求
-    void publish(Demand demand);
+    void publish(@Param("demand") Demand demand);
 
     //通过需求Id删除需求
     void deleteByDemandId(@Param("demandId") String demandId);

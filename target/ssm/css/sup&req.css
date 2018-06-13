@@ -10,7 +10,10 @@ body {
 }
 
 .form {/*整个发布窗口属性*/
-	width: 575px;
+    position:absolute;
+	top:100px;
+	left:31%;
+	width: 38%;
 	height: 640px;
 	margin: 40px auto;
 	padding: 10px;
@@ -55,6 +58,17 @@ fieldset {/*灰色边框*/
     -ms-border-radius: 0.2em;
 	
 }
+
+.inputzhaiyao_text{/*摘要框的属性*/
+	margin: 10px;
+	width: 96%;
+	height: 200px;
+    -o-border-radius: 0.2em;
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    -ms-border-radius: 0.2em;
+}
+
 
 .input_text{/*详细描述框的属性*/
 	margin: 10px;
