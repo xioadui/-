@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.enterprise.dao.IAdminDao">
+    <select id="_register" resultType="com.enterprise.entity.Enterprise">
+        SELECT *
+        FROM register
+        limit #{index,jdbcType=LONG},#{length,jdbcType=INT};
+    </select>
+    <select id="_demand" resultType="com.enterprise.entity.Demand">
+        SELECT *
+        FROM demand_admin
+        order by demandId asc
+        limit #{index,jdbcType=LONG},#{length,jdbcType=INT}
+    </select>
+    <select id="_provide" resultType="com.enterprise.entity.Provide">
+        SELECT *
+        FROM provide_admin
+        order by provideId asc
+        limit #{index,jdbcType=LONG},#{length,jdbcType=INT}
+    </select>
+
+    <insert id="_agreeProvide">
+        insert into provide
+        select *
+        from provide_admin
+        where proId=#{proId, jdbcType=INT};
+        delete
+        from provide_admin
+        where proId=#{proId, jdbcType=INT};
+    </insert>
+    <insert id="_agreeDemand">
+        insert into demand
+        select *
+        from demand_admin
+        where demandId=#{demandId, jdbcType=INT};
+        delete
+        from demand_admin
+        where demandId=#{demandId, jdbcType=INT};
+    </insert>
+    <insert id="_agreeRegister">
+        insert into enterpriseinf
+        select *
+        from register
+        where entId=#{entId, jdbcType=VARCHAR};
+        delete
+        from register
+        where entId=#{entId, jdbcType=VARCHAR};
+    </insert>
+
+</mapper>

@@ -19,8 +19,8 @@ public class IndustryDataServiceImpl implements IIndustryDataService {
     }
 //  通过标题来查询数据
     @Override
-    public List<IndustryData> queryByTitle(String title) {
-        return industryDataDao.queryByTitle(title);
+    public List<IndustryData> queryByTitle(String title,long index,int length) {
+        return industryDataDao.queryByTitle(title,index,length);
     }
 
     @Override
@@ -32,4 +32,17 @@ public class IndustryDataServiceImpl implements IIndustryDataService {
     public List<IndustryData> queryByType(String type, long index, int length) {
         return industryDataDao.queryByType(type, index, length);
     }
+
+    /**
+     * 对行业数据进行模糊查询
+     * @param condition 查询的信息
+     * @param index 起始位置，这个用于分页查询
+     * @param length
+     * @return
+     */
+    @Override
+    public List<IndustryData> searchIndustryData(String condition, long index, int length) {
+        return industryDataDao.searchIndustryData(condition, index, length);
+    }
+
 }

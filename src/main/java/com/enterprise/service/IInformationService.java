@@ -14,4 +14,6 @@ public interface IInformationService {
     public List<Information> queryByDate(String date,long index,int length);
 
     public List<Information> queryByType(String type,long index,int length);
+
+    public List<Information> searchInformation(String condition,long index,int length);
 }

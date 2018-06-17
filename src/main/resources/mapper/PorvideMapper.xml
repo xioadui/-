@@ -20,6 +20,12 @@
         FROM provide
         WHERE proId=#{proId, jdbcType=VARCHAR}
     </select>
+    <select id="searchPro" resultType="com.enterprise.entity.Provide">
+        SELECT *
+        FROM provide
+        WHERE proType like #{condition, jdbcType=VARCHAR} or proTitle like #{condition, jdbcType=VARCHAR}
+    </select>
+
 
     <insert id="publish">
         insert into provide_admin(entId,proType,proTitle,proDigest,proContent,proDate)
@@ -31,10 +37,11 @@
                #{provide.proDate, jdbcType=DATE})
     </insert>
 
+    <!--删除用户的供应-->
     <delete id="deleteByproId">
         delete
         from pro
-        where proId=#{proId, jdbcType=INTEGER}
+        where proId=#{proId, jdbcType=INTEGER} and entId = #{entId,jdbcType = VARCHAR}
     </delete>
 
     <insert id="permitByAdmin">

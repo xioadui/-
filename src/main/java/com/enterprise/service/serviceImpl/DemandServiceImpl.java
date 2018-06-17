@@ -15,18 +15,18 @@ public class DemandServiceImpl implements DemandService {
     IDemandDao iDemandDao;
 
     @Override
-    public List<Demand> getAllDemand() {
-        return iDemandDao.getAllDemand();
+    public List<Demand> getAllDemand(long index,int length) {
+        return iDemandDao.getAllDemand(index, length);
     }
 
     @Override
-    public List<Demand> getDemandByType(String demandType) {
-        return iDemandDao.getDemandByType(demandType);
+    public List<Demand> getDemandByType(String demandType,long index,int length) {
+        return iDemandDao.getDemandByType(demandType,index,length);
     }
 
     @Override
-    public List<Demand> getDemandByEntId(String entId) {
-        return iDemandDao.getDemandByEntId(entId);
+    public List<Demand> getDemandByEntId(String entId,long index,int length) {
+        return iDemandDao.getDemandByEntId(entId,index,length);
     }
 
     @Override
@@ -35,9 +35,25 @@ public class DemandServiceImpl implements DemandService {
         return "success";
     }
 
+    /**
+     * 删除需求
+     * @param demandId 需求的ID
+     * @param entId 用户的ID
+     * @return
+     */
     @Override
-    public String deleteByDemandId(String demandId) {
-        iDemandDao.deleteByDemandId(demandId);
+    public String deleteByDemandId(String demandId,String entId) {
+        iDemandDao.deleteByDemandId(demandId,entId);
         return "success";
+    }
+
+    /**
+     * 通过指定的条件对需求进行模糊查询
+     * @param condition 可以是需求的类型或者需求标题的一部分
+     * @return
+     */
+    @Override
+    public List<Demand> searchDemand(String condition,long index,int length) {
+        return iDemandDao.searchDemand(condition,index,length);
     }
 }

@@ -28,4 +28,18 @@ public class InformationServiceImpl implements IInformationService {
     public List<Information> queryByType(String type, long index, int length) {
         return informationDao.queryByType(type, index, length);
     }
+
+
+    /**
+     *
+     * 实现模糊查询，通过输入标题或者类型进行查询
+     * @param condition
+     * @param index
+     * @param length
+     * @return
+     */
+    @Override
+    public List<Information> searchInformation(String condition, long index, int length) {
+        return informationDao.searchInformation(condition,index,length);
+    }
 }

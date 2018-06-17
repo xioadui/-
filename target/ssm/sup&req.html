@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Services</title>
@@ -33,11 +32,11 @@
                     {
                         type: supreqtype,
                         title: supreqname,
-                        digest:supreqzhaiyaotxt,
+                        digest: supreqzhaiyaotxt,
                         content: supreqtxt
                     },
                     function (date) {
-                        if(date.result=='success'){
+                        if (date.result == 'success') {
                             alert("发布成功，等待管理员审核");
                             window.location.href = "/index.html"; //需要跳转的地址
                         }
@@ -50,20 +49,18 @@
                     {
                         type: supreqtype,
                         title: supreqname,
-                        digest:supreqzhaiyaotxt,
+                        digest: supreqzhaiyaotxt,
                         content: supreqtxt
                     },
                     function (date) {
-                        if(date.result=='success'){
+                        if (date.result == 'success') {
                             alert("发布成功，等待管理员审核");
                             window.location.href = "/index.html"; //需要跳转的地址
                         }
                     }
-
-                );}
+                );
+            }
         })
-
-
     </script>
 </head>
 
@@ -75,7 +72,7 @@
                 <a href="index.html">主页</a>
             </li>
             <li id="news" class="">
-                <a href="news.html">资讯</a>
+                <a href="industry_news.html">资讯</a>
             </li>
             <li id="data" style="margin-left: 10px;" class="">
                 <a href="industry_data.html">行业数据</a>
@@ -122,7 +119,6 @@
                     <option>金融保险投资</option>
                 </select>
             </div>
-
             <div>
                 <!-- 需求/供应名称输入框 -->
                 <input class="input_name" type="text" placeholder="在此输入标题" id="supreqname">
@@ -134,19 +130,14 @@
                 <!-- 摘要输入框 -->
                 <textarea id="supreqzhaiyaotxt" class="required" type="text" placeholder="在此输入摘要内容"></textarea>
             </div>
-
             <div class="input_text">
                 <!-- 详细内容输入框 -->
                 <textarea id="supreqtxt" class="required" type="text" placeholder="在此输入详细内容"></textarea>
             </div>
             <input type="button" class="button" id="submit" value="提交发布"/>
-
-</fieldset>
-
-</form>
+        </fieldset>
+    </form>
 </div>
-
-
 </body>
 
 </html>

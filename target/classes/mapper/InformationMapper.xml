@@ -39,4 +39,13 @@
         limit #{index},#{length};
     </select>
 
+
+    <select id="searchInformation" resultType="com.enterprise.entity.Information">
+         SELECT type,title, date, content, digest
+        FROM information
+        where type like #{condition} or title like #{condition}
+        order by date asc
+        limit #{index},#{length};
+    </select>
+
 </mapper>

@@ -7,18 +7,24 @@
     <select id="getAllDemand" resultType="com.enterprise.entity.Demand">
         SELECT *
         FROM demand
+        order by demandId asc
+        limit #{index},#{length}
     </select>
 
     <select id="getDemandByType" resultType="com.enterprise.entity.Demand">
         SELECT *
         FROM demand
         WHERE demandType=#{demandType, jdbcType=VARCHAR}
+        order by demandId asc
+        limit #{index},#{length}
     </select>
 
     <select id="getDemandByEntId" resultType="com.enterprise.entity.Demand">
         SELECT *
         FROM demand
         WHERE entId=#{entId, jdbcType=VARCHAR}
+        order by demandId asc
+        limit #{index},#{length}
     </select>
 
     <insert id="publish">
@@ -34,7 +40,16 @@
     <delete id="deleteByDemandId">
         delete
         from demand
-        where demandId=#{demandId, jdbcType=INTEGER}
+        where demandId=#{demandId, jdbcType=INTEGER} and entId = #{entId,jdbcType = VARCHAR}
     </delete>
+
+    <!--对需求进行模糊查询-->
+    <select id="searchDemand" resultType="com.enterprise.entity.Demand">
+        select *
+        from demand
+        where demandType like #{condition} or demandTitle like #{demandTitle}
+        order by demandId asc
+        limit #{index},#{length}
+    </select>
 
 </mapper>
