@@ -27,8 +27,6 @@ public class EnterpriseController {
         {
             HttpSession session = httpServletRequest.getSession();
             session.setAttribute("entId", entId);
-//            用于聊天
-            session.setAttribute("entName", enterprise.getEntName());
             resultMap.put("login","success");
             resultMap.put("entName", enterprise.getEntName());
             resultMap.put("entPerson", enterprise.getEntPerson());
