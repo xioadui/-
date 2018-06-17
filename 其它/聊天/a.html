@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+	<body>
+	<script type = "text/javascript">
+		var socket;
+		if(!window.WebSocket){
+			window.WebSocket = window.MozWebSocket;
+		}
+		if(window.WebSocket){
+			socket = new WebSocket("ws://localhost:8080/message");
+			socket.onmessage = function(event){
+				var ta = document.getElementById('responseText');
+				ta.value="";
+				ta.value = event.data;
+				
+			};
+			socket.onopen = function(event){
+				var ta = document.getElementById('responseText');
+				ta.value = "支持";
+			};
+			socket.onclose = function(event){
+				var ta = document.getElementById('responseText');
+				ta.value = "close";
+			};
+		}
+		function send(message){
+		
+			if(socket.readyState==WebSocket.OPEN){
+				socket.send(message);
+			}else{
+				alert('连接还没有建立');
+			}
+		
+		}
+		
+		
+	
+	</script>
+	<form onsubmit="return false;">
+	<input type = "text" name = "message" value = "sss"/>
+	<br>
+	<input type = "button" value "send" onclick = "send(this.form.message.value)"/>
+	<br>
+	<textarea id = "responseText" style = "width :500px; height:300px;"></textarea>
+	</form>
+	</body>
+</html>

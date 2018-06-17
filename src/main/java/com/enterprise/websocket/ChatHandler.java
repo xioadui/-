@@ -27,14 +27,17 @@ public class ChatHandler extends AbstractWebSocketHandler {
         user.remove(userId);
     }
 
+    private static final TextMessage canSendMessage = new TextMessage("对方不在线！！！");
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) {
         try {
-//            session.getAttributes();
-            System.out.println(message.getPayload());
-            for(WebSocketSession s:user.values()){
-                s.sendMessage(message);
+            String toUserId = message.getPayload().split("#")[0];
+            WebSocketSession toUserSession = user.get(toUserId);
+            if(toUserSession==null){
+                session.sendMessage(canSendMessage);
+                return;
             }
+            toUserSession.sendMessage(message);
         } catch (IOException e) {
             e.printStackTrace();
         }

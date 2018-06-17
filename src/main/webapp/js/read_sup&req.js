@@ -26,7 +26,6 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-
     $.ajax({
         type: "get",
         url: "", //留言表
