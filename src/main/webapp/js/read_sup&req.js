@@ -12,6 +12,11 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $.get(URL, function (data) {
+        $('.content h1').empty();
+        $('.basic #one').empty();
+        $('.basic #two').empty();
+        $('.basic #three').empty();
+        $('.text').empty();
         $('.content h1').append(title);
         /*获得供需标题*/
         $('.basic #one').append(s_r);
@@ -26,6 +31,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
     $.ajax({
         type: "get",
         url: "", //留言表

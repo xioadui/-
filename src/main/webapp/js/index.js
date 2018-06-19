@@ -1,11 +1,4 @@
 
-
-$(".guide span").mouseenter(function () {
-    if (!$(this).hasClass(".active")) {
-        $(".active").removeClass("active");
-        $(this).addClass("active");
-    }
-});
 $(".func1 li").mouseenter(function () {
     if (!$(this).hasClass(".active")) {
         $(".active").removeClass("active");
@@ -24,13 +17,6 @@ $(".func2 li").mouseenter(function () {
         $("#cont2 div").eq($(this).index()).addClass("showed");
 
     }
-});
-
-$(document).ready(function () {
-    var div = $(".guide li");
-    div.animate({
-        fontSize: '17px'
-    }, "slow");
 });
 
 $(document).ready(function () {
@@ -130,48 +116,15 @@ $(document).ready(function () {
         });
 });
 
-$(document).ready(function () {
-    var userId = $.query.get("userId");
-    if (userId) {
-        $(".guide span").addClass("welcome");
-        if (userId == "admin") {
-            $("#manage").removeClass("hidden");
-        }
-    }
-
-});
 
 $(document).ready(function() {
-	//	如果用户已登录,在span标签加入welcome类
-	//隐藏登陆/注册按钮
-	//显示欢迎信息
-	//	浏览供需/发布供需/合作伙伴可正常跳转至相应的页面
-	//	否则跳转至登录页
-	if($(".guide span").hasClass("welcome")) {
-		$("#login").addClass("hidden");
-		$("#register").addClass("hidden");
-		$("#findsr").append('<a href="search_sup&req.html">浏览供需</a>');
-		$("#sr").append('<a href="sup&req.html">发布供需</a>');
-		$("#partner").append('<a href="find_partner.html">合作伙伴</a>');
+    $(".header").append(
+        '<div class="banner">'+
+        '<h2>Welcome to NEO </h2>'+
+        '<p>在霓欧找到您的合作伙伴，协作共享，为您提供企业信息、业内资讯、市场动态、协作信息、服务资源、智能检索等服务</p>'+
+        '</div>'
+    );
 
-		$.ajax({
-			type: "get",
-			url: "", //企业表
-			dataType: "json",
-			async: false,
-			success: function(data) {
-				$(".guide span").append(data.entName + '，欢迎您！');
-			},
-			error: function(error) {
-				console.log(error);
-				//			alert("异常！");
-			}
-		});
-	} else {
-		$("#findsr").append('<a href="login.html">浏览供需</a>');
-		$("#sr").append('<a href="login.html">发布供需</a>');
-		$("#partner").append('<a href="login.html">合作伙伴</a>');
-	}
 });
 
 
