@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta content="text/html" />
-		<title>news</title>
+		<title>search_sup&req</title>
 		<link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="css/search_sup&req.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -71,59 +71,52 @@
 		</div>
 	</div>
 	
+	<div class="menu">
+			<select class="type" title="供需类型">
+				<option> 供应</option>
+				<option> 需求</option>
+			</select>
+			<input class="input" type="text" placeholder="在此输入供应/需求标题" id="searchname"></input>
+			<button class="sub">搜索</button>
+
+		</div>
 	
-	<div class="menu" >
-		    <div id="input">
-		    	<form class="from">
-		            <select name="searchtype">
-		            <!--<option value="">供需类型</option>	-->
-		            <option value="">供应</option>
-		            <option value="">需求</option>
-		            </select>
-		         </form>
-			    <input class="input_name" type="text" placeholder="在此输入供应/需求标题" id="searchname">	
-			    </input>
-		     	<input type="submit" class="button" id="submit" value="搜索" >
-		    	</input>
-		    </div>
     </div>
 	
 	<div class="content">
 			<div class="news1" id="tab1">
 				<h1>标题1</h1>
-				<nav><span>供需类型</span>  <span>时间</span></nav>
+				<nav><span>供需类型</span>  <span>时间</span>  <span>公司名称</span></nav>
 				<div>内容</div>
 			</div>
 			<div class="" id="tab2">
 				<h1>标题2</h1>
-				<nav><span>供需类型</span>  <span>时间</span></nav>
+				<nav><span>供需类型</span>  <span>时间</span>  <span>公司名称</span></nav>
 				<div>内容</div>
 			</div>
 			<div class="" id="tab3">
 				<h1>标题3</h1>
-				<nav><span>供需类型</span>  <span>时间</span></nav>
+				<nav><span>供需类型</span>  <span>时间</span>  <span>公司名称</span></nav>
 				<div>内容</div>
 			</div>
 			<div class="" id="tab4">
 				<h1>标题4</h1>
-				<nav><span>供需类型</span>  <span>时间</span></nav>
+				<nav><span>供需类型</span>  <span>时间</span>  <span>公司名称</span></nav>
 				<div>内容</div>
 			</div>
 			<div class="" id="tab5">
 				<h1>标题5</h1>
-				<nav><span>供需类型</span>  <span>时间</span></nav>
+				<nav><span>供需类型</span>  <span>时间</span>  <span>公司名称</span></nav>
 				<div>内容</div>
 			</div>
 	</div><!--con-->
-				
 	
-	<div class="footer">
-		<div class="page">
-            <ul>
-                <li>上一页</li>
-                <li>下一页</li>
-             </ul>
-         </div>
+<div class="page">
+                <button name="pre_page" type="submit">上一页</button>
+                <button name="next_page" type="submit">下一页</button>
+     </div>
+	
+	 <div class="footer">
      </div>
 		
 	</div>
