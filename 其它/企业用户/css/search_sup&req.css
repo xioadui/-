@@ -21,15 +21,13 @@ body {
 
 .menu{/*输入部分*/
 	
-position: absolute;
-margin-left: -200px;
-margin-top: -80px;
-top: 22%;
-left: 50%;
-display: block;
-z-index: 2000;
-
-    
+    position: absolute;
+    margin-left: -200px;
+    margin-top: -80px;
+    top: 22%;
+    left: 50%;
+    display: block;
+    z-index: 2000;   
 }
 
 
@@ -54,9 +52,6 @@ z-index: 2000;
     -webkit-border-radius: 0.2em;
     -moz-border-radius: 0.2em;
     -ms-border-radius: 0.2em;
-            
-            
-
 }
 
 
@@ -89,6 +84,33 @@ z-index: 2000;
 	font-family: 'Taco_Modern';
 }
 
+
+ 
+ 
+.page{/*翻页按钮*/
+    position: absolute;
+    margin-left: -200px;
+    margin-top: -80px;
+    top: 210%;
+    left: 50%;
+    display: block;
+    z-index: 2000;   
+}
+ .footer ul,li,div {
+        margin: 0;
+        padding: 0;
+}  
+ .footer ul,li { 
+  	list-style: none; 
+}
+ .footer li {
+        float: left;
+        margin-left: 5px;
+        padding: 0 8px;
+        border: 1px solid #999;
+        color: #000;
+        line-height: 24px;
+}
 
 
 
