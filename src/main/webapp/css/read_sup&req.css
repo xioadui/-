@@ -4,12 +4,11 @@ body {
 	font-size: 12px;
 }
 
-.header {
+/*.header {
 	width: 1550px;
 	height: 100px;
 	display: block;
 	background: url(../img/52.jpg)no-repeat;
-	background: url(/img/52.jpg)no-repeat;
 	background-size: cover;
 	overflow: hidden;
 	padding: 10px 50px;
@@ -39,9 +38,9 @@ body {
 }
 .guide ul li a:hover{
 	color: yellow;
-}
+}*/
 .all{
-	width: 1550px;
+	min-width: 1550px;
 	padding: 20px 100px;
 }
 .colunm1{
@@ -64,14 +63,14 @@ body {
 	font-family: "STXihei";
 	font-size: 30px;
 	color: lightskyblue;
-	display: none;
+	display:  block;
 }
 
 .basic{
 	width: 50%;
 	margin: auto;
 	text-align: center;
-	display: none;
+	display: block;
 }
 .basic span{
 	margin-right: 10px;
