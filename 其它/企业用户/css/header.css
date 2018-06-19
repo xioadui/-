@@ -1,0 +1,50 @@
+
+.header {
+	/*z-index: 2;
+	position:fixed;*/
+	min-width: 1550px;
+	min-height: 110px;
+	display: block;
+	background: url(../img/52.jpg)no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.guide {
+	width: 1400px;
+	float: left;
+	text-align: center;
+	list-style-type: none;
+	display: block;
+	margin-top: 40px;
+	margin-left:40px ;
+}
+
+.guide li {
+	width: 80px;
+	text-decoration: none;
+	float: left;
+	font-size: 1px;
+	font-family: "STXihei",华文细黑;
+	display: inline;
+}
+
+.guide li.hidden {
+	display: none;
+}
+
+.guide li a {
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+}
+.guide li a:hover{
+	color: yellow;
+}
+.guide span{
+	color: white;
+	text-decoration: none;
+	float: right;
+	font-size: 17px;
+	font-family: "STXihei",华文细黑;
+	display: inline;
+}

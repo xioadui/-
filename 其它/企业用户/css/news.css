@@ -1,0 +1,26 @@
+.news_content{
+	min-width: 1500px;
+	margin: 20px auto;
+	padding: 20px 60px;
+	color: darkgrey;
+}
+
+.news_content h1{
+	font-size: 40px;
+	text-align: center;
+}
+.news_content nav {
+	width: 300px;
+	margin: 15px auto;
+}
+.news_content nav span{
+	width: 200px;
+	font-size: 20px;
+	/*float: left;*/
+	margin: auto 20px;
+}
+
+.news_content div{
+	font-size: 20px;
+	
+}
