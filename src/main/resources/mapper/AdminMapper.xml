@@ -3,50 +3,149 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.enterprise.dao.IAdminDao">
-    <select id="_register" resultType="com.enterprise.entity.Enterprise">
+    <select id="_register_admin" resultType="com.enterprise.entity.Enterprise">
         SELECT *
         FROM register
-        limit #{index,jdbcType=LONG},#{length,jdbcType=INT};
+        limit #{index,jdbcType=INTEGER},#{length,jdbcType=INTEGER};
     </select>
-    <select id="_demand" resultType="com.enterprise.entity.Demand">
+    <select id="_demand_admin" resultType="com.enterprise.entity.Demand">
         SELECT *
         FROM demand_admin
         order by demandId asc
-        limit #{index,jdbcType=LONG},#{length,jdbcType=INT}
+        limit #{index,jdbcType=INTEGER},#{length,jdbcType=INTEGER}
+    </select>
+    <select id="_provide_admin" resultType="com.enterprise.entity.Provide">
+        SELECT *
+        FROM provide_admin
+        order by proId asc
+        limit #{index,jdbcType=INTEGER},#{length,jdbcType=INTEGER}
+    </select>
+    <select id="_register" resultType="com.enterprise.entity.Enterprise">
+        SELECT *
+        FROM enterpriseinf
+        limit #{index,jdbcType=INTEGER},#{length,jdbcType=INTEGER};
+    </select>
+    <select id="_demand" resultType="com.enterprise.entity.Demand">
+        SELECT *
+        FROM demand
+        order by demandId asc
+        limit #{index,jdbcType=INTEGER},#{length,jdbcType=INTEGER}
     </select>
     <select id="_provide" resultType="com.enterprise.entity.Provide">
         SELECT *
-        FROM provide_admin
-        order by provideId asc
-        limit #{index,jdbcType=LONG},#{length,jdbcType=INT}
+        FROM provide
+        order by proId asc
+        limit #{index,jdbcType=INTEGER},#{length,jdbcType=INTEGER}
     </select>
-
     <insert id="_agreeProvide">
         insert into provide
         select *
         from provide_admin
-        where proId=#{proId, jdbcType=INT};
+        where proId=#{proId, jdbcType=INTEGER};
+    </insert>
+
+    <delete id="_deleteProvide">
         delete
         from provide_admin
-        where proId=#{proId, jdbcType=INT};
-    </insert>
+        where proId=#{proId, jdbcType=INTEGER};
+    </delete>
+
+    <delete id="_deleteProvideAgree">
+        delete
+        from provide
+        where proId=#{proId, jdbcType=INTEGER};
+    </delete>
+
     <insert id="_agreeDemand">
         insert into demand
         select *
         from demand_admin
-        where demandId=#{demandId, jdbcType=INT};
+        where demandId=#{demandId, jdbcType=INTEGER};
+
+    </insert>
+
+    <delete id="_deleteDemand">
         delete
         from demand_admin
-        where demandId=#{demandId, jdbcType=INT};
-    </insert>
+        where demandId=#{demandId, jdbcType=INTEGER};
+    </delete>
+
+    <delete id="_deleteDemandAgree">
+        delete
+        from demand
+        where demandId=#{demandId, jdbcType=INTEGER};
+    </delete>
+
     <insert id="_agreeRegister">
         insert into enterpriseinf
         select *
         from register
         where entId=#{entId, jdbcType=VARCHAR};
+    </insert>
+
+    <delete id="_deleteRegister">
         delete
         from register
         where entId=#{entId, jdbcType=VARCHAR};
-    </insert>
+    </delete>
 
+    <delete id="_deleteEnt">
+        delete
+        from enterpriseinf
+        where entId=#{entId, jdbcType=VARCHAR};
+    </delete>
+
+    <select id="_registerSum" resultType="integer">
+        select COUNT(entId)
+        from register;
+    </select>
+
+    <select id="_demandSum" resultType="integer">
+        select COUNT(demandId)
+        from demand_admin;
+    </select>
+
+    <select id="_proSum" resultType="integer">
+        select COUNT(proId)
+        from provide_admin;
+    </select>
+
+    <select id="_entSum" resultType="integer">
+        select COUNT(entId)
+        from enterpriseinf;
+    </select>
+
+    <select id="_agreeDemandSum" resultType="integer">
+        select COUNT(demandId)
+        from demand;
+    </select>
+
+    <select id="_agreeProSum" resultType="integer">
+        select COUNT(proId)
+        from provide;
+    </select>
+
+    <select id="_demandContent" resultType="com.enterprise.entity.Demand">
+        SELECT *
+        FROM demand_admin
+        WHERE demandId = #{demandId, jdbcType=INTEGER}
+    </select>
+
+    <select id="_proContent" resultType="com.enterprise.entity.Provide">
+        SELECT *
+        FROM provide_admin
+        WHERE proId = #{proId, jdbcType=INTEGER}
+    </select>
+
+    <select id="_demandContentAgree" resultType="com.enterprise.entity.Demand">
+        SELECT *
+        FROM demand
+        WHERE demandId = #{demandId, jdbcType=INTEGER}
+    </select>
+
+    <select id="_proContentAgree" resultType="com.enterprise.entity.Provide">
+        SELECT *
+        FROM provide
+        WHERE proId = #{proId, jdbcType=INTEGER}
+    </select>
 </mapper>
