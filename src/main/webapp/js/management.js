@@ -65,10 +65,10 @@ function check_ent(entID) {//查看详细企业信息
 	//	alert(entID);
 	$.ajax({
 		type: "get",
-		url: "/user/check", //企业表(未审核企业表)
+		url: "/admin/registerContent", //企业表(未审核企业详细信息)
         dataType: "json",
 		data: {
-			entID: entID
+			entId: entID
 		},
 		async:false,
 		success: function(data) {
@@ -94,6 +94,46 @@ function check_ent(entID) {//查看详细企业信息
 			//			alert("异常！");
 		}
 	});
+}
+
+function check_ent_agree(entID) {//查看详细企业信息
+
+    console.log("查看详细企业信息");
+
+    //if($(".page div").hasClass("content")) {
+    $(".content").addClass("hidden");
+    $("#register_content").removeClass("hidden");
+    //		$("#register_content .box nav").remove();
+    //}
+    //	alert(entID);
+    $.ajax({
+        type: "get",
+        url: "/user/check", //企业表(已通过企业的详细信息)
+        dataType: "json",
+        data: {
+            entId: entID
+        },
+        async:false,
+        success: function(data) {
+            console.log(data);
+            $("#register_content .box").empty(); //清空展示效果的部分
+            $("#register_content .box").append('<nav><p class="entName"><b>企业名称: </b>' + data.entName + '</p>'+
+                '<p class="entID"><b>企业ID: </b>' + entID + '</p>'+
+                '<p class="entCategory"><b>企业类别：</b>' + data.entCategory + '</p>'+
+                '<p class="entDate"><b>注册时间：</b>' + data.entDate + '</p>'+
+                '<p class="entPerson"><b>企业法人：</b>' + data.entPerson + '</p>'+
+                '<p class="entSize"><b>企业规模：</b>' + data.entSize + '</p>'+
+                '<p class="entPhone"><b>联系电话：</b>' + data.entPhone + '</p>'+
+                '<p class="entWebsite"><b>企业官网：</b>' + data.entWebsize + '</p>'+
+                '<p class="entAddress"><b>地址：</b>' + data.entAddress + '</p>'+
+                '<p class="entBrief"><b>简介：</b>' + data.entBrief + '</p>'+
+                '<p class="entIntroduction"><b>详细介绍：</b>' + data.entIntroduction + '</p></nav>');
+        },
+        error: function(error) {
+            console.log(error);
+            //			alert("异常！");
+        }
+    });
 }
 
 function pass_ent(entID) {
@@ -161,10 +201,7 @@ function check_s_agree(ID) {//查看详细供应信息（已通过）
 				'<p><b>发布时间：</b>' + data.proDate + '</p>'+
 				'<p><b>企业邮箱:</b>' + data.entId + '</p>'+
 				'<p><b>摘要：</b>' + data.proDigest + '</p>'+
-				'<p><b>详细内容：</b>' + data.proContent + '</p>'+
-                '<textarea id="reason1" style="width: 100%;height: 100px;" placeholder="驳回请写明理由"></textarea>'+
-				'<button onclick="pass_s(' + data.proId + ')">通过</button>  '+
-				'<button onclick="reject_s(' + data.proId + ')">驳回</button></div>	');
+				'<p><b>详细内容：</b>' + data.proContent + '</p></div>	');
 		}
 	)
 }
@@ -220,10 +257,7 @@ function check_r_agree(ID) {//查看详细需求信息（已通过）
 				'<p><b>发布时间：</b>' + data.demandDate + '</p>'+
 				'<p><b>企业邮箱:</b>' + data.entId + '</p>'+
 				'<p><b>摘要：</b>' + data.demandDigest + '</p>'+
-				'<p><b>详细内容：</b>' + data.demandContent + '</p>	'+
-                '<textarea id="reason1" style="width: 100%;height: 100px;" placeholder="驳回请写明理由"></textarea>'+
-				'<button onclick="pass_r(' + data.demandId + ')">通过</button>  '+
-				'<button onclick="reject_r(' + data.demandId + ')">驳回</button></div>	');
+				'<p><b>详细内容：</b>' + data.demandContent + '</p></div>	');
 		}
 	)
 }
@@ -258,14 +292,14 @@ function check_r(ID) {//查看详细需求信息（未通过）
     )
 }
 
-function del_ent(ID) {
+/*function del_ent(ID) {
 	$.post('/admin/deleteEnt', {
-		entID: ID
+		entId: ID
 		//		提交删除的企业ID
 	},function (data) {
 		manage_ent();
     })
-}
+}*/
 
 function del_s(ID) {
 	$.post('/admin/deleteProvideAgree', {
@@ -372,7 +406,7 @@ function get_ent() {
 					'<span class="entName">' + data.ent[i].entName + '</span>'+
 					'<span class="entType">' + data.ent[i].entCategory + '</span>'+
 					'<span class="time">' + data.ent[i].entDate + '</span>'+
-					'<span style="float: right;margin-right: 10px;"><button onclick="check_ent(' + data.ent[i].entId + ')">查看</button></span></nav></li>');
+					'<span style="float: right;margin-right: 10px;"><button onclick="check_ent(\'' + data.ent[i].entId + '\')">查看</button></span></nav></li>');
 			}
 			$(".pre_ent").removeClass("hidden");
 			$(".next_ent").removeClass("hidden");
@@ -482,8 +516,7 @@ function manage_ent() {
 					'<span class="entName">' + data.ent[i].entName + '</span>'+
 					'<span class="entType">' + data.ent[i].entCategory + '</span>'+
 					'<span class="time">' + data.ent[i].entDate + '</span>'+
-					'<span style="float: right;margin-right: 10px;"><button onclick="del_ent(' + data.ent[i].entId + ')">删除</button></span>'+
-					'<span style="float: right;margin-right: 10px;"><button onclick="check_ent(' + data.ent[i].entId + ')">查看</button></span></nav></li>');
+					'<span style="float: right;margin-right: 10px;"><button onclick="check_ent_agree(\'' + data.ent[i].entId + '\')">查看</button></span></nav></li>');
 			}
 			$(".pre_e").removeClass("hidden");
 			$(".next_e").removeClass("hidden");
