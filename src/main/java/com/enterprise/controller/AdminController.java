@@ -367,6 +367,12 @@ public class AdminController {
         return resultMap;
     }
 
+    @RequestMapping(value="/registerContent")
+    @ResponseBody
+    public Enterprise registerContent(@RequestParam("entId") String entId){
+        Enterprise enterprise = adminService._registerContent(entId);
+        return enterprise;
+    }
 
     @RequestMapping(value="/demandContent")
     @ResponseBody
