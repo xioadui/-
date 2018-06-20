@@ -125,6 +125,12 @@
         from provide;
     </select>
 
+    <select id="_registerContent" resultType="com.enterprise.entity.Enterprise">
+        SELECT *
+        FROM register
+        WHERE entId = #{entId, jdbcType=VARCHAR}
+    </select>
+
     <select id="_demandContent" resultType="com.enterprise.entity.Demand">
         SELECT *
         FROM demand_admin
