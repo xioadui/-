@@ -32,6 +32,7 @@ public interface IAdminService {
     int _entSum();
     int _agreeDemandSum();
     int _agreeProSum();
+    Enterprise _registerContent(String entId);
     Demand _demandContent(int demandId);
     Provide _proContent(int proId);
     Demand _demandContentAgree(int demandId);
