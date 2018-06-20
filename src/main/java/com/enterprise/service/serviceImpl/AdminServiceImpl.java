@@ -134,6 +134,11 @@ public class AdminServiceImpl implements IAdminService {
     }
 
     @Override
+    public Enterprise _registerContent(String entId) {
+        return adminDao._registerContent(entId);
+    }
+
+    @Override
     public Demand _demandContent(int demandId) {
         return adminDao._demandContent(demandId);
     }
