@@ -30,6 +30,7 @@ public interface IAdminDao {
     int _entSum();
     int _agreeDemandSum();
     int _agreeProSum();
+    Enterprise _registerContent(@Param("entId")String entId);
     Demand _demandContent(@Param("demandId") int demandId);
     Provide _proContent(@Param("proId") int proId);
     Demand _demandContentAgree(@Param("demandId") int demandId);
