@@ -46,7 +46,7 @@ public class IndustryDataController {
      */
     @ResponseBody
     @RequestMapping(value = "/queryByTitle")
-    public Map<String, Object> queryByTitle(String title,long index,int length){
+    public Map<String, Object> queryByTitle(String title, long index, int length){
         title = "%"+title +"%";
         List<IndustryData> infList = industryDataService.queryByTitle(title,index,length);
         Map<String, Object> resultMap = new HashMap<>();
@@ -63,7 +63,7 @@ public class IndustryDataController {
      */
     @ResponseBody
     @RequestMapping(value = "/searchIndustryData")
-    public Map<String, Object> searchIndustryData(@RequestParam("condition") String condition,long index,int length) {
+    public Map<String, Object> searchIndustryData(@RequestParam("condition") String condition, long index, int length) {
         Map<String, Object> resultMap = new HashMap<>();
 //        进行like查询
         condition = "%"+condition+"%";

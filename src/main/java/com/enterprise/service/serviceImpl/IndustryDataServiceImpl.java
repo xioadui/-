@@ -19,7 +19,7 @@ public class IndustryDataServiceImpl implements IIndustryDataService {
     }
 //  通过标题来查询数据
     @Override
-    public List<IndustryData> queryByTitle(String title,long index,int length) {
+    public List<IndustryData> queryByTitle(String title, long index, int length) {
         return industryDataDao.queryByTitle(title,index,length);
     }
 

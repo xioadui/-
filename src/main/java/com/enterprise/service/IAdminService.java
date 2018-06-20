@@ -11,12 +11,12 @@ import java.util.List;
  * 管理员
  */
 public interface IAdminService {
-    List<Enterprise> _register_admin(@Param("index") long index, @Param("length")int length);
-    List<Demand> _demand_admin(@Param("index")long index, @Param("length")int length);
-    List<Provide> _provide_admin(@Param("index")long index, @Param("length")int length);
-    List<Enterprise> _register(long index,int length);
-    List<Demand> _demand(long index,int length);
-    List<Provide> _provide(long index,int length);
+    List<Enterprise> _register_admin(@Param("index") long index, @Param("length") int length);
+    List<Demand> _demand_admin(@Param("index") long index, @Param("length") int length);
+    List<Provide> _provide_admin(@Param("index") long index, @Param("length") int length);
+    List<Enterprise> _register(long index, int length);
+    List<Demand> _demand(long index, int length);
+    List<Provide> _provide(long index, int length);
     String _agreeRegister(String entId);
     String _agreeDemand(int demandId);
     String _agreeProvide(int proId);

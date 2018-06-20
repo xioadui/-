@@ -21,7 +21,7 @@
     <select id="queryByTitle" resultType="com.enterprise.entity.IndustryData">
       SELECT type,title, date, content, digest
         FROM industrydata
-        where title like #{title,jdbcType=VARCHAR};
+        where title like #{title,jdbcType=VARCHAR}
         order by date asc
         limit #{index},#{length};
     </select>

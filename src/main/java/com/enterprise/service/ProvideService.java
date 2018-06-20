@@ -1,19 +1,18 @@
 package com.enterprise.service;
 
 import com.enterprise.entity.Provide;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface ProvideService {
     //获取所有供应
-    List<Provide> getAllPro(long index,int length);
+    List<Provide> getAllPro(long index, int length);
 
     //根据供应类型获取供应
-    List<Provide> getProByType(String proType,long index,int length);
+    List<Provide> getProByType(String proType, long index, int length);
 
     //根据企业Id获取供应
-    List<Provide> getProByEntId(String entId,long index,int length);
+    List<Provide> getProByEntId(String entId, long index, int length);
 
     /**
      * 对供应进行模糊查询
@@ -22,7 +21,7 @@ public interface ProvideService {
      * @param length 长度
      * @return 返回查询得到的结果集
      */
-    List<Provide> searchPro(String condition,long index,int length);
+    List<Provide> searchPro(String condition, long index, int length);
 
     /**
      * 发布供应
@@ -39,7 +38,7 @@ public interface ProvideService {
      * @return
      */
     //删除供应，这里还需要提供企业ID
-    String deleteByproId(int proId,String entId);
+    String deleteByproId(int proId, String entId);
 
     //管理员允许供应
 

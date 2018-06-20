@@ -15,17 +15,17 @@ public class DemandServiceImpl implements DemandService {
     IDemandDao iDemandDao;
 
     @Override
-    public List<Demand> getAllDemand(long index,int length) {
+    public List<Demand> getAllDemand(long index, int length) {
         return iDemandDao.getAllDemand(index, length);
     }
 
     @Override
-    public List<Demand> getDemandByType(String demandType,long index,int length) {
+    public List<Demand> getDemandByType(String demandType, long index, int length) {
         return iDemandDao.getDemandByType(demandType,index,length);
     }
 
     @Override
-    public List<Demand> getDemandByEntId(String entId,long index,int length) {
+    public List<Demand> getDemandByEntId(String entId, long index, int length) {
         return iDemandDao.getDemandByEntId(entId,index,length);
     }
 
@@ -42,7 +42,7 @@ public class DemandServiceImpl implements DemandService {
      * @return
      */
     @Override
-    public String deleteByDemandId(String demandId,String entId) {
+    public String deleteByDemandId(String demandId, String entId) {
         iDemandDao.deleteByDemandId(demandId,entId);
         return "success";
     }
@@ -53,7 +53,7 @@ public class DemandServiceImpl implements DemandService {
      * @return
      */
     @Override
-    public List<Demand> searchDemand(String condition,long index,int length) {
+    public List<Demand> searchDemand(String condition, long index, int length) {
         return iDemandDao.searchDemand(condition,index,length);
     }
 }

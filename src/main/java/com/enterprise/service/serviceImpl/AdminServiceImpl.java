@@ -5,7 +5,6 @@ import com.enterprise.entity.Demand;
 import com.enterprise.entity.Enterprise;
 import com.enterprise.entity.Provide;
 import com.enterprise.service.IAdminService;
-import org.junit.Test;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

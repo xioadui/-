@@ -27,7 +27,7 @@ public class DemandController {
     @RequestMapping(value = "/allDemand")
     @ResponseBody
     public Map<String, List<Map<String, String>>> getAllDemand(@RequestParam("index")long index,
-                                                                @RequestParam("length")int length){
+                                                               @RequestParam("length")int length){
         Map<String, List<Map<String, String>>> resultMap = new HashMap<>();
         List<Demand> demandList = demandService.getAllDemand(index, length);
         resultMap.put("demand", this.demandUtils(demandList));
@@ -92,10 +92,10 @@ public class DemandController {
      * @return 查询得到的结果集
      */
     @ResponseBody
-    @RequestMapping(value = "/search")
+    @RequestMapping(value = "search")
     public Map<String, List<Map<String, String>>> searchDemand(@RequestParam("condition") String condition,
-                                                    @RequestParam("index")long index,
-                                                    @RequestParam("length")int length){
+                                                               @RequestParam("index")long index,
+                                                               @RequestParam("length")int length){
         Map<String, List<Map<String, String>>> resultMap = new HashMap<>();
 
         condition = "%"+condition+"%";
@@ -112,8 +112,8 @@ public class DemandController {
      * @return 删除操作是否成功，success
      */
     @ResponseBody
-    @RequestMapping(value = "/delete")
-    public String delete(HttpSession session,@RequestParam("demandId") String demandId){
+    @RequestMapping(value = "delete")
+    public String delete(HttpSession session, @RequestParam("demandId") String demandId){
         String entId = (String)session.getAttribute("entId");
         return demandService.deleteByDemandId(demandId,entId);
     }

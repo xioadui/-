@@ -4,11 +4,11 @@ import com.enterprise.entity.Demand;
 import com.enterprise.entity.Enterprise;
 import com.enterprise.entity.Provide;
 import com.enterprise.service.serviceImpl.AdminServiceImpl;
-import org.junit.Test;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,7 +65,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/demand_admin")
     @ResponseBody
-    public Map<Object,Object> demand_admin(@RequestParam("index")long index,@RequestParam("length") int length){
+    public Map<Object,Object> demand_admin(@RequestParam("index")long index, @RequestParam("length") int length){
         resultMap = new HashMap<>();
         List<Object> demands = new ArrayList<>();
         List<Demand> demandList = adminService._demand_admin(index, length);
@@ -93,7 +93,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/provide_admin")
     @ResponseBody
-    public Map<Object,Object> provide_admin(@RequestParam("index")long index,@RequestParam("length") int length){
+    public Map<Object,Object> provide_admin(@RequestParam("index")long index, @RequestParam("length") int length){
         resultMap = new HashMap<>();
         List<Object> pros = new ArrayList<>();
         List<Provide> proList = adminService._provide_admin(index, length);
@@ -154,7 +154,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/demand")
     @ResponseBody
-    public Map<Object,Object> demand(@RequestParam("index")long index,@RequestParam("length") int length){
+    public Map<Object,Object> demand(@RequestParam("index")long index, @RequestParam("length") int length){
         resultMap = new HashMap<>();
         List<Object> demands = new ArrayList<>();
         List<Demand> demandList = adminService._demand(index, length);
@@ -182,7 +182,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/provide")
     @ResponseBody
-    public Map<Object,Object> provide(@RequestParam("index")long index,@RequestParam("length") int length){
+    public Map<Object,Object> provide(@RequestParam("index")long index, @RequestParam("length") int length){
         resultMap = new HashMap<>();
         List<Object> pros = new ArrayList<>();
         List<Provide> proList = adminService._provide(index, length);
