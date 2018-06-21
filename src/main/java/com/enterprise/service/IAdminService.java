@@ -37,11 +37,4 @@ public interface IAdminService {
     Provide _proContent(int proId);
     Demand _demandContentAgree(int demandId);
     Provide _proContentAgree(int proId);
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-=======
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-}
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
