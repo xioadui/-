@@ -13,11 +13,19 @@ public interface IInformationService {
     List<Information> queryByTitle(String title,long index,int length);
     //    通过资讯的时间查询
 <<<<<<< HEAD
+<<<<<<< HEAD
     List<Information> queryByDate(String date,long index,int length);
 
     List<Information> queryByType(String type,long index,int length);
 
     List<Information> searchInformation(String condition,long index,int length);
+=======
+    public List<Information> queryByDate(String date, long index, int length);
+
+    public List<Information> queryByType(String type, long index, int length);
+
+    public List<Information> searchInformation(String condition, long index, int length);
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 =======
     public List<Information> queryByDate(String date, long index, int length);
 

@@ -55,7 +55,11 @@ public class IndustryDataController {
     @ResponseBody
     @RequestMapping(value = "/queryByTitle")
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Map<String, Object> queryByTitle(@RequestParam("condition")String title,long index,int length){
+=======
+    public Map<String, Object> queryByTitle(String title, long index, int length){
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 =======
     public Map<String, Object> queryByTitle(String title, long index, int length){
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10

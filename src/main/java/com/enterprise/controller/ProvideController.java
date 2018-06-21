@@ -105,9 +105,13 @@ public class ProvideController {
      * @return 返回操作是否成功
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     @RequestMapping(value="/deletePro")
     @ResponseBody
     public String deletePro(HttpSession session,@RequestParam("proId") int proId){
+=======
+    public String deletePro(HttpSession session, @RequestParam("proId") int proId){
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 =======
     public String deletePro(HttpSession session, @RequestParam("proId") int proId){
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10

@@ -110,6 +110,7 @@
         from provide_admin;
     </select>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     <select id="_entSum" resultType="integer">
         select COUNT(entId)
@@ -161,6 +162,9 @@
 
 =======
 
+=======
+
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     <select id="_entSum" resultType="integer">
         select COUNT(entId)
         from enterpriseinf;
@@ -205,5 +209,9 @@
         FROM provide
         WHERE proId = #{proId, jdbcType=INTEGER}
     </select>
+<<<<<<< HEAD
+</mapper>
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
+=======
 </mapper>
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10

@@ -108,12 +108,15 @@ public class DemandController {
      */
     @ResponseBody
 <<<<<<< HEAD
+<<<<<<< HEAD
     @RequestMapping(value = "/search")
     public Map<String, Object> searchDemand(@RequestParam("condition") String condition,
                                                     @RequestParam("index")long index,
                                                     @RequestParam("length")int length){
         Map<String, Object> resultMap = new HashMap<>();
 =======
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     @RequestMapping(value = "search")
     public Map<String, List<Map<String, String>>> searchDemand(@RequestParam("condition") String condition,
                                                                @RequestParam("index")long index,

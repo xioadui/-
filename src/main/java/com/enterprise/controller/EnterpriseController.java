@@ -24,6 +24,7 @@ public class EnterpriseController {
     private EnterpriseServiceImpl enterpriseService;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * 登录
      * @param entId 用户的ID
@@ -33,14 +34,19 @@ public class EnterpriseController {
      */
 =======
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     @RequestMapping(value="/login")
     @ResponseBody
     public Map<Object, Object> login(@RequestParam("entId") String entId, @RequestParam("entPassword") String entPassword, HttpServletRequest httpServletRequest){
         if(entId.equals("admin") && entPassword.equals("admin")){
             resultMap.put("login","admin");
 <<<<<<< HEAD
+<<<<<<< HEAD
             HttpSession session = httpServletRequest.getSession();
             session.setAttribute("entId", entId);
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 =======
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
             return resultMap;

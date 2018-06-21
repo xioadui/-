@@ -14,8 +14,11 @@ public interface IProvideDao {
      */
     //获取所有供应
 <<<<<<< HEAD
+<<<<<<< HEAD
     List<Provide> getAllPro(@Param("index") long index,@Param("length") int length);
 =======
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     List<Provide> getAllPro(@Param("index") long index, @Param("length") int length);
 
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
@@ -27,8 +30,11 @@ public interface IProvideDao {
      * @return 返回查询得到的结果集
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     List<Provide> getProByType(@Param("proType") String proType,@Param("index") long index,@Param("length") int length);
 =======
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     List<Provide> getProByType(@Param("proType") String proType, @Param("index") long index, @Param("length") int length);
 
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
@@ -40,8 +46,11 @@ public interface IProvideDao {
      * @return 查询得到的结果集
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     List<Provide> getProByEntId(@Param("entId") String entId,@Param("index") long index,@Param("length") int length);
 =======
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     List<Provide> getProByEntId(@Param("entId") String entId, @Param("index") long index, @Param("length") int length);
 
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
@@ -53,8 +62,11 @@ public interface IProvideDao {
      * @return 结果集
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     List<Provide> searchPro(@Param("condition") String condition,@Param("index") long index,@Param("length") int length);
 =======
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     List<Provide> searchPro(@Param("condition") String condition, @Param("index") long index, @Param("length") int length);
 
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
@@ -69,8 +81,11 @@ public interface IProvideDao {
      * @param entId 进行该删除操作的用户ID
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     void deleteByproId(@Param("proId") int proId,@Param("entId")String entId);
 =======
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     void deleteByproId(@Param("proId") int proId, @Param("entId") String entId);
 
     //管理员允许供应

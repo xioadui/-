@@ -1,5 +1,6 @@
 body{
 <<<<<<< HEAD
+<<<<<<< HEAD
     background: rgb(255, 255, 255);
 }
 .all{
@@ -66,6 +67,8 @@ body{
     margin: auto 20px;
     border: 1px solid lightsteelblue;
 =======
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 	background: rgb(255, 255, 255);
 }
 .all{
@@ -131,11 +134,15 @@ body{
 	overflow: hidden;
 	margin: auto 20px;
 	border: 1px solid lightsteelblue;
+<<<<<<< HEAD
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
+=======
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     border-radius: 3px;
     box-shadow: 0 0 10px lightsteelblue;
 }
 .control ul{
+<<<<<<< HEAD
 <<<<<<< HEAD
     list-style-type: none;
     display: block;
@@ -205,6 +212,8 @@ body{
 .notice{
     display: block;
 =======
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 	list-style-type: none;
 	display: block;
 	/*background: red;*/
@@ -272,6 +281,9 @@ body{
 }
 .notice{
 	display: block;
+<<<<<<< HEAD
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
+=======
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     /*position: absolute;*/
     width: 30px;
@@ -288,9 +300,15 @@ body{
 }
 .box{
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 90%;
     height: 80%;
     border: 1px solid lightsteelblue;
+=======
+	width: 90%;
+	height: 80%;
+	border: 1px solid lightsteelblue;
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 =======
 	width: 90%;
 	height: 80%;
@@ -304,7 +322,11 @@ body{
 }
 .box-header {
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 50px;
+=======
+    height: 50px; 
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 =======
     height: 50px; 
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
@@ -319,6 +341,7 @@ body{
     background: aliceblue;
 }
 .box-content{
+<<<<<<< HEAD
 <<<<<<< HEAD
     width: 100%;
     height: 100%;
@@ -357,6 +380,8 @@ iframe{
     border:0;
 }
 =======
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 	width: 100%;
 	height: 100%;
 	padding: 20px;
@@ -393,4 +418,7 @@ iframe{
 	height: 100%;
 	border:0;
 }
+<<<<<<< HEAD
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
+=======
 >>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
