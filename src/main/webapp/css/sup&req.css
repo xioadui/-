@@ -1,12 +1,7 @@
 body {
 	color: #333;
-	padding: 0px;
 	font-size: 12px;
 	font-family: Arial, Helvetica, sans-serif;
-	-o-border-radius: 0.2em;
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    -ms-border-radius: 0.2em;
 }
 
 .form {/*整个发布窗口属性*/
@@ -107,12 +102,3 @@ textarea.required {
     -ms-border-radius: 0.2em;
 }
 
-legend {
-	color: #FFFFFF;
-	background-color: rgb(208,233,255);
-	padding: 2px 5px 2px 5px;
-	-o-border-radius: 0.2em;
-    -webkit-border-radius: 0.2em;
-    -moz-border-radius: 0.2em;
-    -ms-border-radius: 0.2em;
-}

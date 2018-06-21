@@ -1,0 +1,668 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html" />
+    <title>后台管理系统</title>
+    <link href="/css/management.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+<div class="all">
+    <div class="guide">
+        <div>
+            <ul class="h">
+                <li id="home" class="">
+                    <a href="/index.html?userId=admin">主页</a>
+                </li>
+                <li id="news" class="">
+                    <a href="search_news.html">资讯</a>
+                </li>
+                <li id="data" style="margin-left: 10px;" class="">
+                    <a href="search_data.html">行业数据</a>
+                </li>
+                <li id="findsr" style="margin-left: 20px;" class="">
+                    <a href="search_sup&req.html">浏览供需</a>
+                </li>
+                <li id="sr" style="margin-left: 20px;" class="">
+                    <a href="sup&req.html">发布供需</a>
+                </li>
+                <li id="partner" style="margin-left: 20px;" class="">
+                    <a href="find_partner.html">合作伙伴</a>
+                </li>
+                <span class="">Admin，欢迎您！</span>
+            </ul>
+        </div>
+    </div><!--guide-->
+
+    <div class="page">
+        <div class="control">
+            <ul>
+                <li onclick="get_ent()">审核注册</li>
+                <li onclick="get_support()">审核供应</li>
+                <li onclick="get_require()">审核需求</li>
+                <li onclick="manage_ent()">管理企业</li>
+                <li onclick="manage_support()">管理供应</li>
+                <li onclick="manage_require()">管理需求</li>
+            </ul>
+        </div><!--control-->
+
+        <div class="content " id="default">
+            <div class="row" id="hint">
+                <a class="hint" >
+                    <div>待申请注册</div>
+                    <span class="notice"></span>
+                </a>
+                <a class="hint">
+                    <div>待审核供需</div>
+                    <span class="notice"></span>
+                </a>
+                <a class="hint">
+                    <div>已注册企业</div>
+                    <span class="notice"></span>
+                </a>
+                <a class="hint">
+                    <div>已发布供需</div>
+                    <span class="notice"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="content hidden" id="check_register">
+            <div class="box " id="register_list">
+                <div class="box-header">待审核企业列表</div>
+                <div class="box-content">
+                    <ul id="r_l">
+                        <li>
+                            <nav>
+                                <span name="entID">207865228384@163.com</span>
+                                <span class="entName">东莞市坚华机械有限公司</span>
+                                <span class="entType">机械电子</span>
+                                <span class="time">2018-06-04</span>
+                                <span style="float: right;"><button onclick="check_ent('207865228384@163.com')">查看</button></span>
+                            </nav>
+                        </li>
+                        <li>
+                            <nav>
+                                <span name="entID">207865228004@163.com</span>
+                                <span class="entName">东莞市坚华机械有限公司</span>
+                                <span class="entType">机械电子</span>
+                                <span class="time">2018-06-04</span>
+                                <span style="float: right;"><button onclick="check_ent('207865220084@163.com')">查看</button></span>
+                            </nav>
+                        </li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                    </ul>
+
+                    <button  onclick="next_ent()" style="border:none;background: aliceblue;	float: right;margin: 10px 40px;" class="next_ent" >下一页</button>
+                    <button  onclick="pre_ent()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;" class="pre_ent" >上一页</button>
+                </div>
+            </div>
+        </div>
+        <!--check_register-->
+
+
+
+        <div class="content hidden" id="check_s">
+            <div class="box " id="s_list">
+                <div class="box-header">待审核供应信息列表</div>
+                <div class="box-content">
+                    <ul id="support">
+                        <li>
+                            <nav>
+                                <span class="ID">330029</span>
+                                <span class="title">二筒浆烫定型机 精密定型机</span>
+                                <!--标题需定长-->
+                                <span class="entType">机械电子</span>
+                                <span class="time">2018-06-04</span>
+                                <span style="float: right;"><button onclick="check_s(330029)">查看</button></span>
+                            </nav>
+                        </li>
+                        <li>
+                            <nav>
+                                <span class="ID">330079</span>
+                                <span class="title">KW-710A 精密二筒浆烫定型机 </span>
+                                <!--标题需定长-->
+                                <span class="entType">机械电子</span>
+                                <span class="time">2018-06-04</span>
+                                <span style="float: right;"><button onclick="check_s(330079)">查看</button></span>
+                            </nav>
+                        </li>
+                        <li>wwwwww1</li>
+                        <li>wwwwww2</li>
+                        <li>wwwwww3</li>
+
+                    </ul>
+                    <button  onclick="next_support()" style="border:none;background: aliceblue;float: right;margin: 10px 40px;bottom: 0;" class="next_support" >下一页</button>
+                    <button  onclick="pre_support()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;bottom: 0px;" class="pre_support" >上一页</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content hidden" id="check_r">
+            <div class="box " id="r_list">
+                <div class="box-header">待审核需求信息列表</div>
+                <div class="box-content">
+                    <ul id="request">
+                        <li>
+                            <nav>
+                                <span class="ID">330029</span>
+                                <span class="title"> 精密定型机</span>
+                                <!--标题需定长-->
+                                <span class="entType">机械电子</span>
+                                <span class="time">2018-06-04</span>
+                                <span style="float: right;"><button onclick="check_r(330029)">查看</button></span>
+                            </nav>
+                        </li>
+                        <li>
+                            <nav>
+                                <span class="ID">330079</span>
+                                <span class="title">KW-710A 精密二筒浆烫定型机 </span>
+                                <!--标题需定长-->
+                                <span class="entType">机械电子</span>
+                                <span class="time">2018-06-04</span>
+                                <span style="float: right;"><button onclick="check_r(330079)">查看</button></span>
+                            </nav>
+                        </li>
+                        <li>wwwwww9</li>
+                        <li>wwwwww10</li>
+                        <li>wwwwww11</li>
+                        <li>wwwwww12</li>
+                        <button  onclick="next_require()" style="border:none;background: aliceblue;float: right;margin: 10px 40px;bottom: 0;" class="next_require" >下一页</button>
+                        <button  onclick="pre_require()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;bottom: 0px;" class="pre_require" >上一页</button>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content hidden" id="allEnt">
+            <div class="box">
+                <div class="box-header">已注册企业列表</div>
+                <div class="box-content">
+                    <ul id="ent">
+                        <li>
+                            <nav>
+                                <span class="entID">207865228384@163.com</span>
+                                <span class="entName">东莞市坚华机械有限公司</span>
+                                <span class="entType">机械电子</span>
+                                <span class="time">2018-06-04</span>
+                                <span style="float: right;"><button onclick="del('207865228384@163.com')">删除</button></span>
+                                <span style="float: right;"><button onclick="check_ent('207865228384@163.com')">查看</button></span>
+                            </nav>
+                        </li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <button  onclick="next_e()" style="border:none;background: aliceblue;float: right;margin: 10px 40px;bottom: 0;" class="next_e" >下一页</button>
+                        <button  onclick="pre_e()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;bottom: 0px;" class="pre_e" >上一页</button>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content hidden" id="allS">
+            <div class="box">
+                <div class="box-header">已发布供应列表</div>
+                <div class="box-content">
+                    <ul id="as">
+                        <li>
+                            <nav>
+                                <span class="ID">330029</span>
+                                <span class="title">二筒浆烫定型机 精密定型机</span>
+                                <!--标题需定长-->
+                                <span class="entType">机械电子</span>
+                                <span class="time">2018-06-04</span>
+                                <span style="float: right;"><button onclick="del(330029)">删除</button></span>
+                                <span style="float: right;"><button onclick="check_s(330079)">查看</button></span>
+                            </nav>
+                        </li>
+                        <li>
+                            <nav>
+                                <span class="ID">330079</span>
+                                <span class="title">KW-710A 精密二筒浆烫定型机 </span>
+                                <!--标题需定长-->
+                                <span class="entType">机械电子</span>
+                                <span class="time">2018-06-04</span>
+                                <span style="float: right;"><button onclick="del(330079)">删除</button></span>
+                                <span style="float: right;"><button onclick="check_s(330079)">查看</button></span>
+                            </nav>
+                        </li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <button  onclick="next_su()" style="border:none;background: aliceblue;float: right;margin: 10px 40px;bottom: 0;" class="next_su" >下一页</button>
+                        <button  onclick="pre_su()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;bottom: 0px;" class="pre_su" >上一页</button>
+                    </ul>
+                </div><!--box-content-->
+            </div><!--box-->
+        </div><!--allSR-->
+
+        <div class="content hidden" id="allR">
+            <div class="box">
+                <div class="box-header">已发布需求列表</div>
+                <div class="box-content">
+                    <ul id="ar">
+                        <li>
+                            <nav>
+                                <span class="ID">330029</span>
+                                <span class="title">二筒浆烫定型机 精密定型机</span>
+                                <!--标题需定长-->
+                                <span class="entType">机械电子</span>
+                                <span class="time">2018-06-04</span>
+                                <span style="float: right;"><button onclick="del(330079)">删除</button></span>
+                                <span style="float: right;"><button onclick="check_r(330079)">查看</button></span>
+                            </nav>
+                        </li>
+                        <li>
+                            <nav>
+                                <span class="ID">330079</span>
+                                <span class="title">KW-710A 精密二筒浆烫定型机 </span>
+                                <!--标题需定长-->
+                                <span class="entType">机械电子</span>
+                                <span class="time">2018-06-04</span>
+                                <span style="float: right;"><button onclick="del(330079)">删除</button></span>
+                                <span style="float: right;"><button onclick="check_r(330079)">查看</button></span>
+                            </nav>
+                        </li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <li>wwwwww</li>
+                        <button  onclick="next_re()" style="border:none;background: aliceblue;float: right;margin: 10px 40px;bottom: 0;" class="next_re" >下一页</button>
+                        <button  onclick="pre_re()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;bottom: 0px;" class="pre_re" >上一页</button>
+                    </ul>
+                </div><!--box-content-->
+            </div><!--box-->
+        </div><!--allR-->
+
+        <div class="content hidden" id="register_content">
+            <div class="box">
+                <nav>
+                    <p class="entName"><b>企业名称: </b>东莞市坚华机械有限公司</p>
+                    <p class="entID"><b>企业ID: </b>207865228384@163.com</p>
+                    <p class="entCategory"><b>企业类别：</b>机械电子</p>
+                    <p class="entDate"><b>注册时间：</b>2018-06-04</p>
+                    <p class="entPerson"><b>企业法人：</b>李大明 </p>
+                    <p class="entSize"><b>企业规模：</b>101 - 200人</p>
+                    <p class="entPhone"><b>联系电话：</b>0769-89779433 </p>
+                    <p class="entWebsite"><b>企业官网：</b>http://gdjianhua.1688.com</p>
+                    <p class="entAddress"><b>地址：</b>中国 广东 东莞 东莞市 沙田镇义沙村三排尾83号坚华机械</span></p>
+                    <p class="entBrief"><b>简介：</b>坚华是一家专业研发生产织带染色机设备的公司，始成立于2005年，致力于开发国内内外地市场以及国外市场，服务广大织带染色客户群，公司携生产经验与技术力量超10余年长期致力于研发生产，在纺织工业生产基地珠三角中心——东莞市，2005年9月，东莞市坚华机械有限公司正式成立。</p>
+                    <p class="entIntroduction"><b>详细介绍：</b>坚华是一家专业研发生产织带染色机设备的公司，始成立于2005年，致力于开发国内内外地市场以及国外市场，服务广大织带染色客户群，公司携生产经验与技术力量超10余年长期致力于研发生产，在纺织工业生产基地珠三角中心——东莞市，2005年9月，东莞市坚华机械有限公司正式成立。 2011年，坚华公司成功与丝网印刷机械领域发展快速企业东莞多普森机械科技有限公司（原领先科技）联合发展，共同进步，公司东莞多普森机械科技有限公司以研发生产全自动商标织带印刷机械。印刷机同热样销国内外各地。联合发展一起为客户群体研发制造织带染色印刷后处理设备。 坚华公司自成立以来，致力于研发生产的织带染色机械，染色机械以高效、节能、稳定、经济赢得了客户的赞赏和 广泛使用，产品畅销国内外，染色设备已供应给国内外大多数织带的生产染色厂家，公司在高温常温高速连续染色机方面的研发技术，已经成为的连续式高常温织带染色机设备的专业生产厂家。 另外还配有良好的售后服务：免费保养一年，一年后终身服务。 “东莞市坚华有限公司”将继续采用现代化质量管理体系模式，严格的生产流程管理以及品检技术，坚持与多普森专业化、产业化、努力研发制造织带后处理染色印刷优质设备一条龙服务专业公司发展。我们的客户观是：为客户创造价值是我们生存的理由 ...... 真诚希望能与广大纺织产业携手共进，共创美好明天！！！
+                    </p>
+                    <textarea id="reason" style="width: 100%;height: 100px;" placeholder="驳回请写明理由"></textarea>
+
+                    <button onclick="pass_ent('207865228384@163.com')">通过</button>
+                    <button onclick="reject_ent('207865228384@163.com')">驳回</button>
+                </nav>
+            </div>
+        </div>
+
+        <div class="content hidden" id="sr_content">
+            <div class="box">
+                <p><b>标题：</b>二筒浆烫定型机 精密定型机</p>
+                <p><b>ID:</b>330029</p>
+                <p><b>供/需：</b>供应</p>
+                <p><b>发布类型：</b>机械电子</p>
+                <p><b>发布时间：</b>2018-06-04</p>
+                <p><b>企业邮箱:</b>234567899@163.com</p>
+                <p><b>摘要：</b>供应</p>
+                <p><b>详细内容：</b>品牌：东莞坚华 型号：KW-710A 类型：浆烫定型机 加工定制：是 幅宽：定制mm 速度：面议m/min 温度：正常℃ 功率：详情面议 电源电压：正常V 外形尺寸：定制mm 用途：二筒浆烫定型机 种类：染色机及装置 品牌：坚华 产地：东莞 质量：保证
+                </p>
+                <textarea id="reason1" style="width: 100%;height: 100px;" placeholder="驳回请写明理由"></textarea>
+                <button onclick="pass_s('330029')">通过</button>
+                <button onclick="reject_s('330029')">驳回</button>
+            </div>
+        </div>
+    </div><!--page-->
+</div><!--all-->
+</body>
+<script src="/js/management.js"></script>
+=======
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="text/html" />
+		<title>management</title>
+		<link href="/css/management.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+	</head>
+
+	<body>
+		<div class="all">
+			<div class="guide">
+				<div>
+				<ul class="h">
+					<li id="home" class="">
+						<a href="/index.html?userId=admin">主页</a>
+					</li>
+					<li id="news" class="">
+						<a href="news.html">资讯</a>
+					</li>
+					<li id="data" style="margin-left: 10px;" class="">
+						<a href="/industry_data.html">行业数据</a>
+					</li>
+					<li id="findsr" style="margin-left: 20px;" class="">
+						<a href="search_sup&req.html">浏览供需</a>
+					</li>
+					<li id="sr" style="margin-left: 20px;" class="">
+						<a href="sup&req.html">发布供需</a>
+					</li>
+					<li id="partner" style="margin-left: 20px;" class="">
+						<a href="find_partner.html">合作伙伴</a>
+					</li>
+					<span class="">Admin，欢迎您！</span>
+				</ul>
+			</div>
+			</div><!--guide-->
+			
+			<div class="page">
+				<div class="control">
+					<ul>
+						<li onclick="get_ent()">审核注册</li>
+						<li onclick="get_support()">审核供应</li>
+						<li onclick="get_require()">审核需求</li>
+						<li onclick="manage_ent()">管理企业</li>
+						<li onclick="manage_support()">管理供应</li>
+						<li onclick="manage_require()">管理需求</li>
+					</ul>
+				</div><!--control-->
+
+				<div class="content " id="default">
+					<div class="row" id="hint">
+						<a class="hint" >
+							<div>待申请注册</div>
+							<span class="notice"></span>
+						</a>
+						<a class="hint">
+							<div>待审核供需</div>
+							<span class="notice"></span>
+						</a>
+						<a class="hint">
+							<div>已注册企业</div>
+							<span class="notice"></span>
+						</a>
+						<a class="hint">
+							<div>已发布供需</div>
+							<span class="notice"></span>
+						</a>
+					</div>
+				</div>
+
+				<div class="content hidden" id="check_register">
+					<div class="box " id="register_list">
+						<div class="box-header">待审核企业列表</div>
+						<div class="box-content">
+							<ul id="r_l">
+								<li>
+									<nav>
+										<span name="entID">207865228384@163.com</span>
+										<span class="entName">东莞市坚华机械有限公司</span>
+										<span class="entType">机械电子</span>
+										<span class="time">2018-06-04</span>
+										<span style="float: right;"><button onclick="check_ent('207865228384@163.com')">查看</button></span>
+									</nav>
+								</li>
+								<li>
+									<nav>
+										<span name="entID">207865228004@163.com</span>
+										<span class="entName">东莞市坚华机械有限公司</span>
+										<span class="entType">机械电子</span>
+										<span class="time">2018-06-04</span>
+										<span style="float: right;"><button onclick="check_ent('207865220084@163.com')">查看</button></span>
+									</nav>
+								</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+							</ul>
+							
+							<button  onclick="next_ent()" style="border:none;background: aliceblue;	float: right;margin: 10px 40px;" class="next_ent" >下一页</button>
+							<button  onclick="pre_ent()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;" class="pre_ent" >上一页</button>
+						</div>
+					</div>
+				</div>
+				<!--check_register-->
+				
+				
+
+				<div class="content hidden" id="check_s">
+					<div class="box " id="s_list">
+						<div class="box-header">待审核供应信息列表</div>
+						<div class="box-content">
+							<ul id="support">
+								<li>
+									<nav>
+										<span class="ID">330029</span>
+										<span class="title">二筒浆烫定型机 精密定型机</span>
+										<!--标题需定长-->
+										<span class="entType">机械电子</span>
+										<span class="time">2018-06-04</span>
+										<span style="float: right;"><button onclick="check_s(330029)">查看</button></span>
+									</nav>
+								</li>
+								<li>
+									<nav>
+										<span class="ID">330079</span>
+										<span class="title">KW-710A 精密二筒浆烫定型机 </span>
+										<!--标题需定长-->
+										<span class="entType">机械电子</span>
+										<span class="time">2018-06-04</span>
+										<span style="float: right;"><button onclick="check_s(330079)">查看</button></span>
+									</nav>
+								</li>
+								<li>wwwwww1</li>
+								<li>wwwwww2</li>
+								<li>wwwwww3</li>
+								
+							</ul>
+							<button  onclick="next_support()" style="border:none;background: aliceblue;float: right;margin: 10px 40px;bottom: 0;" class="next_support" >下一页</button>
+							<button  onclick="pre_support()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;bottom: 0px;" class="pre_support" >上一页</button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="content hidden" id="check_r">
+					<div class="box " id="r_list">
+						<div class="box-header">待审核需求信息列表</div>
+						<div class="box-content">
+							<ul id="request">
+								<li>
+									<nav>
+										<span class="ID">330029</span>
+										<span class="title"> 精密定型机</span>
+										<!--标题需定长-->
+										<span class="entType">机械电子</span>
+										<span class="time">2018-06-04</span>
+										<span style="float: right;"><button onclick="check_r(330029)">查看</button></span>
+									</nav>
+								</li>
+								<li>
+									<nav>
+										<span class="ID">330079</span>
+										<span class="title">KW-710A 精密二筒浆烫定型机 </span>
+										<!--标题需定长-->
+										<span class="entType">机械电子</span>
+										<span class="time">2018-06-04</span>
+										<span style="float: right;"><button onclick="check_r(330079)">查看</button></span>
+									</nav>
+								</li>
+								<li>wwwwww9</li>
+								<li>wwwwww10</li>
+								<li>wwwwww11</li>
+								<li>wwwwww12</li>
+								<button  onclick="next_require()" style="border:none;background: aliceblue;float: right;margin: 10px 40px;bottom: 0;" class="next_require" >下一页</button>
+								<button  onclick="pre_require()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;bottom: 0px;" class="pre_require" >上一页</button>
+							</ul>
+						</div>
+					</div>
+				</div>
+								
+				<div class="content hidden" id="allEnt">
+					<div class="box">
+						<div class="box-header">已注册企业列表</div>
+						<div class="box-content">
+							<ul id="ent">
+								<li>
+									<nav>
+										<span class="entID">207865228384@163.com</span>
+										<span class="entName">东莞市坚华机械有限公司</span>
+										<span class="entType">机械电子</span>
+										<span class="time">2018-06-04</span>
+										<span style="float: right;"><button onclick="del('207865228384@163.com')">删除</button></span>
+										<span style="float: right;"><button onclick="check_ent('207865228384@163.com')">查看</button></span>
+									</nav>
+								</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<button  onclick="next_e()" style="border:none;background: aliceblue;float: right;margin: 10px 40px;bottom: 0;" class="next_e" >下一页</button>
+								<button  onclick="pre_e()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;bottom: 0px;" class="pre_e" >上一页</button>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="content hidden" id="allS">
+					<div class="box">
+						<div class="box-header">已发布供应列表</div>
+						<div class="box-content">
+							<ul id="as">
+								<li>
+									<nav>
+										<span class="ID">330029</span>
+										<span class="title">二筒浆烫定型机 精密定型机</span>
+										<!--标题需定长-->
+										<span class="entType">机械电子</span>
+										<span class="time">2018-06-04</span>
+										<span style="float: right;"><button onclick="del(330029)">删除</button></span>
+										<span style="float: right;"><button onclick="check_s(330079)">查看</button></span>
+									</nav>
+								</li>
+								<li>
+									<nav>
+										<span class="ID">330079</span>
+										<span class="title">KW-710A 精密二筒浆烫定型机 </span>
+										<!--标题需定长-->
+										<span class="entType">机械电子</span>
+										<span class="time">2018-06-04</span>
+										<span style="float: right;"><button onclick="del(330079)">删除</button></span>
+										<span style="float: right;"><button onclick="check_s(330079)">查看</button></span>
+									</nav>
+								</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<button  onclick="next_su()" style="border:none;background: aliceblue;float: right;margin: 10px 40px;bottom: 0;" class="next_su" >下一页</button>
+								<button  onclick="pre_su()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;bottom: 0px;" class="pre_su" >上一页</button>
+							</ul>
+						</div><!--box-content-->
+					</div><!--box-->
+				</div><!--allSR-->
+				
+				<div class="content hidden" id="allR">
+					<div class="box">
+						<div class="box-header">已发布需求列表</div>
+						<div class="box-content">
+							<ul id="ar">
+								<li>
+									<nav>
+										<span class="ID">330029</span>
+										<span class="title">二筒浆烫定型机 精密定型机</span>
+										<!--标题需定长-->
+										<span class="entType">机械电子</span>
+										<span class="time">2018-06-04</span>
+										<span style="float: right;"><button onclick="del(330079)">删除</button></span>
+										<span style="float: right;"><button onclick="check_r(330079)">查看</button></span>
+									</nav>
+								</li>
+								<li>
+									<nav>
+										<span class="ID">330079</span>
+										<span class="title">KW-710A 精密二筒浆烫定型机 </span>
+										<!--标题需定长-->
+										<span class="entType">机械电子</span>
+										<span class="time">2018-06-04</span>
+										<span style="float: right;"><button onclick="del(330079)">删除</button></span>
+										<span style="float: right;"><button onclick="check_r(330079)">查看</button></span>
+									</nav>
+								</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<li>wwwwww</li>
+								<button  onclick="next_re()" style="border:none;background: aliceblue;float: right;margin: 10px 40px;bottom: 0;" class="next_re" >下一页</button>
+								<button  onclick="pre_re()" style="border:none;background: aliceblue;	float: right;margin: 10px 0px;bottom: 0px;" class="pre_re" >上一页</button>
+							</ul>
+						</div><!--box-content-->
+					</div><!--box-->
+				</div><!--allR-->
+										
+				<div class="content hidden" id="register_content">
+					<div class="box">
+						<nav>
+							<p class="entName"><b>企业名称: </b>东莞市坚华机械有限公司</p>
+							<p class="entID"><b>企业ID: </b>207865228384@163.com</p>
+							<p class="entCategory"><b>企业类别：</b>机械电子</p>
+							<p class="entDate"><b>注册时间：</b>2018-06-04</p>
+							<p class="entPerson"><b>企业法人：</b>李大明 </p>
+							<p class="entSize"><b>企业规模：</b>101 - 200人</p>
+							<p class="entPhone"><b>联系电话：</b>0769-89779433 </p>
+							<p class="entWebsite"><b>企业官网：</b>http://gdjianhua.1688.com</p>
+							<p class="entAddress"><b>地址：</b>中国 广东 东莞 东莞市 沙田镇义沙村三排尾83号坚华机械</span></p>
+								<p class="entBrief"><b>简介：</b>坚华是一家专业研发生产织带染色机设备的公司，始成立于2005年，致力于开发国内内外地市场以及国外市场，服务广大织带染色客户群，公司携生产经验与技术力量超10余年长期致力于研发生产，在纺织工业生产基地珠三角中心——东莞市，2005年9月，东莞市坚华机械有限公司正式成立。</p>
+								<p class="entIntroduction"><b>详细介绍：</b>坚华是一家专业研发生产织带染色机设备的公司，始成立于2005年，致力于开发国内内外地市场以及国外市场，服务广大织带染色客户群，公司携生产经验与技术力量超10余年长期致力于研发生产，在纺织工业生产基地珠三角中心——东莞市，2005年9月，东莞市坚华机械有限公司正式成立。 2011年，坚华公司成功与丝网印刷机械领域发展快速企业东莞多普森机械科技有限公司（原领先科技）联合发展，共同进步，公司东莞多普森机械科技有限公司以研发生产全自动商标织带印刷机械。印刷机同热样销国内外各地。联合发展一起为客户群体研发制造织带染色印刷后处理设备。 坚华公司自成立以来，致力于研发生产的织带染色机械，染色机械以高效、节能、稳定、经济赢得了客户的赞赏和 广泛使用，产品畅销国内外，染色设备已供应给国内外大多数织带的生产染色厂家，公司在高温常温高速连续染色机方面的研发技术，已经成为的连续式高常温织带染色机设备的专业生产厂家。 另外还配有良好的售后服务：免费保养一年，一年后终身服务。 “东莞市坚华有限公司”将继续采用现代化质量管理体系模式，严格的生产流程管理以及品检技术，坚持与多普森专业化、产业化、努力研发制造织带后处理染色印刷优质设备一条龙服务专业公司发展。我们的客户观是：为客户创造价值是我们生存的理由 ...... 真诚希望能与广大纺织产业携手共进，共创美好明天！！！
+								</p>
+								<textarea id="reason" style="width: 100%;height: 100px;" placeholder="驳回请写明理由"></textarea>
+
+								<button onclick="pass_ent('207865228384@163.com')">通过</button>
+								<button onclick="reject_ent('207865228384@163.com')">驳回</button>
+						</nav>
+					</div>
+				</div>
+				
+				<div class="content hidden" id="sr_content">
+					<div class="box">
+						<p><b>标题：</b>二筒浆烫定型机 精密定型机</p>
+						<p><b>ID:</b>330029</p>
+						<p><b>供/需：</b>供应</p>
+						<p><b>发布类型：</b>机械电子</p>
+						<p><b>发布时间：</b>2018-06-04</p>
+						<p><b>企业邮箱:</b>234567899@163.com</p>
+						<p><b>摘要：</b>供应</p>
+						<p><b>详细内容：</b>品牌：东莞坚华 型号：KW-710A 类型：浆烫定型机 加工定制：是 幅宽：定制mm 速度：面议m/min 温度：正常℃ 功率：详情面议 电源电压：正常V 外形尺寸：定制mm 用途：二筒浆烫定型机 种类：染色机及装置 品牌：坚华 产地：东莞 质量：保证
+						</p>
+						<textarea id="reason1" style="width: 100%;height: 100px;" placeholder="驳回请写明理由"></textarea>
+						<button onclick="pass_s('330029')">通过</button>
+						<button onclick="reject_s('330029')">驳回</button>
+					</div>
+				</div>
+			</div><!--page-->
+		</div><!--all-->
+	</body>
+<script src="/js/management.js"></script>
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
+</html>

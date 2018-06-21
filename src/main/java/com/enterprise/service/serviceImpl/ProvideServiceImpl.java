@@ -15,18 +15,18 @@ public class ProvideServiceImpl implements ProvideService {
     private IProvideDao provideDao;
 
     @Override
-    public List<Provide> getAllPro(long index,int length) {
+    public List<Provide> getAllPro(long index, int length) {
 
         return provideDao.getAllPro(index,length);
     }
 
     @Override
-    public List<Provide> getProByType(String proType,long index,int length) {
+    public List<Provide> getProByType(String proType, long index, int length) {
         return provideDao.getProByType(proType,index,length);
     }
 
     @Override
-    public List<Provide> getProByEntId(String entId,long index,int length) {
+    public List<Provide> getProByEntId(String entId, long index, int length) {
 
         return provideDao.getProByEntId(entId,index,length);
     }
@@ -49,7 +49,7 @@ public class ProvideServiceImpl implements ProvideService {
      * @return
      */
     @Override
-    public String deleteByproId(int proId,String entId) {
+    public String deleteByproId(int proId, String entId) {
         provideDao.deleteByproId(proId,entId);
         return "success";
     }

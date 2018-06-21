@@ -1,0 +1,167 @@
+@font-face {
+	font-family: 'Taco_Modern';
+	/*这里是说明调用来的字体名字*/
+	src: url(../fonts/Taco_Modern/TACOM___.ttf) format('truetype');
+	/*这里是字体文件路径*/
+}
+
+html,
+body {
+	background: rgb(255, 255, 255);
+	font-family: "Microsoft JhengHei",微软正黑体;
+	font-size: 12px;
+
+}
+
+.banner {
+	/*width: 50%;*/
+	height:300px ;
+	margin: 100px auto -60px;
+	text-align: center;
+}
+
+.banner h2 {
+	color: rgb(255, 255, 255);
+	text-align: center;
+	font-size: 100px;
+	/*标题字体始终占屏幕的10%宽*/
+	font-family: 'Taco_Modern';
+	margin-top: 100px;
+}
+
+.banner p{
+	color: white;
+}
+
+.container {
+	min-width: 1500px;
+	margin: 0px auto 0px;
+	display: block;
+	/*overflow: hidden;*/
+}
+
+
+.info {/*下三角*/
+	width: 1100px;
+	text-align: center;
+	font-size: 30px;
+	color: lightsteelblue;
+	margin: auto;
+}
+
+.fun{/*资讯数据块*/
+	width: 1080px;
+	height: 400px;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.func1 , .func2 {/*资讯数据导航条*/
+	width: 200px;
+	float: left;
+}
+
+.fun_list {/*导航条*/
+	height: 400px;
+	list-style-type: none;
+	display: block;
+}
+
+.fun_list li {
+	height: 60px;
+	font-size: 20px;
+	font-family: 'Microsoft JhengHei';
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.fun_list li a {
+	color:lightsteelblue;
+	text-decoration: none;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.fun_list li a:hover,
+.fun_list li.active a {
+	border-right: 3px solid lightsteelblue;
+	color: rgb(56,93,135);
+}
+
+.cont {/*资讯*/
+	width: 700px;
+	height: 400px;
+	margin: auto 10px;
+	float: left;
+	/*border-left: 3px solid lightgrey;*/
+}
+
+.cont>div {
+	width: 700px;
+	height: 300px;
+	position: absolute;
+	color: lightsteelblue;
+/*	background: white;*/
+	text-align: center;
+	margin: 40px auto;
+	/*padding-left: 30px;*/
+	overflow: hidden;
+	display: none;
+}
+
+.cont div.showed {
+	display: block;
+}
+
+.cont h4 {
+	font-family: 'Microsoft JhengHei';
+	font-size: 50px;
+	margin: 30px auto;
+	color: rgb(56,93,135);
+	text-align: center;
+}
+.cont p{
+	font-size: 16px;
+	text-align: center;
+}
+
+@keyframes fade-in {  
+    0% {opacity: 0;}/*初始状态 透明度为0*/  
+    40% {opacity: 0;}/*过渡状态 透明度为0*/  
+    100% {opacity: 1;}/*结束状态 透明度为1*/  
+}  
+@-webkit-keyframes fade-in {/*针对webkit内核*/  
+    0% {opacity: 0;}  
+    40% {opacity: 0;}  
+    100% {opacity: 1;}  
+}  
+.banner {    
+    animation: fade-in;/*动画名称*/  
+    animation-duration: 1.5s;/*动画持续时间*/  
+    -webkit-animation:fade-in 0.5s;/*针对webkit内核*/  
+}  
+
+
+@keyframes jump
+{
+	0%   { top:0px;}
+	25%  {top:2px;}
+	50%  {top:4px;}
+	75%  {top:2px;}
+	100% { top:0px;}
+}
+
+@-webkit-keyframes jump 
+{
+	0%   { top:0px;}
+	25%  {top:2px;}
+	50%  {top:4px;}
+	75%  {top:2px;}
+	100% { top:0px;}
+	}
+.info{
+	animation:jump;
+	animation-duration: 1.5s;
+    -webkit-animation:jump 0.5s /*linear 1s infinite alternate*/;
+}

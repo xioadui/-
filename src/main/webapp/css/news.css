@@ -1,6 +1,7 @@
 .news_content{
-	width: 80%;
+	min-width: 1500px;
 	margin: 20px auto;
+	padding: 20px 60px;
 	color: darkgrey;
 }
 

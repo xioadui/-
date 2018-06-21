@@ -2,6 +2,8 @@ package com.enterprise.controller;
 
 import com.enterprise.entity.Enterprise;
 import com.enterprise.service.serviceImpl.EnterpriseServiceImpl;
+import com.enterprise.service.serviceImpl.MailServiceImpl;
+import com.enterprise.utils.EnterpriseUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,29 +19,38 @@ import java.util.Map;
 @RequestMapping(value="/user")
 public class EnterpriseController {
     private Map<Object, Object> resultMap = new HashMap<>();
+
     @Resource
     private EnterpriseServiceImpl enterpriseService;
+
+<<<<<<< HEAD
+    /**
+     * 登录
+     * @param entId 用户的ID
+     * @param entPassword 用户的密码
+     * @param httpServletRequest 用来获取JSON
+     * @return 成功返回用户的信息
+     */
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     @RequestMapping(value="/login")
     @ResponseBody
     public Map<Object, Object> login(@RequestParam("entId") String entId, @RequestParam("entPassword") String entPassword, HttpServletRequest httpServletRequest){
-        Enterprise enterprise = enterpriseService.login(entId, entPassword);
-        if(enterprise!=null)
-        {
+        if(entId.equals("admin") && entPassword.equals("admin")){
+            resultMap.put("login","admin");
+<<<<<<< HEAD
             HttpSession session = httpServletRequest.getSession();
             session.setAttribute("entId", entId);
+=======
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
+            return resultMap;
+        }
+        Enterprise enterprise = enterpriseService.login(entId, entPassword);
+        if(enterprise!=null) {
+            HttpSession session = httpServletRequest.getSession();
+            session.setAttribute("entId", entId);
+            resultMap.put("result",EnterpriseUtils.parseEntToMap(enterprise));
             resultMap.put("login","success");
-            resultMap.put("entName", enterprise.getEntName());
-            resultMap.put("entPerson", enterprise.getEntPerson());
-            resultMap.put("entCategory", enterprise.getEntCategory());
-            resultMap.put("entBrief", enterprise.getEntBrief());
-            resultMap.put("entIntroduction", enterprise.getEntIntroduction());
-            resultMap.put("entAddress", enterprise.getEntAddress());
-            resultMap.put("entSize", enterprise.getEntSize());
-            resultMap.put("entPhone", enterprise.getEntPhone());
-            resultMap.put("entPassword", enterprise.getEntPassword());
-            resultMap.put("entIdentity", enterprise.getEntIdentity());
-            resultMap.put("entWebsize", enterprise.getEntWebsize());
-            resultMap.put("entDate", enterprise.getEntDate());
         }
         else
             resultMap.put("login", "failed");
@@ -47,6 +58,10 @@ public class EnterpriseController {
     }
 
 
+    /**
+     * 注册
+     * @return 返回注册是否成功
+     */
     @RequestMapping(value="/register")
     @ResponseBody
     public Map<Object, Object> register(@RequestParam("entId") String entId, @RequestParam("entName") String entName,
@@ -72,17 +87,38 @@ public class EnterpriseController {
         enterprise.setEntDate(entDate);
         String result = enterpriseService.register(enterprise);
         resultMap.put("register", result);
+        resultMap.put("login","success");
         return resultMap;
         }
 
+    /**
+     * 检测用户是否已经注册
+     * @param entId 需要检测的ID
+     * @return 返回是否注册的标志
+     */
         @RequestMapping(value = "/check")
         @ResponseBody
         public Map<Object, Object> checkId(@RequestParam("entId") String entId){
             Enterprise enterprise = enterpriseService.checkId(entId);
             if(enterprise==null)
                 resultMap.put("entId", "unexist");
-            else
+            else {
                 resultMap.put("entId", "exist");
+                resultMap.put("entName", enterprise.getEntName());
+                resultMap.put("entPerson", enterprise.getEntPerson());
+                resultMap.put("entCategory", enterprise.getEntCategory());
+                resultMap.put("entBrief", enterprise.getEntBrief());
+                resultMap.put("entIntroduction", enterprise.getEntIntroduction());
+                resultMap.put("entAddress", enterprise.getEntAddress());
+                resultMap.put("entSize", enterprise.getEntSize());
+                resultMap.put("entPhone", enterprise.getEntPhone());
+                resultMap.put("entPassword", enterprise.getEntPassword());
+                resultMap.put("entIdentity", enterprise.getEntIdentity());
+                resultMap.put("entWebsize", enterprise.getEntWebsize());
+                resultMap.put("entDate", enterprise.getEntDate());
+            }
             return resultMap;
         }
+
+
 }

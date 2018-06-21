@@ -97,6 +97,7 @@ public class ParseStrategyInformation extends AbstractParse{
             info.setContent(content.select(".arccon").toString());
 //				所属行业
             info.setType(kind);
+            info.setId(System.currentTimeMillis());
             informationList.add(info);
         }
         return informationList;

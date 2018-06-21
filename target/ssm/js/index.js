@@ -1,5 +1,3 @@
-
-
 $(".guide span").mouseenter(function () {
     if (!$(this).hasClass(".active")) {
         $(".active").removeClass("active");
@@ -38,7 +36,7 @@ $(document).ready(function () {
             category: '医疗医药保健'
         },
         function (data1) {
-            $('#tab1_h4').append(data1.title);
+            $('#tab1_h4').append('<a href="industry_news.html?id='+data1.id+'">'+data1.title +'</a>');
             /*获得资讯名称*/
             $('#tab1_p').append(data1.digest + '...');
             /*获得资讯摘要*/
@@ -46,7 +44,7 @@ $(document).ready(function () {
                     category: 'IT与通讯'
                 },
                 function (data2) {
-                    $('#tab2_h4').append(data2.title);
+                    $('#tab2_h4').append('<a href="industry_news.html?id='+data2.id+'">'+ data2.title+'</a>');
                     /*获得资讯名称*/
                     $('#tab2_p').append(data2.digest + '...');
                     /*获得资讯摘要*/
@@ -54,8 +52,7 @@ $(document).ready(function () {
                             category: '机械电子'
                         },
                         function (data3) {
-                            console.log(data3);
-                            $('#tab3_h4').append(data3.title);
+                            $('#tab3_h4').append('<a href="industry_news.html?id='+data3.id+'">'+ data3.title+'</a>');
                             /*获得资讯名称*/
                             $('#tab3_p').append(data3.digest + '...');
                             /*获得资讯摘要*/
@@ -63,8 +60,7 @@ $(document).ready(function () {
                                     category: '车辆交通'
                                 },
                                 function (data4) {
-                                    console.log(data4);
-                                    $('#tab4_h4').append(data4.title);
+                                    $('#tab4_h4').append('<a href="industry_news.html?id='+data4.id+'">'+ data4.title+'</a>');
                                     /*获得资讯名称*/
                                     $('#tab4_p').append(data4.digest + '...');
                                     /*获得资讯摘要*/
@@ -72,8 +68,7 @@ $(document).ready(function () {
                                             category: '能源矿产'
                                         },
                                         function (data5) {
-                                            console.log(data5);
-                                            $('#tab5_h4').append(data5.title);
+                                            $('#tab5_h4').append('<a href="industry_news.html?id='+data5.id+'">'+ data5.title+'</a>');
                                             /*获得资讯名称*/
                                             $('#tab5_p').append(data5.digest + '...');
                                             /*获得资讯摘要*/
@@ -87,7 +82,7 @@ $(document).ready(function () {
             category: '医疗医药保健'
         },
         function (data1) {
-            $('#tab6_h4').append(data1.title);
+            $('#tab6_h4').append('<a href="industry_data.html?id='+data1.id+'">'+data1.title+'</a>');
             /*获得行业数据名称*/
             $('#tab6_p').append(data1.digest + '...');
             /*获得行业数据摘要*/
@@ -95,7 +90,7 @@ $(document).ready(function () {
                     category: 'IT与通讯'
                 },
                 function (data2) {
-                    $('#tab7_h4').append(data2.title);
+                    $('#tab7_h4').append('<a href="industry_data.html?id='+data2.id+'">'+data2.title+'</a>');
                     /*获得行业数据名称*/
                     $('#tab7_p').append(data2.digest + '...');
                     /*获得行业数据摘要*/
@@ -103,7 +98,7 @@ $(document).ready(function () {
                             category: '机械电子'
                         },
                         function (data3) {
-                            $('#tab8_h4').append(data3.title);
+                            $('#tab8_h4').append('<a href="industry_data.html?id='+data3.id+'">'+data3.title+'</a>');
                             /*获得行业数据名称*/
                             $('#tab8_p').append(data3.digest + '...');
                             /*获得行业数据摘要*/
@@ -111,7 +106,7 @@ $(document).ready(function () {
                                     category: '车辆交通'
                                 },
                                 function (data4) {
-                                    $('#tab9_h4').append(data4.title);
+                                    $('#tab9_h4').append('<a href="industry_data.html?id='+data4.id+'">'+data4.title+'</a>');
                                     /*获得行业数据名称*/
                                     $('#tab9_p').append(data4.digest + '...');
                                     /*获得行业数据摘要*/
@@ -119,7 +114,7 @@ $(document).ready(function () {
                                             category: '能源矿产'
                                         },
                                         function (data5) {
-                                            $('#tab10_h4').append(data5.title);
+                                            $('#tab10_h4').append('<a href="industry_data.html?id='+data5.id+'">'+data5.title+'</a>');
                                             /*获得行业数据名称*/
                                             $('#tab10_p').append(data5.digest + '...');
                                             /*获得行业数据摘要*/
@@ -129,49 +124,15 @@ $(document).ready(function () {
                 });
         });
 });
-
-$(document).ready(function () {
-    var userId = $.query.get("userId");
-    if (userId) {
-        $(".guide span").addClass("welcome");
-        if (userId == "admin") {
-            $("#manage").removeClass("hidden");
-        }
-    }
-
-});
-
 $(document).ready(function() {
-	//	如果用户已登录,在span标签加入welcome类
-	//隐藏登陆/注册按钮
-	//显示欢迎信息
-	//	浏览供需/发布供需/合作伙伴可正常跳转至相应的页面
-	//	否则跳转至登录页
-	if($(".guide span").hasClass("welcome")) {
-		$("#login").addClass("hidden");
-		$("#register").addClass("hidden");
-		$("#findsr").append('<a href="search_sup&req.html">浏览供需</a>');
-		$("#sr").append('<a href="sup&req.html">发布供需</a>');
-		$("#partner").append('<a href="find_partner.html">合作伙伴</a>');
+    $(".header").append(
+        '<div class="banner">'+
+        '<h2>Welcome to NEO </h2>'+
+        '<p>在霓欧找到您的合作伙伴，协作共享，为您提供企业信息、业内资讯、市场动态、协作信息、服务资源、智能检索等服务</p>'+
+        '</div>'
+    );
 
-		$.ajax({
-			type: "get",
-			url: "", //企业表
-			dataType: "json",
-			async: false,
-			success: function(data) {
-				$(".guide span").append(data.entName + '，欢迎您！');
-			},
-			error: function(error) {
-				console.log(error);
-				//			alert("异常！");
-			}
-		});
-	} else {
-		$("#findsr").append('<a href="login.html">浏览供需</a>');
-		$("#sr").append('<a href="login.html">发布供需</a>');
-		$("#partner").append('<a href="login.html">合作伙伴</a>');
-	}
 });
+
 
 

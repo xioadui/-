@@ -2,6 +2,7 @@ package com.enterprise.controller;
 
 import com.enterprise.entity.Provide;
 import com.enterprise.service.serviceImpl.ProvideServiceImpl;
+import com.enterprise.utils.ProvideUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,22 +11,26 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/provide")
 public class ProvideController {
+
     @Resource
     private ProvideServiceImpl provideService;
+
     @RequestMapping(value = "/getAllPro")
     @ResponseBody
-    public Map<String, Object> getAllPro(@RequestParam("index") long index,@RequestParam("length") int length){
+    public Map<String, Object> getAllPro(@RequestParam("index") long index, @RequestParam("length") int length){
         Map<String, Object> resultMap = new HashMap<>();
         List<Provide> proList = provideService.getAllPro(index, length);
-        resultMap.put("pro", providerUtils(proList));
+        resultMap.put("pro", ProvideUtils.parseProvideListToMapList(proList));
         return resultMap;
     }
-
     /**
      * 通过给定的条件，对供应进行查询
      * @param condition 指定的条件
@@ -40,10 +45,9 @@ public class ProvideController {
                                          @RequestParam("length")int length){
         Map<String, Object> resultMap = new HashMap<>();
         List<Provide> proList = provideService.searchPro(condition, index, length);
-        resultMap.put("pro", providerUtils(proList));
+        resultMap.put("pro", ProvideUtils.parseProvideListToMapList(proList));
         return resultMap;
     }
-
     /**
      * 通过企业用户的ID来查询该用户发布的供应信息
      * @param session 通过session来获取用户的ID
@@ -54,12 +58,12 @@ public class ProvideController {
     @RequestMapping(value = "/getByEntId")
     @ResponseBody
     public Map<String, Object> queryByEntId(HttpSession session,
-                                         @RequestParam("index")long index,
-                                         @RequestParam("length")int length){
+                                            @RequestParam("index")long index,
+                                            @RequestParam("length")int length){
         String entId = (String)session.getAttribute("entId");
         Map<String, Object> resultMap = new HashMap<>();
         List<Provide> proList = provideService.getProByEntId(entId, index, length);
-        resultMap.put("pro", providerUtils(proList));
+        resultMap.put("pro", ProvideUtils.parseProvideListToMapList(proList));
         return resultMap;
     }
 
@@ -75,10 +79,10 @@ public class ProvideController {
     @RequestMapping(value="/publish")
     @ResponseBody
     public Map<String,String> publish(HttpSession session,
-                                       @RequestParam("content") String demandContent,
-                                       @RequestParam("digest") String demandDigest,
-                                       @RequestParam("title") String demandTitle,
-                                       @RequestParam("type") String demandType){
+                                      @RequestParam("content") String demandContent,
+                                      @RequestParam("digest") String demandDigest,
+                                      @RequestParam("title") String demandTitle,
+                                      @RequestParam("type") String demandType){
         Provide provide = new Provide();
         Date day=new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -94,40 +98,21 @@ public class ProvideController {
         r.put("result",result);
         return r;
     }
-
-
     /**
      * 删除企业用户发布的供应
-     * @param session
-     * @param proId
+     * @param session 用户获取用户的ID
+     * @param proId 供应的ID
      * @return 返回操作是否成功
      */
+<<<<<<< HEAD
+    @RequestMapping(value="/deletePro")
+    @ResponseBody
     public String deletePro(HttpSession session,@RequestParam("proId") int proId){
+=======
+    public String deletePro(HttpSession session, @RequestParam("proId") int proId){
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
         String entId = (String)session.getAttribute("entId");
         this.provideService.deleteByproId(proId,entId);
         return "success";
     }
-
-
-    /**
-     * 用于将数据库查询得到的结果转换为list<Map>
-     * @param proList 从数据库查询得到的列表
-     * @return 返回组装的列表
-     */
-    private List<Map<String,Object>> providerUtils(List<Provide> proList){
-        List<Map<String, Object>> pros = new ArrayList<>();
-        for(Provide pro:proList){
-            Map<String, Object> proMap = new HashMap<>();
-            proMap.put("proId", pro.getProId());
-            proMap.put("entId", pro.getEntId());
-            proMap.put("proContent", pro.getProContent());
-            proMap.put("proDate", pro.getProDate());
-            proMap.put("proDigest", pro.getProDigest());
-            proMap.put("proTitle", pro.getProTitle());
-            proMap.put("proType", pro.getProType());
-            pros.add(proMap);
-        }
-        return pros;
-    }
-
 }

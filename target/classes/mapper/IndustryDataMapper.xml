@@ -3,13 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.enterprise.dao.IIndustryDataDao">
-
-
     <insert id="save" parameterType="java.util.List">
-        insert ignore into industrydata(type,title,date,content,digest)
+        insert ignore into industrydata(id,type,title,date,content,digest)
         values
         <foreach collection="info" item="item" index= "index" separator =",">
             (
+            #{item.id,jdbcType=BIGINT},
             #{item.type,jdbcType=VARCHAR},
             #{item.title,jdbcType=VARCHAR},
             #{item.date,jdbcType=DATE},
@@ -19,25 +18,46 @@
         </foreach>
     </insert>
     <select id="queryByTitle" resultType="com.enterprise.entity.IndustryData">
-      SELECT type,title, date, content, digest
+      SELECT id,type,title, date, content, digest
         FROM industrydata
-        where title = #{title,jdbcType=VARCHAR};
+        where title like #{title,jdbcType=VARCHAR};
+        order by date desc
+        limit #{index},#{length};
+    </select>
+    <select id="getAllInd" resultType="com.enterprise.entity.IndustryData">
+         SELECT id,type,title, date, content, digest
+        FROM industrydata
+        order by date desc
+        limit #{index},#{length};
     </select>
 
     <select id="queryByDate" resultType="com.enterprise.entity.IndustryData">
-         SELECT type,title, date, content, digest
+         SELECT id,type,title, date, content, digest
         FROM industrydata
         where date = #{date}
-        order by date asc
+        order by date desc
         limit #{index},#{length};
     </select>
 
     <select id="queryByType" resultType="com.enterprise.entity.IndustryData">
-         SELECT type,title, date, content, digest
+         SELECT id,type,title, date, content, digest
         FROM industrydata
         where type = #{type}
-        order by date asc
+        order by date desc
         limit #{index},#{length};
+    </select>
+
+    <select id="searchIndustryData" resultType="com.enterprise.entity.IndustryData">
+         SELECT id,type,title, date, content, digest
+        FROM industrydata
+        where type like #{condition} or title like #{condition}
+        order by date desc
+        limit #{index},#{length};
+    </select>
+
+    <select id="queryIndById" resultType="com.enterprise.entity.IndustryData">
+      SELECT id,type,title, date, content, digest
+        FROM industrydata where id = #{id,jdbcType=INTEGER};
     </select>
 
 </mapper>

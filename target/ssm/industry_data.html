@@ -5,55 +5,39 @@
 		<meta charset="utf-8">
 		<meta content="text/html" />
 		<title>行业数据详情</title>
-		<link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="css/news.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/header.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 		<script type="text/javascript" src="js/jquery.params.js"></script>
-		<script type="text/javascript" src="js/industry_data.js"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+		<script>
+			//行业数据
+			$(document).ready(function(){
+			var p = window.location.search;
+			p = p.split("?")[1].split("=")[1];
+			$.ajax({
+				type: "POST",
+				url: "/ind/queryById",
+				data:{
+				id: p
+			},
+			success: function(data) {
+				var result = data.ind[0];
+				$(".news_content").append('<h1>'+result.title+'</h1>');
+				$(".news_content").append('<nav><span>'+result.type+'</span><span>' +result.date+'</span></nav>');
+				$(".news_content").append('<div>'+result.content+'</div>');
+			},
+			error: function(error) {
+			}
+			});
+			});
+		</script>
 	</head>
 	<body>
 		<div class="header">
-			<div>
-				<ul class="guide">
-					<li id="home" class="">
-						<a href="index.html">主页</a>
-					</li>
-					<li id="news" class="">
-						<a href="">资讯</a>
-					</li>
-					<li id="data" style="margin-left: 10px;" class="">
-						<a href="">行业数据</a>
-					</li>
-					<li id="findsr" style="margin-left: 20px;" class="">
-						<!--<a href="search_sup&req.html">浏览供需</a>-->
-					</li>
-					<li id="sr" style="margin-left: 20px;" class="">
-						<!--<a href="sup&req.html">发布供需</a>-->
-					</li>
-					<li id="partner" style="margin-left: 20px;" class="">
-						<!--<a href="find_partner.html">合作伙伴</a>-->
-					</li>
-					<li id="login" style="margin-left: 10px;" class="">
-						<a href="login.html">登陆</a>
-					</li>
-					<li id="register" class="">
-						<a href="register.html">注册</a>
-					</li>
-					<li id="manage" style="margin-left: 20px;" class="hidden">
-						<a href="management.html">进入管理</a>
-					</li>
-					<span class=""></span>
-				</ul>
-			</div>
-			</div>
-			
-			<div class="news_content">
-				<h1>2018全球与中国市场网膜电图学深度研究报告</h1>
-				<nav><span>IT与通讯</span><span>2018-06-13</span></nav>
-				<div>报告研究全球与中国市场网膜电图学的发展现状及未来发展趋势，分别从生产和消费的角度分析网膜电图学的主要生产地区、主要消费地区以及主要的生产商。重点分析...</div>
-			</div>
+		</div>
+		<div class="news_content">
+		</div>
 	</body>
-	
-	<script src="js/index.js"></script>
 </html>

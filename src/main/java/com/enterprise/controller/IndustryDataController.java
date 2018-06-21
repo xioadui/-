@@ -2,13 +2,13 @@ package com.enterprise.controller;
 
 import com.enterprise.entity.IndustryData;
 import com.enterprise.service.serviceImpl.IndustryDataServiceImpl;
+import com.enterprise.utils.IndustryDataUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +23,6 @@ public class IndustryDataController {
     @Resource
     private IndustryDataServiceImpl industryDataService;
 
-
     /**
      * 用于主页展示数据的
      * @param category 要获取行业数据的行业类型
@@ -31,14 +30,23 @@ public class IndustryDataController {
      */
     @RequestMapping(value = "/index")
     @ResponseBody
-    public Map<String,String> getInIndex(@RequestParam("category") String category){
+    public Map<String,Object> getInIndex(@RequestParam("category") String category){
         List<IndustryData> infList = industryDataService.queryByType(category, 0, 1);
-        IndustryData inf = infList.get(0);
-        Map<String, String> infMap = new HashMap<>();
-        infMap.put("digest", inf.getDigest());
-        infMap.put("title", inf.getTitle());
+        Map<String, Object> infMap = new HashMap<>();
+        if(infList.size()>0){
+            IndustryData inf = infList.get(0);
+            infMap.put("digest", inf.getDigest());
+            infMap.put("title", inf.getTitle());
+            infMap.put("id", inf.getId());
+        }else {
+            infMap.put("digest", "无更多数据");
+            infMap.put("title", "无更多数据");
+            infMap.put("id", 0);
+        }
         return infMap;
     }
+
+
 
     /**
      * 通过标题进行查询
@@ -46,11 +54,29 @@ public class IndustryDataController {
      */
     @ResponseBody
     @RequestMapping(value = "/queryByTitle")
-    public Map<String, Object> queryByTitle(String title,long index,int length){
+<<<<<<< HEAD
+    public Map<String, Object> queryByTitle(@RequestParam("condition")String title,long index,int length){
+=======
+    public Map<String, Object> queryByTitle(String title, long index, int length){
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
         title = "%"+title +"%";
         List<IndustryData> infList = industryDataService.queryByTitle(title,index,length);
         Map<String, Object> resultMap = new HashMap<>();
-        resultMap.put("inf", this.industryDataUtils(infList));
+        resultMap.put("ind", IndustryDataUtils.parseIndustryListToMapList(infList));
+        return resultMap;
+    }
+
+    /**
+     * 通过行业类型进行查询
+     * @return 返回查询到的结果集
+     */
+    @ResponseBody
+    @RequestMapping(value = "/queryByType")
+    public Map<String, Object> queryByType(@RequestParam("condition")String type,long index,int length){
+        type = "%"+type +"%";
+        List<IndustryData> infList = industryDataService.queryByType(type,index,length);
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("ind", IndustryDataUtils.parseIndustryListToMapList(infList));
         return resultMap;
     }
 
@@ -63,31 +89,38 @@ public class IndustryDataController {
      */
     @ResponseBody
     @RequestMapping(value = "/searchIndustryData")
-    public Map<String, Object> searchIndustryData(@RequestParam("condition") String condition,long index,int length) {
+    public Map<String, Object> searchIndustryData(@RequestParam("condition") String condition, long index, int length) {
         Map<String, Object> resultMap = new HashMap<>();
 //        进行like查询
         condition = "%"+condition+"%";
         List<IndustryData> infList = industryDataService.searchIndustryData(condition, index, length);
-        resultMap.put("inf", this.industryDataUtils(infList));
+        resultMap.put("ind", IndustryDataUtils.parseIndustryListToMapList(infList));
+        return resultMap;
+    }
+    @ResponseBody
+    @RequestMapping(value = "/queryById")
+    public Map<String, Object> queryById(@RequestParam("id") long id){
+        Map<String, Object> resultMap = new HashMap<>();
+        List<IndustryData> infList = industryDataService.queryIndById(id);
+        resultMap.put("ind", IndustryDataUtils.parseIndustryListToMapList(infList));
         return resultMap;
     }
 
-    /**
-     * 将行业数据转换成为键值对的形式
-     * @param infList 数据库查询得到的结果集
-     * @return 返回转换后的结果
-     */
-    private List<Map<String,String>> industryDataUtils(List<IndustryData> infList){
-        List<Map<String, String>> ind = new ArrayList<>();
-        for(IndustryData inf:infList){
-            Map<String, String> infMap = new HashMap<>();
-            infMap.put("content", inf.getContent());
-            infMap.put("date", inf.getDate());
-            infMap.put("digest", inf.getDigest());
-            infMap.put("title", inf.getTitle());
-            ind.add(infMap);
-        }
-        return ind;
+    @ResponseBody
+    @RequestMapping(value = "/getAllInd")
+    public Map<String, Object> getAllInfo(long index,int length){
+        Map<String, Object> resultMap = new HashMap<>();
+        List<IndustryData> infList = industryDataService.getAllInd(index, length);
+        resultMap.put("ind", IndustryDataUtils.parseIndustryListToMapList(infList));
+        return resultMap;
+    }
+    @ResponseBody
+    @RequestMapping(value = "/queryIndByDate")
+    public Map<String, Object> queryByDate(@RequestParam("condition") String date,long index,int length) {
+        Map<String, Object> resultMap = new HashMap<>();
+        List<IndustryData> infList = industryDataService.queryByDate(date, index, length);
+        resultMap.put("ind", IndustryDataUtils.parseIndustryListToMapList(infList));
+        return resultMap;
     }
 
 }

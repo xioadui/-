@@ -7,21 +7,31 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+
 @Service
 public class InformationServiceImpl implements IInformationService {
     @Resource
     private IInformationDao informationDao;
+
     @Override
     public void save(List<Information> info) {
         informationDao.save(info);
     }
     @Override
-    public List<Information> queryByTitle(String title) {
-        return informationDao.queryByTitle(title);
+    public List<Information> queryByTitle(String title,long index,int length) {
+        return informationDao.queryByTitle(title,index,length);
+    }
+    public List<Information> getAllInfo(long index,int length){
+        return informationDao.getAllInfo(index,length);
     }
 
     @Override
-    public List<Information> queryByDate(String date,long index,int length) {
+    public List<Information> queryById(long id) {
+        return informationDao.queryById(id);
+    }
+
+    @Override
+    public List<Information> queryByDate(String date, long index, int length) {
         return informationDao.queryByDate(date, index, length);
     }
     @Override

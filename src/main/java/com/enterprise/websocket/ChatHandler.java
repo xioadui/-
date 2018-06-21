@@ -16,17 +16,18 @@ public class ChatHandler extends AbstractWebSocketHandler {
 //    保存登录的用户
     private static ConcurrentHashMap<String,WebSocketSession> user = new ConcurrentHashMap<String,WebSocketSession>();
     @Override
-    public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+    public void afterConnectionEstablished(WebSocketSession session){
         String userId = (String) session.getAttributes().get("userId");
         user.put(userId,session);
     }
 
     @Override
-    public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
+    public void afterConnectionClosed(WebSocketSession session, CloseStatus status){
         String userId = (String) session.getAttributes().get("userId");
         user.remove(userId);
     }
 
+//    当对方不在线的时候，发送一个提示信息
     private static final TextMessage canSendMessage = new TextMessage("对方不在线！！！");
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) {

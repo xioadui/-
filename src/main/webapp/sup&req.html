@@ -1,23 +1,14 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE>
+<!--发布供需界面-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Services</title>
+    <title>发布供需</title>
     <meta content="text/html; charset=utf-8"/>
-    <link href="css/sup&reqdaohanglan.css" rel="stylesheet" type="text/css" media="all"/>
-    <link title="style" rel="stylesheet" href="css/sup&req.css" type="text/css"/>
+    <link href="css/header.css" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/sup&req.css" type="text/css"/>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var div = $(".guide ul li");
-            div.animate({
-                fontSize: '17px'
-            }, "slow");
-        });
-    </script>
-
+    <script type="text/javascript" src="js/header.js"></script>
     <script type="text/javascript">
         $(document).on('click', '#submit', function () {
             var supreq = $('#supreq').val().trim();//供应或需求
@@ -26,7 +17,6 @@
             var supreqzhaiyaotxt = $('#supreqzhaiyaotxt').val().trim();//发布摘要内容
             var supreqtxt = $('#supreqtxt').val().trim();//发布的详细内容
             if (supreq == '供应') {
-                //provide
                 $.post(
                     '/provide/publish',
                     {
@@ -63,38 +53,12 @@
         })
     </script>
 </head>
-
 <body>
 <div class="header">
-    <div class="guide">
-        <ul>
-            <li id="home" class="">
-                <a href="index.html">主页</a>
-            </li>
-            <li id="news" class="">
-                <a href="industry_news.html">资讯</a>
-            </li>
-            <li id="data" style="margin-left: 10px;" class="">
-                <a href="industry_data.html">行业数据</a>
-            </li>
-            <li id="findsr" style="margin-left: 20px;" class="">
-                <a href="search_sup&req.html">浏览供需</a>
-            </li>
-            <li id="sr" style="margin-left: 20px;" class="">
-                <a href="sup&req.html">发布供需</a>
-            </li>
-            <li id="partner" style="margin-left: 20px;" class="">
-                <a href="find_partner.html">合作伙伴</a>
-            </li>
-        </ul>
-    </div>
 </div>
-
 <div class="form">
     <form id="form1">
         <fieldset>
-            <legend>发布</legend>
-
             <div>
                 <!-- 第一个选项框 选择供/需-->
                 <select class="validate-selection" title="供/需" id="supreq">

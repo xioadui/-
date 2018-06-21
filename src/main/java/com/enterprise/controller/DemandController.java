@@ -2,6 +2,7 @@ package com.enterprise.controller;
 
 import com.enterprise.entity.Demand;
 import com.enterprise.service.serviceImpl.DemandServiceImpl;
+import com.enterprise.utils.DemandUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,11 +27,21 @@ public class DemandController {
      */
     @RequestMapping(value = "/allDemand")
     @ResponseBody
+<<<<<<< HEAD
+    public Map<String, Object> getAllDemand(@RequestParam("index")long index,
+                                            @RequestParam("length")int length){
+        Map<String, Object> resultMap = new HashMap<>();
+=======
     public Map<String, List<Map<String, String>>> getAllDemand(@RequestParam("index")long index,
-                                                                @RequestParam("length")int length){
+                                                               @RequestParam("length")int length){
         Map<String, List<Map<String, String>>> resultMap = new HashMap<>();
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
         List<Demand> demandList = demandService.getAllDemand(index, length);
-        resultMap.put("demand", this.demandUtils(demandList));
+        List<Map<String, Object>> demands = new ArrayList<>();
+        for(Demand demand:demandList){
+            demands.add(DemandUtils.parseDemandToMap(demand));
+        }
+        resultMap.put("demand", demands);
         return resultMap;
     }
 
@@ -41,13 +52,17 @@ public class DemandController {
      */
     @RequestMapping(value="/getEntDemand")
     @ResponseBody
-    public Map<String, List<Map<String, String>>> getEntDemand(HttpSession session,
+    public Map<String, Object> getEntDemand(HttpSession session,
                                                                @RequestParam("index")long index,
                                                                @RequestParam("length")int length){
         String entId = (String)session.getAttribute("entId");
-        Map<String, List<Map<String, String>>> resultMap = new HashMap<>();
+        Map<String, Object> resultMap = new HashMap<>();
         List<Demand> demandList = demandService.getDemandByEntId(entId,index,length);
-        resultMap.put("demand", this.demandUtils(demandList));
+        List<Map<String, Object>> demands = new ArrayList<>();
+        for(Demand demand:demandList){
+            demands.add(DemandUtils.parseDemandToMap(demand));
+        }
+        resultMap.put("demand", demands);
         return resultMap;
     }
 
@@ -92,15 +107,27 @@ public class DemandController {
      * @return 查询得到的结果集
      */
     @ResponseBody
+<<<<<<< HEAD
     @RequestMapping(value = "/search")
-    public Map<String, List<Map<String, String>>> searchDemand(@RequestParam("condition") String condition,
+    public Map<String, Object> searchDemand(@RequestParam("condition") String condition,
                                                     @RequestParam("index")long index,
                                                     @RequestParam("length")int length){
+        Map<String, Object> resultMap = new HashMap<>();
+=======
+    @RequestMapping(value = "search")
+    public Map<String, List<Map<String, String>>> searchDemand(@RequestParam("condition") String condition,
+                                                               @RequestParam("index")long index,
+                                                               @RequestParam("length")int length){
         Map<String, List<Map<String, String>>> resultMap = new HashMap<>();
+>>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 
         condition = "%"+condition+"%";
         List<Demand> demandList = demandService.searchDemand(condition,index,length);
-        resultMap.put("demand", this.demandUtils(demandList));
+        List<Map<String, Object>> demands = new ArrayList<>();
+        for(Demand demand:demandList){
+            demands.add(DemandUtils.parseDemandToMap(demand));
+        }
+        resultMap.put("demand", demands);
         return resultMap;
     }
 
@@ -112,30 +139,10 @@ public class DemandController {
      * @return 删除操作是否成功，success
      */
     @ResponseBody
-    @RequestMapping(value = "/delete")
-    public String delete(HttpSession session,@RequestParam("demandId") String demandId){
+    @RequestMapping(value = "delete")
+    public String delete(HttpSession session, @RequestParam("demandId") String demandId){
         String entId = (String)session.getAttribute("entId");
         return demandService.deleteByDemandId(demandId,entId);
     }
 
-    /**
-     * 负责将查询得到的结果填充到集合中
-     * @param demandList　需要被转换的List
-     * @return 组装后的List
-     */
-    private List<Map<String, String>> demandUtils(List<Demand> demandList){
-        List<Map<String, String>> demands = new ArrayList<>();
-        for(Demand demand:demandList){
-            Map<String, String> demandMap = new HashMap<>();
-            demandMap.put("demandId", demand.getDemandId()+"");
-            demandMap.put("entId", demand.getEntId());
-            demandMap.put("demandContent", demand.getDemandContent());
-            demandMap.put("demandDate", demand.getDemandDate());
-            demandMap.put("demandDigest", demand.getDemandDigest());
-            demandMap.put("demandTitle", demand.getDemandTitle());
-            demandMap.put("demandType", demand.getDemandType());
-            demands.add(demandMap);
-        }
-        return demands;
-    }
 }

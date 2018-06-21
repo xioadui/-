@@ -4,10 +4,7 @@ body {
 	font-size: 12px;
 }
 
-.header {
-	z-index:2;
-	position:fixed;
-	top:0px;
+/*.header {
 	width: 1550px;
 	height: 100px;
 	display: block;
@@ -41,9 +38,9 @@ body {
 }
 .guide ul li a:hover{
 	color: yellow;
-}
+}*/
 .all{
-	width: 1550px;
+	min-width: 1550px;
 	padding: 20px 100px;
 }
 .colunm1{
@@ -66,14 +63,14 @@ body {
 	font-family: "STXihei";
 	font-size: 30px;
 	color: lightskyblue;
-	display: none;
+	display:  block;
 }
 
 .basic{
 	width: 50%;
 	margin: auto;
 	text-align: center;
-	display: none;
+	display: block;
 }
 .basic span{
 	margin-right: 10px;

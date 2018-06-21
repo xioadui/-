@@ -1,9 +1,0 @@
-create table information(
-	type varchar(40),
-	title varchar(100),
-    date date,
-    content text,
-    digest text,
-    primary key(title)
-)
-

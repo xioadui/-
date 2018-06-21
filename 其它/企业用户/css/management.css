@@ -14,7 +14,6 @@ body{
 	background: url(../img/52.jpg);
 	padding: 5px 30px;
 }
-
 .h {
 	width: 100%;
 	float: left;
@@ -168,9 +167,19 @@ body{
 .box-content{
 	width: 100%;
 	height: 100%;
+	/*position: relative;*/
 	padding: 20px;
 	overflow:  auto;
 }
+.box-content .entName,
+.box-content .entID{
+	max-width: 300px;
+	height: 30px;
+	float: left;
+	overflow: hidden;
+/*	background: aliceblue;
+*/}
+
 .box-content ul li{
 	width: 97%;
 	height: 60px;
@@ -180,8 +189,13 @@ body{
 	padding: 20px;
 	list-style-type: none;
 }
+.box-content ul li nav {
+	width: 100%;
+	height: 30px;
+}
 .box-content ul li nav span{
 	margin-right: 30px;
+	float: left;
 }
 .box-content ul li nav button{
 	border:none;
@@ -197,8 +211,9 @@ body{
 	color: darkgrey;
 	overflow: auto;
 }
-iframe{
-	width: 100%;
-	height: 100%;
-	border:0;
+
+#sr_content button{
+	float: right;
+	margin-left: 10px;
+	margin-top: 5px;
 }

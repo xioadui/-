@@ -1,0 +1,76 @@
+body {
+	color: #333;
+	padding: 0px;
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.menu{
+	min-width:90% ;
+	height: 50px;
+	text-align: center;
+	margin: 20px 10px;
+}
+#type{
+	width: 100px;
+	height: 30px;
+}
+#input{
+	width: 500px;
+	height: 30px;
+}
+.menu button{
+	width: 80px;
+	height: 30px;
+}
+.content h1{
+	width: 100%;
+	font-size: 30px;
+	color: rgb(0, 98, 150)/*cadetblue*/	;
+	margin:  20px auto;
+}
+.content {
+	max-width: 100%;
+	height: auto;
+	font-size: 17px;
+	color: black;
+	margin: 0 200px;
+	text-align: center;
+}
+
+.last_next{
+	min-width: 100%;
+	text-align: center;
+}
+
+.last_next button{
+	margin-right: 10px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+
+
+.content a{
+	text-decoration: none;
+}
+.content h1{
+	width: 100%;
+	font-size: 50px;
+	color: rgb(0, 98, 150)/*cadetblue*/	;
+	margin:  30px auto;
+}
+.content nav span{
+	width: 200px;
+	font-size: 18px;
+	margin: 10px;
+}
+.new{
+	width: 1000px;
+}
+.new div{
+	width: 1000px;
+	height: 200px;
+	overflow: hidden;
+	padding: 20px;
+	text-align: left;
+}

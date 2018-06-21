@@ -4,6 +4,15 @@ package com.enterprise.entity;
  * 行业数据对应的Bean
  */
 public class IndustryData {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    private long id;
     //	所属行业
     private String type;
     //	发布时间

@@ -28,7 +28,6 @@ public class CrawlerClient {
                 //爬取资讯
                 ICrawler<Information> crawlerInformation = new CrawlerImpl<Information>();
                 List<Information> informationList = crawlerInformation.crawler(new ParseStrategyInformation("http://www.chinabgao.com/info/?from=groupmessage"));
-                System.out.println(informationList.size());
                 try {
                     informationService.save(informationList);
                 }catch (Exception e){

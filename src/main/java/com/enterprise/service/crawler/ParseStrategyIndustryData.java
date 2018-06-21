@@ -120,7 +120,7 @@ public class ParseStrategyIndustryData extends AbstractParse {
                 Elements p = content.select(".arccon").select("p");
 //				摘要
                 data.setDigest(p.first().toString());
-
+                data.setId(System.currentTimeMillis());
 //				内容
                 data.setContent(content.select(".arccon").toString());
 //				所属行业

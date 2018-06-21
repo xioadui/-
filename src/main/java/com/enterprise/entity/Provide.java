@@ -1,7 +1,9 @@
 package com.enterprise.entity;
 
+/**
+ * 供应
+ */
 public class Provide {
-
     private int proId;
     private String entId;
     private String proType;

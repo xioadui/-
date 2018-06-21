@@ -1,0 +1,47 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html" />
+    <title>行业数据</title>
+    <link href="css/header.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/search_news.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/jquery.params.js"></script>
+    <script type="text/javascript" src="js/search_data.js"></script>
+    <script type="text/javascript" src="js/header.js"></script>
+</head>
+
+<body>
+<div class="header">
+    <!--头部-->
+</div>
+
+<div class="menu">
+    <select id="type" title="综合查询">
+        <option> 综合查询 </option>
+        <option> 行业类型 </option>
+        <option> 资讯标题 </option>
+    </select>
+    <input id="input" placeholder="请输入要查询的信息">
+
+    </input>
+    <button class="sub" onclick="search()">搜索</button>
+
+</div>
+
+<div class="content">
+</div>
+
+<div class="last_next">
+    <button onclick="last()">上一页</button>
+    <button onclick="next()">下一页</button>
+</div>
+
+<div class="footer"></div>
+
+</body>
+
+</html>

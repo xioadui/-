@@ -6,10 +6,11 @@
 
 
     <insert id="save" parameterType="java.util.List">
-        insert ignore into information(type,title,date,content,digest)
+        insert ignore into information(id,type,title,date,content,digest)
         values
         <foreach collection="info" item="item" index= "index" separator =",">
             (
+            #{item.id,jdbcType=BIGINT},
             #{item.type,jdbcType=VARCHAR},
             #{item.title,jdbcType=VARCHAR},
             #{item.date,jdbcType=DATE},
@@ -19,32 +20,44 @@
         </foreach>
     </insert>
     <select id="queryByTitle" resultType="com.enterprise.entity.Information">
-      SELECT type,title, date, content, digest
-        FROM information where information.title = #{title,jdbcType=VARCHAR};
+      SELECT id,type,title, date, content, digest
+        FROM information where information.title like #{title,jdbcType=VARCHAR};
+        order by date desc
+        limit #{index},#{length};
+    </select>
+    <select id="queryById" resultType="com.enterprise.entity.Information">
+      SELECT id,type,title, date, content, digest
+        FROM information where id = #{id,jdbcType=INTEGER};
     </select>
 
     <select id="queryByDate" resultType="com.enterprise.entity.Information">
-         SELECT type,title, date, content, digest
+         SELECT id,type,title, date, content, digest
         FROM information
         where date = #{date}
-        order by date asc
+        order by date desc
+        limit #{index},#{length};
+    </select>
+    <select id="getAllInfo" resultType="com.enterprise.entity.Information">
+         SELECT id,type,title, date, content, digest
+        FROM information
+        order by date desc
         limit #{index},#{length};
     </select>
 
     <select id="queryByType" resultType="com.enterprise.entity.Information">
-         SELECT type,title, date, content, digest
+         SELECT id,type,title, date, content, digest
         FROM information
-        where type = #{type}
-        order by date asc
+        where type like #{type,jdbcType=VARCHAR}
+        order by date desc
         limit #{index},#{length};
     </select>
 
 
     <select id="searchInformation" resultType="com.enterprise.entity.Information">
-         SELECT type,title, date, content, digest
+         SELECT id,type,title, date, content, digest
         FROM information
         where type like #{condition} or title like #{condition}
-        order by date asc
+        order by date desc
         limit #{index},#{length};
     </select>
 

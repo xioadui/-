@@ -2,10 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script type="text/javascript"></script>
-    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-
-
+    <script src="/js/jquery-3.3.1.js"></script>
     <script type="text/javascript">
         $(document).on('click','#submit',function (){
                 var userId = $('#field1').val().trim();//企业ID
@@ -22,7 +19,7 @@
                 var entDate = $('#field12').val().trim();//注册时间
                 console.log(userId+" "+enterprise+" "+username+" "+category+" "+brief+" "+introduction+" "+address+" "+scale+" "+phone+" "+password+" "+network);
                 $.ajax({
-                    type: "POST",
+                    type: "get",
                     url: "/user/register" ,
                     data: {
                         entId:userId,
@@ -40,18 +37,16 @@
                         entDate:entDate
                     },
                     success:function (data) {
-                        if(data.register == 'success'){
-                            alert("请等待管理员审核");
-                            location.href = "index.html?entId" + userId;
+                        alert("请等待管理员审核");
+                        if(data.login == "success"){
+                            location.href = "index.html";
                         }
-
                     },
                     error : function() {
-
                     }
                 });
             }
-        )
+        );
 
         function check(){//判断企业邮箱是否已注册
             var userId = $('#field1').val().trim();//企业ID
@@ -62,12 +57,11 @@
                     entId:userId
                 },
                 success:function (data) {//已有邮箱时
-                    console.log(data);
                     if(data.entId == 'exist')
                         $("#la").html('<label>邮箱已注册</label>');
                     else
                         $("#la").html(' ');
-                },
+                }
             });
 
         }
@@ -162,7 +156,7 @@
 
             <div class="form-row">
                 <div class="field-label">提交或返回主页</div>
-                    <input type="submit" class="submit" id="submit" value="提交" />
+                    <input type="button" class="submit" id="submit" value="提交" />
                 <a href="index.html" style="text-decoration:none">
                     <input class="submit" type="button" value="返回"/>
                 </a>
