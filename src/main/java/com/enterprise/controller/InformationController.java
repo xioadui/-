@@ -12,7 +12,6 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 /**
  * 处理行业信息控制器
  */
@@ -39,7 +38,7 @@ public class InformationController {
      */
     @ResponseBody
     @RequestMapping(value = "/searchInformation")
-    public Map<String, Object> searchInformation(@RequestParam("condition") String condition, long index, int length) {
+    public Map<String, Object> searchInformation(@RequestParam("condition") String condition,long index,int length) {
         Map<String, Object> resultMap = new HashMap<>();
         condition = "%"+condition+"%";
         List<Information> infList = informationService.searchInformation(condition, index, length);

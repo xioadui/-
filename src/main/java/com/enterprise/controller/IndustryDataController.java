@@ -54,15 +54,7 @@ public class IndustryDataController {
      */
     @ResponseBody
     @RequestMapping(value = "/queryByTitle")
-<<<<<<< HEAD
-<<<<<<< HEAD
     public Map<String, Object> queryByTitle(@RequestParam("condition")String title,long index,int length){
-=======
-    public Map<String, Object> queryByTitle(String title, long index, int length){
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-=======
-    public Map<String, Object> queryByTitle(String title, long index, int length){
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
         title = "%"+title +"%";
         List<IndustryData> infList = industryDataService.queryByTitle(title,index,length);
         Map<String, Object> resultMap = new HashMap<>();
@@ -93,7 +85,7 @@ public class IndustryDataController {
      */
     @ResponseBody
     @RequestMapping(value = "/searchIndustryData")
-    public Map<String, Object> searchIndustryData(@RequestParam("condition") String condition, long index, int length) {
+    public Map<String, Object> searchIndustryData(@RequestParam("condition") String condition,long index,int length) {
         Map<String, Object> resultMap = new HashMap<>();
 //        进行like查询
         condition = "%"+condition+"%";

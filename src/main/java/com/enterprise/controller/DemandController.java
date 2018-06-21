@@ -27,15 +27,9 @@ public class DemandController {
      */
     @RequestMapping(value = "/allDemand")
     @ResponseBody
-<<<<<<< HEAD
     public Map<String, Object> getAllDemand(@RequestParam("index")long index,
                                             @RequestParam("length")int length){
         Map<String, Object> resultMap = new HashMap<>();
-=======
-    public Map<String, List<Map<String, String>>> getAllDemand(@RequestParam("index")long index,
-                                                               @RequestParam("length")int length){
-        Map<String, List<Map<String, String>>> resultMap = new HashMap<>();
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
         List<Demand> demandList = demandService.getAllDemand(index, length);
         List<Map<String, Object>> demands = new ArrayList<>();
         for(Demand demand:demandList){
@@ -107,22 +101,11 @@ public class DemandController {
      * @return 查询得到的结果集
      */
     @ResponseBody
-<<<<<<< HEAD
-<<<<<<< HEAD
     @RequestMapping(value = "/search")
     public Map<String, Object> searchDemand(@RequestParam("condition") String condition,
                                                     @RequestParam("index")long index,
                                                     @RequestParam("length")int length){
         Map<String, Object> resultMap = new HashMap<>();
-=======
-=======
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-    @RequestMapping(value = "search")
-    public Map<String, List<Map<String, String>>> searchDemand(@RequestParam("condition") String condition,
-                                                               @RequestParam("index")long index,
-                                                               @RequestParam("length")int length){
-        Map<String, List<Map<String, String>>> resultMap = new HashMap<>();
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 
         condition = "%"+condition+"%";
         List<Demand> demandList = demandService.searchDemand(condition,index,length);
@@ -142,8 +125,8 @@ public class DemandController {
      * @return 删除操作是否成功，success
      */
     @ResponseBody
-    @RequestMapping(value = "delete")
-    public String delete(HttpSession session, @RequestParam("demandId") String demandId){
+    @RequestMapping(value = "/delete")
+    public String delete(HttpSession session,@RequestParam("demandId") String demandId){
         String entId = (String)session.getAttribute("entId");
         return demandService.deleteByDemandId(demandId,entId);
     }

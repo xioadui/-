@@ -19,13 +19,11 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/provide")
 public class ProvideController {
-
     @Resource
     private ProvideServiceImpl provideService;
-
     @RequestMapping(value = "/getAllPro")
     @ResponseBody
-    public Map<String, Object> getAllPro(@RequestParam("index") long index, @RequestParam("length") int length){
+    public Map<String, Object> getAllPro(@RequestParam("index") long index,@RequestParam("length") int length){
         Map<String, Object> resultMap = new HashMap<>();
         List<Provide> proList = provideService.getAllPro(index, length);
         resultMap.put("pro", ProvideUtils.parseProvideListToMapList(proList));
@@ -58,8 +56,8 @@ public class ProvideController {
     @RequestMapping(value = "/getByEntId")
     @ResponseBody
     public Map<String, Object> queryByEntId(HttpSession session,
-                                            @RequestParam("index")long index,
-                                            @RequestParam("length")int length){
+                                         @RequestParam("index")long index,
+                                         @RequestParam("length")int length){
         String entId = (String)session.getAttribute("entId");
         Map<String, Object> resultMap = new HashMap<>();
         List<Provide> proList = provideService.getProByEntId(entId, index, length);
@@ -79,10 +77,10 @@ public class ProvideController {
     @RequestMapping(value="/publish")
     @ResponseBody
     public Map<String,String> publish(HttpSession session,
-                                      @RequestParam("content") String demandContent,
-                                      @RequestParam("digest") String demandDigest,
-                                      @RequestParam("title") String demandTitle,
-                                      @RequestParam("type") String demandType){
+                                       @RequestParam("content") String demandContent,
+                                       @RequestParam("digest") String demandDigest,
+                                       @RequestParam("title") String demandTitle,
+                                       @RequestParam("type") String demandType){
         Provide provide = new Provide();
         Date day=new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -104,17 +102,9 @@ public class ProvideController {
      * @param proId 供应的ID
      * @return 返回操作是否成功
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     @RequestMapping(value="/deletePro")
     @ResponseBody
     public String deletePro(HttpSession session,@RequestParam("proId") int proId){
-=======
-    public String deletePro(HttpSession session, @RequestParam("proId") int proId){
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-=======
-    public String deletePro(HttpSession session, @RequestParam("proId") int proId){
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
         String entId = (String)session.getAttribute("entId");
         this.provideService.deleteByproId(proId,entId);
         return "success";
