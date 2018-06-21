@@ -1,6 +1,4 @@
 body{
-<<<<<<< HEAD
-<<<<<<< HEAD
     background: rgb(255, 255, 255);
 }
 .all{
@@ -66,84 +64,10 @@ body{
     overflow: hidden;
     margin: auto 20px;
     border: 1px solid lightsteelblue;
-=======
-=======
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-	background: rgb(255, 255, 255);
-}
-.all{
-	background: rgb(255, 255, 255);
-	width: 1550px;
-	height: 699px;
-	font-family: "STXihei",华文细黑;
-	overflow: hidden;
-}
-.guide{
-	width: 100%;
-	height: 80px;
-	background: url(../img/52.jpg);
-	padding: 5px 30px;
-}
-
-.h {
-	width: 100%;
-	float: left;
-	text-align: center;
-	list-style-type: none;
-	display: block;
-	margin-top: 25px;
-	margin-left:40px ;
-}
-
-.h li {
-	width: 80px;
-	text-decoration: none;
-	float: left;
-	font-size: 17px;
-	font-family: "STXihei",华文细黑;
-	display: inline;
-}
-
-.h li a {
-	text-decoration: none;
-	color: rgb(255, 255, 255);
-}
-.h li a:hover{
-	color: lightsteelblue;
-}
-.h span{
-	color: white;
-	font-size: 20px;
-	float: right;
-	margin-right: 40px;
-}
-.page{
-	width: 100%;
-	height: 100%;
-	margin-top: 20px;
-	background: white;
-}
-.control{
-	width: 15%;
-	height: 100%;
-	float: left;
-	display: block;
-    /*font-weight: bold;*/
-    color: darkgrey;
-	background: white;
-	overflow: hidden;
-	margin: auto 20px;
-	border: 1px solid lightsteelblue;
-<<<<<<< HEAD
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-=======
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     border-radius: 3px;
     box-shadow: 0 0 10px lightsteelblue;
 }
 .control ul{
-<<<<<<< HEAD
-<<<<<<< HEAD
     list-style-type: none;
     display: block;
     /*background: red;*/
@@ -211,80 +135,6 @@ body{
 }
 .notice{
     display: block;
-=======
-=======
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-	list-style-type: none;
-	display: block;
-	/*background: red;*/
-	padding: 0px 0px;
-}
-.control ul li{
-	width: 100%;
-	height: 65px;
-	border-radius: 3px;
-	text-decoration: none;
-	float: left;
-	text-align: center;
-	background: white;
-	padding: 20px;
-	font-size: 20px;
-	font-family: "STXihei",华文细黑;
-	border: 1px solid lightsteelblue;
-	/*display: inline;*/
-}
-
-.control ul li:hover{
-	margin-left: 10px;	
-	
-}
-.control ul li:active{
-	margin-left: 10px;	
-	background: lightsteelblue;
-}
-
-.content{
-	width: 82%;
-	height: 100%;
-	background: white;
-	/*padding: 10px 20px;*/
-	overflow: hidden;
-}
-
-#sr_content button{
-	float: right;
-	margin-left: 10px;
-	margin-top: 5px;
-}
-
-.row{
-	width: 100%;
-	background: white;
-	float: right;
-	margin: auto;
-}
-
-.hint{
-	width: 200px;
-	height: 80px;
-	display: block;
-	border-radius: 10px;
-	border: 1px solid lightsteelblue;
-	float: left;
-	margin: 20px 0px 20px 50px;
-	text-align: center;
-	color: lightsteelblue;
-	font-size: 20px;
-	font-family: "STXihei",华文细黑;
-	padding-top: 22px;
-	text-decoration: none;
-}
-.notice{
-	display: block;
-<<<<<<< HEAD
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-=======
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     /*position: absolute;*/
     width: 30px;
     height: 25px;
@@ -299,21 +149,9 @@ body{
     background: aliceblue;
 }
 .box{
-<<<<<<< HEAD
-<<<<<<< HEAD
     width: 90%;
     height: 80%;
     border: 1px solid lightsteelblue;
-=======
-	width: 90%;
-	height: 80%;
-	border: 1px solid lightsteelblue;
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-=======
-	width: 90%;
-	height: 80%;
-	border: 1px solid lightsteelblue;
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     border-radius: 3px;
     box-shadow: 0 0 10px lightsteelblue;
     margin: 20px auto;
@@ -321,15 +159,7 @@ body{
     overflow: hidden;
 }
 .box-header {
-<<<<<<< HEAD
-<<<<<<< HEAD
     height: 50px;
-=======
-    height: 50px; 
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-=======
-    height: 50px; 
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
     border: none;
     padding-top: 10px;
     padding-left: 40px;
@@ -341,8 +171,6 @@ body{
     background: aliceblue;
 }
 .box-content{
-<<<<<<< HEAD
-<<<<<<< HEAD
     width: 100%;
     height: 100%;
     padding: 20px;
@@ -379,46 +207,3 @@ iframe{
     height: 100%;
     border:0;
 }
-=======
-=======
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-	width: 100%;
-	height: 100%;
-	padding: 20px;
-	overflow:  auto;
-}
-.box-content ul li{
-	width: 97%;
-	height: 60px;
-	border-bottom: 1px solid lightsteelblue;
-	color: black;
-	font-size: 20px;
-	padding: 20px;
-	list-style-type: none;
-}
-.box-content ul li nav span{
-	margin-right: 30px;
-}
-.box-content ul li nav button{
-	border:none;
-	background: aliceblue;
-	color: black;
-}
-.hidden{
-	display: none;
-}
-#register_content .box,#sr_content .box{
-	padding: 20px 30px;
-	font-size: 18px;
-	color: darkgrey;
-	overflow: auto;
-}
-iframe{
-	width: 100%;
-	height: 100%;
-	border:0;
-}
-<<<<<<< HEAD
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-=======
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10

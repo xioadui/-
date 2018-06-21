@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 $(".guide span").mouseenter(function () {
     if (!$(this).hasClass(".active")) {
         $(".active").removeClass("active");
         $(this).addClass("active");
     }
 });
-=======
-
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-=======
-
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 $(".func1 li").mouseenter(function () {
     if (!$(this).hasClass(".active")) {
         $(".active").removeClass("active");
@@ -30,6 +22,13 @@ $(".func2 li").mouseenter(function () {
         $("#cont2 div").eq($(this).index()).addClass("showed");
 
     }
+});
+
+$(document).ready(function () {
+    var div = $(".guide li");
+    div.animate({
+        fontSize: '17px'
+    }, "slow");
 });
 
 $(document).ready(function () {
@@ -125,11 +124,6 @@ $(document).ready(function () {
                 });
         });
 });
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
 $(document).ready(function() {
     $(".header").append(
         '<div class="banner">'+

@@ -109,8 +109,6 @@
         select COUNT(proId)
         from provide_admin;
     </select>
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     <select id="_entSum" resultType="integer">
         select COUNT(entId)
@@ -160,58 +158,3 @@
 
 
 
-=======
-
-=======
-
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-    <select id="_entSum" resultType="integer">
-        select COUNT(entId)
-        from enterpriseinf;
-    </select>
-
-    <select id="_agreeDemandSum" resultType="integer">
-        select COUNT(demandId)
-        from demand;
-    </select>
-
-    <select id="_agreeProSum" resultType="integer">
-        select COUNT(proId)
-        from provide;
-    </select>
-
-    <select id="_registerContent" resultType="com.enterprise.entity.Enterprise">
-        SELECT *
-        FROM register
-        WHERE entId = #{entId, jdbcType=VARCHAR}
-    </select>
-
-    <select id="_demandContent" resultType="com.enterprise.entity.Demand">
-        SELECT *
-        FROM demand_admin
-        WHERE demandId = #{demandId, jdbcType=INTEGER}
-    </select>
-
-    <select id="_proContent" resultType="com.enterprise.entity.Provide">
-        SELECT *
-        FROM provide_admin
-        WHERE proId = #{proId, jdbcType=INTEGER}
-    </select>
-
-    <select id="_demandContentAgree" resultType="com.enterprise.entity.Demand">
-        SELECT *
-        FROM demand
-        WHERE demandId = #{demandId, jdbcType=INTEGER}
-    </select>
-
-    <select id="_proContentAgree" resultType="com.enterprise.entity.Provide">
-        SELECT *
-        FROM provide
-        WHERE proId = #{proId, jdbcType=INTEGER}
-    </select>
-<<<<<<< HEAD
-</mapper>
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-=======
-</mapper>
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10

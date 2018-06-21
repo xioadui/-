@@ -20,8 +20,6 @@
     <select id="queryByTitle" resultType="com.enterprise.entity.IndustryData">
       SELECT id,type,title, date, content, digest
         FROM industrydata
-<<<<<<< HEAD
-<<<<<<< HEAD
         where title like #{title,jdbcType=VARCHAR};
         order by date desc
         limit #{index},#{length};
@@ -30,12 +28,6 @@
          SELECT id,type,title, date, content, digest
         FROM industrydata
         order by date desc
-=======
-=======
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
-        where title like #{title,jdbcType=VARCHAR}
-        order by date asc
->>>>>>> 072f66b0cd66e41ea585c03761c2198c980afe10
         limit #{index},#{length};
     </select>
 
