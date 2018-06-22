@@ -5,93 +5,117 @@
 		<meta charset="utf-8">
 		<meta content="text/html" />
 		<title>partner</title>
-		<link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
+		
 		<link href="css/partner.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/header.css" rel="stylesheet" type="text/css" media="all" />
 		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 		<script type="text/javascript" src="js/jquery.params.js"></script>
-		<script type="text/javascript" src="js/partner.js"</script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-	var div = $(".guide ul li");
-	div.animate({
-		fontSize: '17px'
-	}, "slow");
-    });
-    </script>
-    
-    
-    <script type="text/javascript">
-	$(document).on('click','#submit',function (){
-		
-		var input_name= $('#input_name').val().trim();//公司名称
-		alert(input_name);
-		var htmlObj = $.ajax({
-                type: "POST",
-                url: "" ,
-                data: {
-                 input_name:input_name,		
-                },
-                success:function () {
-                   
-                },
-                error : function() {
-                }
-            });
-		
-	})
-	</script>  
-    </head>
+		<script type="text/javascript" src="js/header.js"></script>
+
+	</head>
 
 	<body>
 		<div class="header">
-			<div class="guide">
-				<ul>
-					<li id="home" class="">
-						<a href="index.html">主页</a>
-					</li>
-					<li id="news" class="">
-						<a href="news.html">资讯</a>
-					</li>
-					<li id="data" style="margin-left: 10px;" class="">
-						<a href="industry_data.html">行业数据</a>
-					</li>
-					<li id="findsr" style="margin-left: 20px;" class="">
-						<a href="search_sup&req.html">浏览供需</a>
-					</li>
-					<li id="sr" style="margin-left: 20px;" class="">
-						<a href="sup&req.html">发布供需</a>
-					</li>
-					<li id="partner" style="margin-left: 20px;" class="">
-						<a href="find_partner.html">合作伙伴</a>
-					</li>
-				</ul>
-			</div>
+
 		</div>
-	</div>
-	
-	
+
 		<div class="content">
-		
-			<div class="news1" id="tab1">
-				<h1>企业名称</h1>
-				<div>企业类别</div>
-				<div>企业法人</div>
-                <div>企业规模</div>
-                <div>企业地址</div>
-                <div>联系电话</div>
-                <div>企业官网</div>
-                <div>注册时间</div>
-                <div>企业介绍</div>
-				
-			</div>
 			
-	</div><!--con-->		
+			<div class="entInfo">
+				<h1>新东方教育科技有限公司</h1>
+				<p>企业类别：It</p>
+				<p>企业法人：林林林</p>
+				<p>企业规模：300人</p>
+				<p>企业地址:：北京市海淀东三街2号</p>
+				<p>联系电话： 010-606908000</p>
+				<p>企业邮箱：daiyuancheng@xdf.com</p>
+				<p>企业官网：http://www.neworiental.org</p>
+				<p>注册时间：2018-9-20</p>
+				<p>企业介绍：可以对同一个元素应用 class 或 id 属性，但是更常见的情况是只应用其中一种。这两者的主要差异是，class 用于元素组（类似的元素，或者可以理解为某一类元素），而 id 用于标识单独的唯一的元素。
+					可以对同一个元素应用 class 或 id 属性，但是更常见的情况是只应用其中一种。这两者的主要差异是，class 用于元素组（类似的元素，或者可以理解为某一类元素）</p>
+			</div>
+			<div class="mysup_req">
+				<div class="mysup">
+					<h2>已发布的供应列表</h2>
+					<ul id="support">
+						<li>
+							<nav>
+								
+								<span class="title">二筒浆烫定型机 精密定型机</span>
+								<span class="ID">330029</span>
+								<!--标题需定长-->
+								<span class="entType">机械电子</span>
+								<span class="time">2018-06-04</span>
+								<span style="float: right;"><a href="read_sup&req.html?ID=330079"><button>查看</button></a></span>
+							</nav>
+						</li>
+						<li>
+							<nav>
+								
+								<span class="title">KW-710A 精密二筒浆烫定型机 </span>
+								<span class="ID">330079</span>
+								<!--标题需定长-->
+								<span class="entType">机械电子</span>
+								<span class="time">2018-06-04</span>
+								<span style="float: right;"><a href="read_sup&req.html?ID=330079"><button>查看</button></a></span>
+							</nav>
+						</li>
+						<li>wwwwww1</li>
+						<li>wwwwww2</li>
+						<li>wwwwww3</li>
+						<li>wwwwww4</li>
+						<li>wwwwww5</li>
+						
+
+					</ul>
+					<a href="find_partner.html?entId=#" style="float: right;">more>>></a>
+				</div>
 				
-	
-	<div class="footer"></div>
-</body>
+				
+				
+				<div class="myreq">
+					<h2>已发布的需求列表</h2>
+					<ul id="require">
+						<li>
+							<nav>
+								
+								<span class="title">二筒浆烫定型机 精密定型机</span>
+								<span class="ID">330029</span>
+								<!--标题需定长-->
+								<span class="entType">机械电子</span>
+								<span class="time">2018-06-04</span>
+								<span style="float: right;"><a href="read_sup&req.html?ID=330079"><button>查看</button></a></span>
+							</nav>
+						</li>
+						<li>
+							<nav>
+								
+								<span class="title">KW-710A 精密二筒浆烫定型机 </span>
+								<span class="ID">330079</span>
+								<!--标题需定长-->
+								<span class="entType">机械电子</span>
+								<span class="time">2018-06-04</span>
+								<span style="float: right;"><a href="read_sup&req.html?ID=330079"><button>查看</button></a></span>
+							</nav>
+						</li>
+						<li>wwwwww1</li>
+						<li>wwwwww2</li>
+						<li>wwwwww3</li>
+						<li>wwwwww4</li>
+						<li>wwwwww5</li>
+						
 
-<script src="js/index.js"></script>
+					</ul>
+					<a href="find_partner.html?entId=#" style="float: right;">more>>></a>
+				</div>
+			</div>
+
+
+		</div>
+		<!--con-->
+
+		<div class="footer"></div>
+	</body>
+<script type="text/javascript" src="js/partner.js"</script>
 </html>
-

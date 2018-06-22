@@ -5,7 +5,7 @@ $(".control li").on("click", function() {
     }
 });
 
-var num1=20, num2_1, num2_2, num3, num4_1, num4_2;
+var num1, num2_1, num2_2, num3, num4_1, num4_2;
 
 $(document).ready(function() {//默认页面提示数字
     $.ajaxSettings.async = false;
