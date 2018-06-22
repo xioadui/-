@@ -4,44 +4,8 @@ body {
 	font-size: 12px;
 }
 
-.header {
-	width: 1550px;
-	height: 100px;
-	display: block;
-	background: url(../img/52.jpg)no-repeat;
-	background: url(/img/52.jpg)no-repeat;
-	background-size: cover;
-	overflow: hidden;
-	padding: 10px 50px;
-}
-
-.guide ul  {
-	width: 1000px;
-	float: left;
-	text-align: center;
-	list-style-type: none;
-	display: block;
-	margin-top: 20px;
-}
-
-.guide ul li {
-	width: 80px;
-	text-decoration: none;
-	float: left;
-	font-size: 1px;
-	font-family: "STXihei",华文细黑;
-	display: inline;
-}
-
-.guide ul li a {
-	text-decoration: none;
-	color: rgb(255, 255, 255);
-}
-.guide ul li a:hover{
-	color: yellow;
-}
 .all{
-	width: 1550px;
+	min-width: 1200px;
 	padding: 20px 100px;
 }
 .colunm1{

@@ -1,29 +1,85 @@
-$(document).ready(function(){
-	var name = $.query.get("infTitle");//获得企业名称
-	$.ajax({
-			type: "get",
-			url: "", //企业表
-			dataType: "json",
-			data:{
-				infTitle: name
-			},
-			async: false,
-			success: function(data) {
-				$(".news_content").empty();
-				$(".news_content h1").append('<h1>'+data.entName+'</h1>');
-				$(".news_content h1").append('<div>'+data.entCategory+'</div>');
-				$(".news_content h1").append('<div>'+data.entPerson+'</div>');
-				$(".news_content h1").append('<div>'+data.entSize+'</div>');
-				$(".news_content h1").append('<div>'+data.entAddress+'</div>');
-				$(".news_content h1").append('<div>'+data.entPhone+'</div>');
-				$(".news_content h1").append('<div>'+data.entWebsize+'</div>');
-				$(".news_content h1").append('<div>'+data.entDate+'</div>');
-				$(".news_content h1").append('<div>'+data.entIntroduction+'</div>');
-			},
-			error: function(error) {
-				console.log(error);
-				//			alert("异常！");
-			}
-		});
-})
+$(document).ready(function() {
+			var entId = $.query.get("entId"); //获得企业名称
+			$.ajax({
+				type: "get",
+				url: "", //企业表
+				dataType: "json",
+				data: {
+					entId: entId
+				},
+				async: false,
+				success: function(data) {
+					$(".entInfo").empty();
+					$(".entInfo h1").append('<h1>' + data.entName + '</h1>' +
+						'<p>企业类别：' + data.entCategory + '</p>' +
+						'<p>企业法人：' + data.entPerson + '</p>' +
+						'<p>企业规模：' + data.entSize + '</p>' +
+						'<p>企业地址：' + data.entAddress + '</p>' +
+						'<p>联系电话：' + data.entPhone + '</p>' +
+						'<p>企业邮箱：' + data.entId + '</p>' +
+						'<p>企业官网：' + data.entWebsize + '</p>' +
+						'<p>注册时间：' + data.entDate + '</p>' +
+						'<p>企业介绍：' + data.entIntroduction + '</p>');
+				},
+				error: function(error) {
+					console.log(error);
+					//			alert("异常！");
+				}
+			});
 
+			$.ajax({
+					type: "get",
+					url: "", //已通过审核供应表
+					data: {
+						index: 0,
+						length: 8,
+						entId: entId
+					},
+					dataType: "json",
+					async: false,
+					success: function(data) {
+						$("#support").empty(); //清空展示效果的部分
+						for(var i = 0; i < data.pro.length && i < 7; i++) {
+							$("#support").append('<li><nav><span class="ID">' + data.pro[i].proId + '</span>' +
+								'<span class="title">' + data.pro[i].proTitle + '</span>' +
+								'<span class="entType">' + data.pro[i].proType + '</span>' +
+								'<span class="time">' + data.pro[i].proDate + '</span>' +
+								'<span style="float: right;"><a href="read_sup&req.html?ID=' + data.pro[i].proId + "><button>查看</button></a></span></nav></li>');
+							}
+							if(data.pro.length > 7) {
+								$(".mysup").append('<a href="find_partner.html?entId=' + entId + '" style="float: right;">more>>></a>');
+							}
+						},
+						error: function(error) {}
+					});
+
+				$.ajax({
+						type: "get",
+						url: "/admin/demand",
+						data: {
+							index: no_ent,
+							length: 8,
+							entId: entId
+						},
+						dataType: "json",
+						async: false,
+						success: function(data) {
+							console.log(data);
+							$("#require").empty(); //清空展示效果的部分
+							for(var i = 0; i < data.demand.length && i < 7; i++) {
+								$("#require").append('<li><nav><span class="ID">' + data.demand[i].demandId + '</span>' +
+									'<span class="title">' + data.demand[i].demandTitle + '</span>' +
+									'<span class="entType">' + data.demand[i].demandType + '</span>' +
+									'<span class="time">' + data.demand[i].demandDate + '</span>' +
+									'<span style="float: right;"><a href="read_sup&req.html?ID=' + data.demand[i].demandId + "><button>查看</button></a></span></nav></li>');
+								}
+								if(data.demand.length > 7) {
+									$(".mysup").append('<a href="find_partner.html?entId=' + entId + '" style="float: right;">more>>></a>');
+								}
+							},
+							error: function(error) {
+								console.log(error);
+							}
+						});
+
+				})
