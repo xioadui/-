@@ -76,7 +76,7 @@ $(document).ready(function() {
 		$("#register").addClass("hidden");
 		$("#findsr").append('<a href="search_sup&req.html">浏览供需</a>');
 		$("#sr").append('<a href="sup&req.html">发布供需</a>');
-		$("#partner").append('<a href="find_partner.html">合作伙伴</a>');
+		$("#partner").append('<a href="search_partner.html">合作伙伴</a>');
 		$(".guide span").append(entName + '，欢迎您！');
 	} else {
 		$("#findsr").append('<a href="login.html">浏览供需</a>');

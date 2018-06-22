@@ -134,7 +134,6 @@ function reject_ent(entID) {
         },
         async: false,
         success: function(data) {
-            alert("----------");
             get_ent();
         },
         error: function(error) {
@@ -253,7 +252,6 @@ function del_s(ID) {
     $.post('/admin/deleteProvideAgree', {
         proId:ID
     },function (data) {
-        console.log(data);
         manage_support();
     })
 }
@@ -261,9 +259,7 @@ function del_s(ID) {
 function del_r(ID) {
     $.post('/admin/deleteDemandAgree', {
         demandId: ID
-        //		提交删除的需求ID
     },function (data) {
-        console.log(data);
         manage_require();
     })
 }

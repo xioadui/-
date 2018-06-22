@@ -319,35 +319,30 @@ public class AdminController {
     @RequestMapping(value="/registerContent")
     @ResponseBody
     public Enterprise registerContent(@RequestParam("entId") String entId){
-        Enterprise enterprise = adminService._registerContent(entId);
-        return enterprise;
+        return adminService._registerContent(entId);
     }
 
     @RequestMapping(value="/demandContent")
     @ResponseBody
     public Demand demandContent(@RequestParam("demandId") int demandId){
-        Demand demand = adminService._demandContent(demandId);
-        return demand;
+        return adminService._demandContent(demandId);
     }
 
     @RequestMapping(value="/proContent")
     @ResponseBody
     public Provide proContent(@RequestParam("proId") int proId){
-        Provide provide = adminService._proContent(proId);
-        return provide;
+        return adminService._proContent(proId);
     }
 
     @RequestMapping(value="/demandContentAgree")
     @ResponseBody
     public Demand demandContentAgree(@RequestParam("demandId") int demandId){
-        Demand demandAgree = adminService._demandContentAgree(demandId);
-        return demandAgree;
+        return adminService._demandContentAgree(demandId);
     }
 
     @RequestMapping(value="/proContentAgree")
     @ResponseBody
     public Provide proContentAgree(@RequestParam("proId") int proId){
-        Provide provideAgree = adminService._proContentAgree(proId);
-        return provideAgree;
+        return adminService._proContentAgree(proId);
     }
 }

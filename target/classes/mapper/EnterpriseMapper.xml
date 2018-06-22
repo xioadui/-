@@ -33,4 +33,23 @@
         WHERE entId=#{entId, jdbcType=VARCHAR}
     </select>
 
+    <select id="searchEnt" resultType="com.enterprise.entity.Enterprise">
+        SELECT *
+        FROM enterpriseinf
+        where entName like #{condition} or entCategory like #{condition} or entIntroduction like #{condition}
+        limit #{index},#{length};
+    </select>
+
+    <select id="queryEntById" resultType="com.enterprise.entity.Enterprise">
+        SELECT *
+        FROM enterpriseinf
+        where entId = #{entId}
+    </select>
+
+    <select id="getAllEnt" resultType="com.enterprise.entity.Enterprise">
+        SELECT *
+        FROM enterpriseinf
+        limit #{index},#{length};
+    </select>
+
 </mapper>

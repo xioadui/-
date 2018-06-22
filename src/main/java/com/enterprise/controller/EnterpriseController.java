@@ -4,8 +4,10 @@ import com.enterprise.entity.Enterprise;
 import com.enterprise.service.serviceImpl.EnterpriseServiceImpl;
 import com.enterprise.service.serviceImpl.MailServiceImpl;
 import com.enterprise.utils.EnterpriseUtils;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -89,14 +91,43 @@ public class EnterpriseController {
      * @param entId 需要检测的ID
      * @return 返回是否注册的标志
      */
-        @RequestMapping(value = "/check")
-        @ResponseBody
-        public Map<Object, Object> checkId(@RequestParam("entId") String entId){
-            Enterprise enterprise = enterpriseService.checkId(entId);
-            if(enterprise==null)
-                resultMap.put("entId", "unexist");
-            else
-                resultMap.put("entId", "exist");
-            return resultMap;
-        }
+    @RequestMapping(value = "/check")
+    @ResponseBody
+    public Map<Object, Object> checkId(@RequestParam("entId") String entId){
+        Enterprise enterprise = enterpriseService.checkId(entId);
+        if(enterprise==null)
+            resultMap.put("entId", "unexist");
+        else
+            resultMap.put("entId", "exist");
+        return resultMap;
+    }
+
+    /**
+     * @param condition 企业的名称、类型、简介进行模糊查询
+     * @param index 起始的索引
+     * @param length 要获取的数据长度
+     * @return 返回查询的结果集
+     */
+    @RequestMapping(method = RequestMethod.POST,value = "/searchEnt")
+    @ResponseBody
+    public Map<String, Object> searchEnt(@Param("condition") String condition,
+                                          @Param("index")String index,
+                                          @Param("length")int length){
+        Map<String, Object> result = new HashMap<>();
+        condition = "%"+condition+"%";
+        result.put("result",EnterpriseUtils.parseEntListToMapList(enterpriseService.searchInt(condition, Long.parseLong(index), length)));
+        return result;
+    }
+    @RequestMapping(value = "/queryEntById")
+    @ResponseBody
+    public Map<Object, Object> queryEntById(@Param("entId")String id){
+        return null;
+
+    }
+    @RequestMapping(value = "/getAllEnt")
+    @ResponseBody
+    public Map<Object, Object> getAllEnt(@Param("index")long index,@Param("length")int length){
+        return null;
+    }
+
 }
