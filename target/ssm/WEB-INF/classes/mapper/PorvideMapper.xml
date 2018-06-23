@@ -22,14 +22,14 @@
     <select id="getProByEntId" resultType="com.enterprise.entity.Provide">
         SELECT *
         FROM provide
-        WHERE proId=#{proId, jdbcType=VARCHAR}
+        WHERE entId=#{entId, jdbcType=VARCHAR}
         order by proId asc
         limit #{index},#{length}
     </select>
     <select id="searchPro" resultType="com.enterprise.entity.Provide">
         SELECT *
         FROM provide
-        WHERE proType like #{condition, jdbcType=VARCHAR} or proTitle like #{condition, jdbcType=VARCHAR}
+        WHERE proType like #{condition, jdbcType=VARCHAR} or proTitle like #{condition, jdbcType=VARCHAR} or entId like #{condition, jdbcType=VARCHAR}
         order by proId asc
         limit #{index},#{length}
     </select>

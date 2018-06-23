@@ -21,7 +21,7 @@ function search() {
 			var result = data.result;
 			for(var i=0;i<result.length;i++){
 				var sr = '<div class="new">' +
-		'<a href="enterpriseinf.html?id=' + result[i].entId + '"><h1>' + result[i].entName + '</h1></a>' +
+		'<a href="/partner.html?entId=' + result[i].entId + '"><h1>' + result[i].entName + '</h1></a>' +
 		'<nav><span>' + result[i].entCategory + '</span><span>' + result[i].entPhone + '</span></nav>' +
 		'<div>' + result[i].entBrief + '</div>' +
 		'</div>';

@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  */
 public class ChatHandler extends AbstractWebSocketHandler {
+    private final Object object = new Object();
 //    保存登录的用户
     private static ConcurrentHashMap<String,WebSocketSession> user = new ConcurrentHashMap<String,WebSocketSession>();
     @Override
@@ -36,6 +37,7 @@ public class ChatHandler extends AbstractWebSocketHandler {
         try {
             String toUserId = message.getPayload().split("#")[0];
             WebSocketSession toUserSession = user.get(toUserId);
+
             if(toUserSession==null){
                 session.sendMessage(canSendMessage);
                 return;

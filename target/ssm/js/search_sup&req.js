@@ -3,7 +3,18 @@ var index = 0;
 
 $(document).ready(function() {
 	$('.content').empty();
-	appendSup_Req();
+	var entId = $.query.get("entId");
+	if(window.location.search.match("supID")){
+        $('#input').val(entId);
+        $('#type').val("供应");
+        search();
+	}else if(window.location.search.match("demID")){
+        $('#input').val(entId);
+        $('#type').val("需求");
+        search();
+	}
+	else
+		appendSup_Req();
 });
 
 //查找5条供需
@@ -71,7 +82,6 @@ function search_sup(condition) {
 					'<h1>' + result[i].proTitle + '</h1></a>' +
 					'<nav><span>' + result[i].proType + '</span>  <span>' + result[i].proDate + '</span>  <span>' + '</span></nav>' +
 					'<div>' + result[i].proDigest + '</div></div>');
-
 			}
 			$("#next_page").removeClass("hidden");
 			$("#pre_page").removeClass("hidden");
@@ -99,7 +109,7 @@ function search_req(condition) {
 		},
 		async: false,
 		success: function(data) {
-			var result = data.result;
+			var result = data.demand;
 			$(".content").empty();
 			for(var i = 0; i < result.length; i++) {
                 // var name;
@@ -109,7 +119,7 @@ function search_req(condition) {
 				// 	function(getdata) {
 				// 		name = getdata.entName;
 				// 	});
-				$('.content').append('<div class="new">' + '<a href="read_sup&req.html?supID=' + result[i].demandId + '\">' +
+				$('.content').append('<div class="new">' + '<a href="read_sup&req.html?demID=' + result[i].demandId + '\">' +
 					'<h1>' + result[i].demandTitle + '</h1></a>' +
 					'<nav><span>' + result[i].demandType + '</span>  <span>' + result[i].demandDate + '</span>  <span>' + '</span></nav>' +
 					'<div>' + result[i].demandDigest + '</div></div>');
@@ -127,12 +137,10 @@ function search_req(condition) {
 		}
 	})
 }
-
 $("#pre_page").on("click", function() {
 	index -= 5;
 	search();
 });
-
 $("#next_page").on("click", function() {
     index += 5;
     search();

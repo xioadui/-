@@ -60,6 +60,8 @@ body {
 	display: block;
 }
 .someone{
+	width:100%;
+	word-break: break-all;
 	float: left;
 	margin-bottom: 20px;
 }

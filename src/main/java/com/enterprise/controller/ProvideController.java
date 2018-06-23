@@ -64,17 +64,15 @@ public class ProvideController {
 
     /**
      * 通过企业用户的ID来查询该用户发布的供应信息
-     * @param session 通过session来获取用户的ID
      * @param index 起始的索引
      * @param length 要获取供应的数目
      * @return 返回查询得到的结果集
      */
     @RequestMapping(value = "/getByEntId")
     @ResponseBody
-    public Map<String, Object> queryByEntId(HttpSession session,
+    public Map<String, Object> queryByEntId(@RequestParam("entId")String entId,
                                          @RequestParam("index")long index,
                                          @RequestParam("length")int length){
-        String entId = (String)session.getAttribute("entId");
         Map<String, Object> resultMap = new HashMap<>();
         List<Provide> proList = provideService.getProByEntId(entId, index, length);
         resultMap.put("pro", ProvideUtils.parseProvideListToMapList(proList));

@@ -18,6 +18,8 @@ public interface IDemandDao {
     //发布需求
     void publish(@Param("demand") Demand demand);
 
+    List<Demand> searchDemandById(@Param("demandId")int demandId);
+
     //通过需求Id删除需求，同时还需要指定用户的ID，来进行权限的验证
     void deleteByDemandId(@Param("demandId") String demandId,@Param("entId")String entId);
 

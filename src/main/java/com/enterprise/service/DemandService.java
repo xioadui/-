@@ -23,4 +23,5 @@ public interface DemandService {
 
 //    通过条件对需求进行模糊查询
     List<Demand> searchDemand(String condition,long index,int length);
+    List<Demand> searchDemandById(int demandId);
 }

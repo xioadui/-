@@ -56,4 +56,9 @@ public class DemandServiceImpl implements DemandService {
     public List<Demand> searchDemand(String condition,long index,int length) {
         return iDemandDao.searchDemand(condition,index,length);
     }
+
+    @Override
+    public List<Demand> searchDemandById(int demandId) {
+        return iDemandDao.searchDemandById(demandId);
+    }
 }

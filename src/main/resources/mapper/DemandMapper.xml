@@ -47,9 +47,16 @@
     <select id="searchDemand" resultType="com.enterprise.entity.Demand">
         select *
         from demand
-        where demandType like #{condition} or demandTitle like #{demandTitle}
+        where demandType like #{condition} or demandTitle like #{condition} or entId like #{condition}
         order by demandId asc
         limit #{index},#{length}
+    </select>
+
+    <!--对需求进行模糊查询-->
+    <select id="searchDemandById" resultType="com.enterprise.entity.Demand">
+        select *
+        from demand
+        where demandId = #{demandId,jdbcType = INTEGER}
     </select>
 
 </mapper>

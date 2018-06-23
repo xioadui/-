@@ -41,15 +41,14 @@ public class DemandController {
 
     /**
      * 获取用户自己发布的需求
-     * @param session 该session用户获取用户的ID
      * @return 查询得到的结果集
      */
     @RequestMapping(value="/getEntDemand")
     @ResponseBody
-    public Map<String, Object> getEntDemand(HttpSession session,
-                                                               @RequestParam("index")long index,
-                                                               @RequestParam("length")int length){
-        String entId = (String)session.getAttribute("entId");
+    public Map<String, Object> getEntDemand(
+            @RequestParam("entId")String entId,
+            @RequestParam("index")long index,
+            @RequestParam("length")int length){
         Map<String, Object> resultMap = new HashMap<>();
         List<Demand> demandList = demandService.getDemandByEntId(entId,index,length);
         List<Map<String, Object>> demands = new ArrayList<>();
@@ -109,11 +108,7 @@ public class DemandController {
 
         condition = "%"+condition+"%";
         List<Demand> demandList = demandService.searchDemand(condition,index,length);
-        List<Map<String, Object>> demands = new ArrayList<>();
-        for(Demand demand:demandList){
-            demands.add(DemandUtils.parseDemandToMap(demand));
-        }
-        resultMap.put("demand", demands);
+        resultMap.put("demand", DemandUtils.parseDemandListToMapList(demandList));
         return resultMap;
     }
 
@@ -129,6 +124,15 @@ public class DemandController {
     public String delete(HttpSession session,@RequestParam("demandId") String demandId){
         String entId = (String)session.getAttribute("entId");
         return demandService.deleteByDemandId(demandId,entId);
+    }
+    @ResponseBody
+    @RequestMapping(value = "/searchDemandById")
+    public Map<String,Object> searchDemandById(@RequestParam("demandId")String demandId){
+        Map<String, Object> resultMap = new HashMap<>();
+        List<Demand> demandList = demandService.searchDemandById(Integer.parseInt(demandId));
+        resultMap.put("demand", DemandUtils.parseDemandListToMapList(demandList));
+        return resultMap;
+
     }
 
 }

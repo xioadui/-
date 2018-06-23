@@ -118,7 +118,7 @@ public class EnterpriseController {
         result.put("result",EnterpriseUtils.parseEntListToMapList(enterpriseService.searchInt(condition, Long.parseLong(index), length)));
         return result;
     }
-    @RequestMapping(method = RequestMethod.POST,value = "/queryEntById")
+    @RequestMapping(value = "/queryEntById")
     @ResponseBody
     public Map<String, Object> queryEntById(@Param("entId")String entId){
         Map<String, Object> result = new HashMap<>();

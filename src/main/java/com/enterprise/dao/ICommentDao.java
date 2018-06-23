@@ -5,7 +5,7 @@ import com.enterprise.entity.Comment;
 import java.util.List;
 
 public interface ICommentDao {
-    String publishComment(Comment comment);
+    void publishComment(Comment comment);
     List<Comment> searchCommentById(int id);
     String deleteCommentById(int id,String entId);
 }

@@ -16,8 +16,8 @@ public class CommentServiceImpl implements ICommentService {
     @Resource
     private ICommentDao commentDao;
     @Override
-    public String publishComment(Comment comment) {
-        return commentDao.publishComment(comment);
+    public void publishComment(Comment comment) {
+        commentDao.publishComment(comment);
     }
     @Override
     public List<Comment> searchCommentById(int id) {

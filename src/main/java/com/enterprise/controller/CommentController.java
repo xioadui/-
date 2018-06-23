@@ -4,6 +4,7 @@ import com.enterprise.entity.Comment;
 import com.enterprise.service.serviceImpl.CommentServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -21,25 +22,25 @@ import java.util.Map;
 public class CommentController {
     @Resource
     private CommentServiceImpl commentService;
-    @RequestMapping(value = "/searchProvideById")
+    @RequestMapping(value = "/searchCommentById")
     @ResponseBody
-    public Map<String,Object> searchProvideById(int id){
-        List<Comment> commentList = commentService.searchCommentById(id);
+    public Map<String,Object> searchProvideById(@RequestParam("id") String id){
+        List<Comment> commentList = commentService.searchCommentById(Integer.parseInt(id));
         Map<String,Object> resultMap = new HashMap<>();
         List<Object> list = new ArrayList<>();
         for(Comment c:commentList){
             Map<String,Object> commentMap = new HashMap<>();
             commentMap.put("entId",c.getEntId());
-            commentMap.put("content",c.getCommentContent());
+            commentMap.put("commentContent",c.getCommentContent());
             commentMap.put("commentId",c.getCommentId());
             commentMap.put("commentType", c.getCommentType());
             commentMap.put("entName",c.getEntName());
             commentMap.put("id", c.getId());
-            commentMap.put("date",c.getCommentDate());
+            commentMap.put("commentDate",c.getCommentDate());
             list.add(commentMap);
         }
         resultMap.put("result",list);
-        return null;
+        return resultMap;
     }
 
     @RequestMapping(value = "/deleteProvideById")
@@ -51,8 +52,15 @@ public class CommentController {
 
     @RequestMapping(value = "/publishComment")
     @ResponseBody
-    public String publishComment(Comment comment){
-        return commentService.publishComment(comment);
+    public String publishComment(String id,String entId,String commentDate,String commentContent){
+        Comment comment = new Comment();
+        comment.setEntId(entId);
+        comment.setId(Integer.parseInt(id));
+        comment.setCommentType(1);
+        comment.setCommentDate(commentDate);
+        comment.setCommentContent(commentContent);
+        commentService.publishComment(comment);
+        return "success";
     }
 
 

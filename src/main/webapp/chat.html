@@ -55,8 +55,17 @@ header = new Object();
 	chatData.name2;
 	chatData.time;
 	chatData.content;
-	
-	//列表跳转聊天页面
+
+	document.onkeydown=function(event){
+        var e = event;
+        if(e.keyCode==13){ // enter 键
+            if($('#chatbox').css('display')=='block'){
+                mysend(key);
+            }
+        }
+    };
+
+        //列表跳转聊天页面
 	function mychat(key){
 		for (var i=localStorage.length-1; i  >=0; i--){<!--倒序输出-->
 		    if( key == localStorage.key(i)){
@@ -64,7 +73,7 @@ header = new Object();
 		    }
 		}
     }
-	
+
 	//显示用户列表
 	function appendInLi(){
 		$('#chatliebiaobox').css('display','block');<!--将页面进行合适的隐藏和显示-->
@@ -211,7 +220,11 @@ header = new Object();
 		var m=date.getMinutes();
 		var s=date.getSeconds();
 		var mytime=year+"-"+mon+"-"+da+" "+h+":"+m+":"+s;
-		
+        //发送消息
+        if(content==""){
+            alert("输入内容不能为空");
+            return;
+        }
 		var sr=
 		    '<div class="youwenzi">'+
            '<div class="shijian">'+

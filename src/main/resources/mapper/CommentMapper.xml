@@ -4,14 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.enterprise.dao.ICommentDao">
     <select id="searchCommentById" resultType="com.enterprise.entity.Comment">
-        select commentId,comment.entId,entName,commentType,id,commentDate,commentContent
+        select commentId,comment.entId,entName,id,commentDate,commentContent
           from comment,enterpriseinf
           where comment.entId = enterpriseinf.entId and id = #{id}
     </select>
 
     <insert id="publishComment" >
-        insert into comment(comment.entId,commentType,id,commentDate,commentContent)
-         values(#{entId},#{commentType}, #{id}, #{commentDate}, #{commentContent})
+        insert into comment(comment.entId,id,commentType,commentDate,commentContent)
+         values(#{entId}, #{id}, #{commentType},#{commentDate}, #{commentContent})
     </insert>
     <delete id="deleteCommentById">
         delete from comment where commentId = #{comment} and entId = #{entId}
