@@ -5,6 +5,7 @@ import com.enterprise.service.serviceImpl.ProvideServiceImpl;
 import com.enterprise.utils.ProvideUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -42,10 +43,25 @@ public class ProvideController {
                                          @RequestParam("index")long index,
                                          @RequestParam("length")int length){
         Map<String, Object> resultMap = new HashMap<>();
+        condition = "%"+condition+"%";
         List<Provide> proList = provideService.searchPro(condition, index, length);
         resultMap.put("pro", ProvideUtils.parseProvideListToMapList(proList));
         return resultMap;
     }
+
+    /**
+     * 通过ID获取详细的供应信息
+     */
+    @RequestMapping(value = "/searchById")
+    @ResponseBody
+    public Map<String, Object> searchProById(@RequestParam("id")String proId){
+        Map<String, Object> resultMap = new HashMap<>();
+        List<Provide> proList = provideService.searchById(proId);
+        resultMap.put("pro", ProvideUtils.parseProvideListToMapList(proList));
+        return resultMap;
+    }
+
+
     /**
      * 通过企业用户的ID来查询该用户发布的供应信息
      * @param session 通过session来获取用户的ID
@@ -76,10 +92,8 @@ public class ProvideController {
      */
     @RequestMapping(value="/publish")
     @ResponseBody
-    public Map<String,String> publish(HttpSession session,
-                                       @RequestParam("content") String demandContent,
-                                       @RequestParam("digest") String demandDigest,
-                                       @RequestParam("title") String demandTitle,
+    public Map<String,String> publish(HttpSession session, @RequestParam("content") String demandContent,
+                                       @RequestParam("digest") String demandDigest, @RequestParam("title") String demandTitle,
                                        @RequestParam("type") String demandType){
         Provide provide = new Provide();
         Date day=new Date();
@@ -109,4 +123,6 @@ public class ProvideController {
         this.provideService.deleteByproId(proId,entId);
         return "success";
     }
+
+
 }

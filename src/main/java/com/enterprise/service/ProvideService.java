@@ -16,6 +16,12 @@ public interface ProvideService {
     List<Provide> getProByEntId(String entId,long index,int length);
 
     /**
+     * 通过供应ID获取供应信息
+     * @param proId 供应ID
+     * @return 详细的供应信息
+     */
+    List<Provide> searchById(String proId);
+    /**
      * 对供应进行模糊查询
      * @param condition 查询的条件，例如供应的类型，标题
      * @param index 起始的索引

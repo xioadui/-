@@ -1,0 +1,68 @@
+<!DOCTYPE html >
+<html >
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="text/html" />
+		<title>查找供需</title>
+		<link href="css/search_news.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/header.css" rel="stylesheet" type="text/css" media="all" />
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="js/jquery.params.js"></script>
+		<script type="text/javascript" src="js/search_sup&req.js"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+    </head>
+
+	<body>
+		<div class="header">
+			
+		</div>
+
+	<div class="menu">
+			<select id="type" title="供需类型">
+				<option> 供应</option>
+				<option> 需求</option>
+			</select>
+			<input id="input" type="text" placeholder="在此输入供应/需求标题"/>
+			<button class="sub" onclick="search()">搜索</button>
+
+		</div>
+
+	<div class="content">
+			<div class="new" id="tab1">
+				<h1>标题1</h1>
+				<nav><span>供需类型</span>  <span>时间</span>  <span>公司名称</span></nav>
+				<div>内容</div>
+			</div>
+			<div class="new" id="tab2">
+				<h1>标题2</h1>
+				<nav><span>供需类型</span>  <span>时间</span>  <span>公司名称</span></nav>
+				<div>内容</div>
+			</div>
+			<div class="new" id="tab3">
+				<h1>标题3</h1>
+				<nav><span>供需类型</span>  <span>时间</span>  <span>公司名称</span></nav>
+				<div>内容</div>
+			</div>
+			<div class="new" id="tab4">
+				<h1>标题4</h1>
+				<nav><span>供需类型</span>  <span>时间</span>  <span>公司名称</span></nav>
+				<div>内容</div>
+			</div>
+			<div class="new" id="tab5">
+				<h1>标题5</h1>
+				<nav><span>供需类型</span>  <span>时间</span>  <span>公司名称</span></nav>
+				<div>内容</div>
+			</div>
+	</div><!--con-->
+	
+<div class="last_next">
+                <button name="pre_page" type="submit">上一页</button>
+                <button name="next_page" type="submit">下一页</button>
+     </div>
+	 <div class="footer">
+     </div>
+</body>
+
+</html>

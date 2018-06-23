@@ -32,6 +32,11 @@ public class ProvideServiceImpl implements ProvideService {
     }
 
     @Override
+    public List<Provide> searchById(String proId) {
+        return provideDao.searchProById(proId);
+    }
+
+    @Override
     public List<Provide> searchPro(String condition, long index, int length) {
         return provideDao.searchPro(condition,index,length);
     }

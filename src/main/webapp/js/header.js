@@ -63,6 +63,7 @@ $(document).ready(function() {
 		$(".guide span").addClass("welcome");
 		if(userId == "admin") {
 			$("#manage").removeClass("hidden");
+			$("#sr").addClass("hidden");
 		}
 	} 
 

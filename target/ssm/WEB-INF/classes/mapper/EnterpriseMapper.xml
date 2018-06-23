@@ -43,7 +43,7 @@
     <select id="queryEntById" resultType="com.enterprise.entity.Enterprise">
         SELECT *
         FROM enterpriseinf
-        where entId = #{entId}
+        where entId = #{entId,jdbcType = VARCHAR}
     </select>
 
     <select id="getAllEnt" resultType="com.enterprise.entity.Enterprise">

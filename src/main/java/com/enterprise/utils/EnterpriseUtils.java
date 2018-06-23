@@ -17,7 +17,6 @@ public class EnterpriseUtils {
         Map<String,Object> enterpriseMap = new HashMap<>();
         enterpriseMap.put("entId",enterprise.getEntId());
         enterpriseMap.put("entName", enterprise.getEntName());
-        enterpriseMap.put("entName", enterprise.getEntName());
         enterpriseMap.put("entPerson", enterprise.getEntPerson());
         enterpriseMap.put("entCategory", enterprise.getEntCategory());
         enterpriseMap.put("entBrief", enterprise.getEntBrief());

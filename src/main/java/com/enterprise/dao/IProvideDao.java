@@ -38,6 +38,10 @@ public interface IProvideDao {
      * @return 结果集
      */
     List<Provide> searchPro(@Param("condition") String condition,@Param("index") long index,@Param("length") int length);
+
+
+    List<Provide> searchProById(@Param("proId") String proId);
+
     /**
      * 发布供应
      * @param provide 供应的内容
