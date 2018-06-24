@@ -15,7 +15,6 @@ import java.util.Map;
 public class ChatHandlerShake implements HandshakeInterceptor {
     @Override
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map<String, Object> attributes) throws Exception {
-
         //session中保存着用户的名称，在用户登录验证成功后就保存起来
         if (request instanceof ServletServerHttpRequest) {
             ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) request;

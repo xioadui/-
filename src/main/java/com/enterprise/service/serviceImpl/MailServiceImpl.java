@@ -31,8 +31,8 @@ public class MailServiceImpl implements IMailService {
     public JavaMailSenderImpl mailSender(){
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.163.com");
-        mailSender.setUsername("gdcjdxis@163.com");
-        mailSender.setPassword("is123456");
+        mailSender.setUsername("1511217424@163.com");
+        mailSender.setPassword("123456789");
         return mailSender;
     }
 }

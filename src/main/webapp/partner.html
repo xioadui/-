@@ -8,9 +8,11 @@
 		<link href="css/partner.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="css/header.css" rel="stylesheet" type="text/css" media="all" />
+		<link title="style" rel="stylesheet" href="css/chat.css" type="text/css" />
 		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 		<script type="text/javascript" src="js/jquery.params.js"></script>
 		<script type="text/javascript" src="js/header.js"></script>
+		<script type="text/javascript" src="js/chat.js"></script>
 
 	</head>
 
@@ -19,17 +21,6 @@
 		</div>
 		<div class="content">
 			<div class="entInfo">
-				<h1>新东方教育科技有限公司</h1>
-				<p>企业类别：It</p>
-				<p>企业法人：林林林</p>
-				<p>企业规模：300人</p>
-				<p>企业地址:：北京市海淀东三街2号</p>
-				<p>联系电话： 010-606908000</p>
-				<p>企业邮箱：daiyuancheng@xdf.com</p>
-				<p>企业官网：http://www.neworiental.org</p>
-				<p>注册时间：2018-9-20</p>
-				<p>企业介绍：可以对同一个元素应用 class 或 id 属性，但是更常见的情况是只应用其中一种。这两者的主要差异是，class 用于元素组（类似的元素，或者可以理解为某一类元素），而 id 用于标识单独的唯一的元素。
-					可以对同一个元素应用 class 或 id 属性，但是更常见的情况是只应用其中一种。这两者的主要差异是，class 用于元素组（类似的元素，或者可以理解为某一类元素）</p>
 			</div>
 			<div class="mysup_req">
 				<div class="mysup">
@@ -105,6 +96,52 @@
 		<!--con-->
 
 		<div class="footer"></div>
+
+
+
+
+<!--------------------------------------------------------------------->
+		<div class="anniu" onclick="startChat('123456','广东财经大学广州校区广东财经大学广州校区')">
+			<input type="button" value="联系该企业"></input>
+		</div>
+
+		<div id="zhu" class="zhu">  <!--图标的位置-->
+			<img src="img/chat1.jpg" onclick="appendInLi()" />
+			<div id="red" class="red"></div>
+		</div>
+		<div id="chatliebiaobox" class="chatliebiaobox"> <!-- 列表输出div-->
+
+			<div class="chatliebiaohead">
+				联系客服
+				<div class="chatliebiaoheadback" onclick="chatliebiaoyincang()">
+					关闭
+				</div>
+			</div>
+			<div id="chatliebiaoshow" class="chatliebiaoshow"> <!--列表输出-->
+			</div>
+		</div>
+		<div id="chatbox" class="chatbox"> <!--聊天输出div-->
+			<div class="chathead">
+				<div class="chatheadfanhui" onclick="appendInLi()">
+					返回
+				</div>
+				联系客服
+				<div class="chatheadback" onclick="yincang()">
+					关闭
+				</div>
+			</div>
+
+			<div id="chatshow" class="chatshow"> <!--聊天的输出-->
+			</div>
+
+			<div class="chatsend">
+				<input id="chatsendinput" class="chatsendinput" type="text" style="width:260px;" placeholder="在此输入聊天内容" />
+				<input class="chatsendsubmit" type="button" style="width:50px" value="发送" onclick="mysend()"/>
+			</div>
+		</div>
+
+
+		<!--------------------------------------------------------------------->
 	</body>
 <script type="text/javascript" src="js/partner.js"></script>
 </html>
